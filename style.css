@@ -1,0 +1,58 @@
+body {
+    font-family: Arial, sans-serif;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.container {
+    padding: 20px;
+    text-align: center;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline-block;
+    margin: 10px 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #333;
+    background-color: #f0f0f0;
+    padding: 10px 15px;
+    border-radius: 15px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+nav ul li a:hover {
+    background-color: #e0e0e0;
+    color: #000;
+}
+
+.mode-switch {
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    background-color: #ddd;
+    color: #333;
+}
+
+/* 深色模式样式 */
+.dark-mode {
+    background-color: #333;
+    color: #ccc;
+}
+
+.dark-mode nav ul li a {
+    background-color: #555;
+    color: #ccc;
+}
+
+.dark-mode .mode-switch {
+    background-color: #555;
+    color: #ccc;
+}
