@@ -4,25 +4,63 @@
     <meta charset="UTF-8">
     <title>导航页</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="bootstrap-icons-1.11.3/font/bootstrap-icons.css">
+
 </head>
 <body>
     <div class="container">
         <header>
-            <button class="mode-switch" onclick="toggleMode()">深色/浅色</button>
+            <button class="mode-switch" id="toggleMode" onclick="toggleMode()">
+                <i class="bi bi-moon-stars"></i>
+            </button>
         </header>
         <nav>
             <ul>
-                <li><a href="#">主页</a></li>
-                <li><a href="#">关于</a></li>
-                <li><a href="#">服务</a></li>
-                <li><a href="#">联系我们</a></li>
+                <li><a class="navbutton" href="#"><i class="bi bi-house"></i> 主页</a></li>
+                <li><a class="navbutton" href="https://discord.gg/t3VxXAdzxW"><i class="bi bi-discord"></i> Discord闲聊群</a></li>
+                <li><a class="navbutton" href="https://t.me/h_n0v4"><i class="bi bi-telegram"></i> 电报闲聊群</a></li>
+                <li><a class="navbutton" href="https://qm.qq.com/q/CJ2CWWjXxg"><i class="bi bi-tencent-qq"></i> 企鹅闲聊群</a></li>
             </ul>
         </nav>
+        <div class="intro Nacontainer">
+            <img src="http://q2.qlogo.cn/headimg_dl?dst_uin=2077576874&spec=100" alt="头像" class="avatar">
+            <h1>你好👋</h1>
+            <h1>我是来自陕西西安的 Sm4Z0n3 End1n9（余兮）</h1>
+            <p>这个网站的目的是分享快乐😄和一些技术💻。希望你在这里能找到你的兴趣和灵感！</p>
+        </div>
+        <div class="Nacontainer">
+            <h1>索引 Index</h1>
+            <button class="navbutton" onclick="location.href='/pico-main'">Pico UI在Github.IO的库</button>
+            <button class="navbutton" onclick="location.href='/bootstrap-icons-1.11.3'">Bootstrap-Icons在Github.IO的库</button>
+            <button class="navbutton" onclick="location.href='/caonima'">～(∠・ω< )⌒★</button>
+            <button class="navbutton" onclick="location.href='/sblt'">赛博灵堂（光敏性癫痫警告）</button>
+            <button class="navbutton">敬请期待....</button>
+        </div>
+        <div class="Nacontainer">
+            <style>
+                img{
+                    border-radius: 20px;
+                    width: 70px;
+                    height: 70px;
+                }
+            </style>
+            <h1>友情链接 Friends Link</h1>
+            <button class="navbutton" onclick="location.href='https://qm.qq.com/q/CmcxzNeYNO'">
+                <img width="70" height="70" src="images/logo/yunmu.png"><br>
+                <p>云母工艺</p><p>企鹅群</p>
+            </button>
+
+            <button class="navbutton" onclick="location.href='https://qm.qq.com/q/OTxs3nyKs0'">
+                <img width="70" height="70" src="images/logo/blockmax.png"><br>
+                <p>BlockMax Java交流</p><p>企鹅群</p>
+            </button>
+
+            <button class="navbutton" onclick="location.href='https://t.me/BingDaoSGK'">
+                <img width="70" height="70" src="images/logo/bingdao.png"><br>
+                <p>冰岛社工</p><p>电报频道</p>
+            </button>
+        </div>
     </div>
-    <script>
-        function toggleMode() {
-            document.body.classList.toggle('dark-mode');
-        }
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
