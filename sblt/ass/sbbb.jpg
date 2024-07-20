@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="cn">
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<title>cnmb.me - 操你妈逼.么 - 一个高雅的网站</title>
+		<link rel="shortcut icon" href="favicon.ico" />
+		<meta
+			name="viewport"
+			id="viewport"
+			content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0,viewport-fit=cover"
+		/>
+
+		<meta property="og:title" content="CNMB.me - 一个高雅的网站" />
+		<meta property="og:site_name" content="CNMB.me" />
+		<meta property="og:image" content="https://pnrtscr.com/lightshot.png" />
+		<meta
+			property="og:description"
+			content="这里是Dark495的HTML实验垃圾堆，有各种高雅(或者你认为不堪入目)的东西，这里没有什么你妈了个逼的道德，老子就是发泄情绪，老子就是搞着开心。没有人逼着你点进来，不喜勿喷。"
+		/>
+		<meta property="og:type" content="website" />
+
+		<meta name="twitter:card" content="photo" />
+		<meta name="twitter:title" content="CNMB.me - 一个高雅的网站" />
+		<meta name="twitter:site" content="@YueDongQwQ" />
+		<meta
+			name="twitter:description"
+			content="这里是Dark495的HTML实验垃圾堆，有各种高雅(或者你认为不堪入目)的东西，这里没有什么你妈了个逼的道德，老子就是发泄情绪，老子就是搞着开心。没有人逼着你点进来，不喜勿喷。"
+		/>
+		<meta name="twitter:image:src" content="https://cnmb.me/assets/img/logo.png" />
+
+		<link href="/assets/style/common.css?v=2" rel="stylesheet" />
+		<link href="/assets/style/index.css?v=4" rel="stylesheet" />
+	</head>
+	<body>
+		<div class="logo">
+			<span>操</span>
+			<span>你</span>
+			<span>妈</span>
+			<span>逼</span>
+			<span>.</span>
+			<span>么</span>
+		</div>
+		<section>
+			<p class="pihua">
+				这里是Dark495的HTML实验垃圾堆，有各种高雅(或者你认为不堪入目)的东西，这里没有什么你妈了个逼的道德，老子就是发泄情绪，老子就是搞着开心。没有人逼着你点进来，不喜勿喷，或者你也可以喷，但是老子没开发留言板哈哈哈。
+				<br />
+				<br />
+				素质？我素你妈了个逼质！！
+			</p>
+			<div id="urls">
+				<div class="url-group">
+					<p>
+						<a href="/videos" target="_blank"><span>📢</span> 高雅小视频</a>
+					</p>
+					<p>
+						<a href="/sblt" target="_blank"><span>🪦</span> 赛↑博↓灵↑堂↓</a>
+					</p>
+					<p>
+						<a href="/sb" target="_blank"><span>👻</span> 作恶经典案例</a>
+					</p>
+					<p>
+						<a href="/sb(1)" target="_blank"><span>🤑</span> 诈骗经典案例</a>
+					</p>
+				</div>
+
+				<div class="url-group">
+					<p>
+						<a href="/kira" target="_blank"><span>🌠</span> 光敏性癫痫诱发器</a>
+					</p>
+					<p>
+						<a href="/girigiri-love" target="_blank"><span>😎</span> GiriGiriLove</a>
+					</p>
+				</div>
+
+				<div class="url-group">
+					<p>
+						<a href="/cat" target="_blank"><span>🐱</span> 我曾经的猫,小王八蛋</a>
+					</p>
+				</div>
+			</div>
+			<p class="github"><a href="https://github.com/xlch88/cnmb.me" target="_blank">Github</a></p>
+		</section>
+
+		<!-- Google tag (gtag.js) -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=G-SQ9S7Q9DKL"></script>
+		<script>
+			window.dataLayer = window.dataLayer || [];
+			function gtag() {
+				dataLayer.push(arguments);
+			}
+			gtag("js", new Date());
+
+			gtag("config", "G-SQ9S7Q9DKL");
+		</script>
+	</body>
+</html>
