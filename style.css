@@ -11,6 +11,7 @@
 
 @media (min-width: 600px) {
     .container {
+        align-items: center;
         max-width: 600px;
         margin: auto;
     }
