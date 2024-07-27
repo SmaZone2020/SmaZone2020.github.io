@@ -9,28 +9,8 @@
     -o-user-drag: none;
 }
 
-@media (min-width: 600px) {
-    .container {
-        align-items: center;
-        max-width: 600px;
-        margin: auto;
-    }
 
-    .intro img {
-        width: 100px;
-        height: 100px;
-    }
 
-    .Nacontainer .navbutton {
-        display: flex;
-        justify-content: flex-start;
-        align-items: center;
-    }
-
-    .Nacontainer .navbutton img {
-        margin-right: 10px;
-    }
-}
 body {
     font-family: Arial, sans-serif;
     transition: background-color 0.3s, color 0.3s;
@@ -39,8 +19,13 @@ body {
 .container {
     padding: 20px;
     text-align: center;
+    align-content: center;
+    align-items: center;
 }
-
+*{
+    align-content: center;
+    text-align: center;
+}
 nav ul {
     list-style: none;
     padding: 0;

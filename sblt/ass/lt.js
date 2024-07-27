@@ -1,3 +1,4 @@
+
 function RandomNumBoth(Min, Max) {
 	var Range = Max - Min;
 	var Rand = Math.random();
@@ -36,14 +37,17 @@ var b = function () {
 };
 var c = function () {
 	$(".background, .lingtang, body").click(function () {
+		document.getElementById('fileInput').click();
 		$("audio").get(0).play();
 	});
 };
 var d = function () {
 	if ($("html").width() < 1600 || $("html").height() < 900) {
-		alert("推荐浏览器尺寸：1600 * 900");
+
 	}
 };
+
+
 var e = function () {
 	function snow() {
 		//1、定义一片雪花模板
@@ -115,15 +119,5 @@ b();
 c();
 d();
 e();
-
-alert(`⚠ 1.低性能警告：
-该网页开发于N年前的一个暴躁的半夜，代码非常垃圾，使用多种暴力功能实现，遂无法保证流畅性以及性能。
-该页面未做任何手机适配，请使用电脑观赏。
-
-⚠ 2.光敏性癫痫警告
-该页面存在闪烁，即便没有光敏性癫痫，长期观看也有可能导致头疼等不适。
-
-⚠ 3.声音警告
-点击后会播放 动↑次↓打↑次↓，请注意噔噔咚`);
 
 window.resizeTo(100, 230);

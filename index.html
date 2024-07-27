@@ -4,14 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sm4Z0n3的Github.IO小储存库</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style/style.css">
     <link rel="stylesheet" href="bootstrap-icons-1.11.3/font/bootstrap-icons.css">
-
+    <script src="script/cur.js"></script>
 </head>
 <body>
     <div class="container">
+        <span class="js-cursor-container"></span>
         <header>
-            <button class="mode-switch" id="toggleMode" onclick="toggleMode()">
+            <button title="切换模式" class="mode-switch" id="toggleMode" onclick="toggleMode()">
                 <i class="bi bi-moon-stars"></i>
             </button>
         </header>
@@ -26,7 +27,8 @@
         <div class="intro Nacontainer">
             <img src="http://q2.qlogo.cn/headimg_dl?dst_uin=2077576874&spec=100" alt="头像" class="avatar">
             <h1>你好👋</h1>
-            <h1>我是来自陕西西安的 Sm4Z0n3 End1n9（余兮）</h1>
+            <h1>我是来自陕西西安的 Sm4Z0n3 End1n9（余兮）
+            </h1>
             <p>这个网站的目的是分享快乐😄和一些技术💻。希望你在这里能找到你的兴趣和灵感！</p>
         </div>
         <div class="Nacontainer">
@@ -41,27 +43,28 @@
             <style>
                 img{
                     border-radius: 20px;
-                    width: 70px;
-                    height: 70px;
+                    width: 22px;
+                    height: 22px;
                 }
             </style>
-            <h1>友情链接 Friends Link</h1>
-            <button class="navbutton" onclick="location.href='https://qm.qq.com/q/CmcxzNeYNO'">
-                <img width="70" height="70" src="images/logo/yunmu.png"><br>
-                <p>云母工艺</p><p>企鹅群</p>
-            </button>
+            <div>
+                <h1>友情链接 Friends Link</h1>
+                <div>
+                    <button class="navbutton" onclick="location.href='https://qm.qq.com/q/CmcxzNeYNO'">
+                        云母工艺企鹅群
+                    </button>
 
-            <button class="navbutton" onclick="location.href='https://qm.qq.com/q/OTxs3nyKs0'">
-                <img width="70" height="70" src="images/logo/blockmax.png"><br>
-                <p>BlockMax Java交流</p><p>企鹅群</p>
-            </button>
+                    <button class="navbutton" onclick="location.href='https://qm.qq.com/q/OTxs3nyKs0'">
+                        BlockMax Java交流企鹅群
+                    </button>
 
-            <button class="navbutton" onclick="location.href='https://t.me/BingDaoSGK'">
-                <img width="70" height="70" src="images/logo/bingdao.png"><br>
-                <p>冰岛社工</p><p>电报频道</p>
-            </button>
+                    <button class="navbutton" onclick="location.href='https://t.me/BingDaoSGK'">
+                        冰岛社工电报频道
+                    </button>
+                </div>
+            </div>
         </div>
     </div>
-    <script src="script.js"></script>
+    <script src="script/script.js"></script>
 </body>
 </html>
