@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Documentation</title>
+    <style>
+        body {
+            font-family: "Microsoft Yahei", Courier, monospace;
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        h2{
+            color: #646464;
+            user-select: none;
+            -webkit-user-select: none;
+        }
+        .api-section {
+            margin: auto;
+            width: 50%;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            max-height: 57px; /* Adjust initial height to hide the content */
+        }
+        .api-section.expanded {
+            max-height: 500px; /* Adjust max height to fit the expanded content */
+        }
+        .api-section h2 {
+            background-color: #f1f1f1;
+            margin: 0;
+            padding: 15px;
+            cursor: pointer;
+            border-bottom: 1px solid #ddd;
+        }
+        .api-section p, .api-section ul {
+            margin: 5px 10px;
+        }
+        .parameter-list {
+            list-style: none;
+            padding: 0;
+        }
+        .parameter-list li {
+            background: #f9f9f9;
+            margin: 5px 0;
+            padding: 6px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="api-section">
+        <h1>API Documentation</h1>
+    </div>
+
+    <div class="api-section">
+        
+        <h2>发空间说说 (PostQQZoneMessage)</h2>
+        <p><strong>URL:</strong> /app/zone/post</p>
+        <p><strong>Method:</strong> GET</p>
+        <p><strong>Parameters:</strong></p>
+        <ul class="parameter-list">
+            <li><strong>qq:</strong> QQ号码</li>
+            <li><strong>text:</strong> 说说内容</li>
+            <li><strong>key:</strong> ClientKey</li>
+            <li><strong>ptlang:</strong> ClientKey Type (QQ:2052 NT:1033) (默认: 2052)</li>
+        </ul>
+    </div>
+
+    <div class="api-section">
+        <h2>设置/取消指定好友为特别关心 (SetCare)</h2>
+        <p><strong>URL:</strong> /app/zone/care</p>
+        <p><strong>Method:</strong> GET</p>
+        <p><strong>Parameters:</strong></p>
+        <ul class="parameter-list">
+            <li><strong>qq:</strong> QQ号码</li>
+            <li><strong>key:</strong> ClientKey</li>
+            <li><strong>tqq:</strong> 特别关心的QQ号码</li>
+            <li><strong>set:</strong> 设置为特别关心 (true) 或取消 (false)</li>
+            <li><strong>ptlang:</strong> ClientKey Type (QQ:2052 NT:1033) (默认: 2052)</li>
+        </ul>
+    </div>
+
+    <div class="api-section">
+        <h2>修改信息 (ChangeUserInfo)</h2>
+        <p><strong>URL:</strong> /app/user/changeinfo</p>
+        <p><strong>Method:</strong> GET</p>
+        <p><strong>Parameters:</strong></p>
+        <ul class="parameter-list">
+            <li><strong>qq:</strong> QQ号码</li>
+            <li><strong>key:</strong> ClientKey</li>
+            <li><strong>newName:</strong> 新昵称</li>
+            <li><strong>ptlang:</strong> ClientKey Type (QQ:2052 NT:1033) (默认: 2052)</li>
+            <li><strong>company:</strong> 公司信息 (默认: 奶龙园区祝你天天开心)</li>
+            <li><strong>address:</strong> 地址信息 (默认: 奶龙园区祝你天天开心)</li>
+        </ul>
+    </div>
+
+    <div class="api-section">
+        <h2>获取用户信息 (GetUserInfo)</h2>
+        <p><strong>URL:</strong> /app/user/getinfo</p>
+        <p><strong>Method:</strong> GET</p>
+        <p><strong>Parameters:</strong></p>
+        <ul class="parameter-list">
+            <li><strong>qq:</strong> QQ号码</li>
+            <li><strong>key:</strong> ClientKey</li>
+            <li><strong>ptlang:</strong> ClientKey Type (QQ:2052 NT:1033) (默认: 2052)</li>
+        </ul>
+    </div>
+
+    <div class="api-section">
+        <h2>获取群成员 (GetGroupMember)</h2>
+        <p><strong>URL:</strong> /app/group/members</p>
+        <p><strong>Method:</strong> GET</p>
+        <p><strong>Parameters:</strong></p>
+        <ul class="parameter-list">
+            <li><strong>qq:</strong> QQ号码</li>
+            <li><strong>key:</strong> ClientKey</li>
+            <li><strong>groupID:</strong> 群ID</li>
+            <li><strong>ptlang:</strong> ClientKey Type (QQ:2052 NT:1033) (默认: 2052)</li>
+        </ul>
+    </div>
+
+    <div class="api-section">
+        <h2>获取群列表 (GetGroupList)</h2>
+        <p><strong>URL:</strong> /app/group/list</p>
+        <p><strong>Method:</strong> GET</p>
+        <p><strong>Parameters:</strong></p>
+        <ul class="parameter-list">
+            <li><strong>qq:</strong> QQ号码</li>
+            <li><strong>key:</strong> ClientKey</li>
+            <li><strong>ptlang:</strong> ClientKey Type (QQ:2052 NT:1033) (默认: 2052)</li>
+        </ul>
+    </div>
+
+    <div class="api-section">
+        <h2>获取好友列表 (GetFriendList)</h2>
+        <p><strong>URL:</strong> /app/friend/list</p>
+        <p><strong>Method:</strong> GET</p>
+        <p><strong>Parameters:</strong></p>
+        <ul class="parameter-list">
+            <li><strong>qq:</strong> QQ号码</li>
+            <li><strong>key:</strong> ClientKey</li>
+            <li><strong>ptlang:</strong> ClientKey Type (QQ:2052 NT:1033) (默认: 2052)</li>
+        </ul>
+    </div>
+
+    <div class="api-section">
+        <h2>发公告 (PostAnnounce)</h2>
+        <p><strong>URL:</strong> /app/group/postannounce</p>
+        <p><strong>Method:</strong> GET</p>
+        <p><strong>Parameters:</strong></p>
+        <ul class="parameter-list">
+            <li><strong>qq:</strong> QQ号码</li>
+            <li><strong>key:</strong> ClientKey</li>
+            <li><strong>groupID:</strong> 群ID</li>
+            <li><strong>text:</strong> 公告内容</li>
+            <li><strong>ptlang:</strong> ClientKey Type (QQ:2052 NT:1033) (默认: 2052)</li>
+        </ul>
+    </div>
+
+    <div class="api-section">
+        <h2>更改群内成员昵称 (SetGroupMemberNick)</h2>
+        <p><strong>URL:</strong> /app/group/setnick</p>
+        <p><strong>Method:</strong> GET</p>
+        <p><strong>Parameters:</strong></p>
+        <ul class="parameter-list">
+            <li><strong>qq:</strong> QQ号码</li>
+            <li><strong>key:</strong> ClientKey</li>
+            <li><strong>groupID:</strong> 群ID</li>
+            <li><strong>memberQQ:</strong> 成员QQ号码</li>
+            <li><strong>Setnick:</strong> 新昵称</li>
+            <li><strong>ptlang:</strong> ClientKey Type (QQ:2052 NT:1033) (默认: 2052)</li>
+        </ul>
+    </div>
+
+    <div class="api-section">
+        <h2>删除群成员 (DelGroupMember)</h2>
+        <p><strong>URL:</strong> /app/group/delmember</p>
+        <p><strong>Method:</strong> GET</p>
+        <p><strong>Parameters:</strong></p>
+        <ul class="parameter-list">
+            <li><strong>qq:</strong> QQ号码</li>
+            <li><strong>key:</strong> ClientKey</li>
+            <li><strong>groupID:</strong> 群ID</li>
+            <li><strong>memberQQ:</strong> 成员QQ号码</li>
+            <li><strong>ptlang:</strong> ClientKey Type (QQ:2052 NT:1033) (默认: 2052)</li>
+        </ul>
+    </div>
+
+    <div class="api-section">
+        <h2>添加群管理员 (AddGroupAdmin)</h2>
+        <p><strong>URL:</strong> /app/group/addadmin</p>
+        <p><strong>Method:</strong> GET</p>
+        <p><strong>Parameters:</strong></p>
+        <ul class="parameter-list">
+            <li><strong>qq:</strong> QQ号码</li>
+            <li><strong>key:</strong> ClientKey</li>
+            <li><strong>groupID:</strong> 群ID</li>
+            <li><strong>memberQQ:</strong> 成员QQ号码</li>
+            <li><strong>ptlang:</strong> ClientKey Type (QQ:2052 NT:1033) (默认: 2052)</li>
+        </ul>
+    </div>
+
+    <div class="api-section">
+        <h2>获取群验证消息 (GetGroupAuthMessage)</h2>
+        <p><strong>URL:</strong> /app/group/authmessage</p>
+        <p><strong>Method:</strong> GET</p>
+        <p><strong>Parameters:</strong></p>
+        <ul class="parameter-list">
+            <li><strong>qq:</strong> QQ号码</li>
+            <li><strong>key:</strong> ClientKey</li>
+            <li><strong>ptlang:</strong> ClientKey Type (QQ:2052 NT:1033) (默认: 2052)</li>
+        </ul>
+    </div>
+    <br><br><br>
+    <div class="api-section">
+        <h2>服务器内接口调用文档</h2>
+    </div>
+    <br>
+    <div class="api-section">
+        <h2>注册 (Register)</h2>
+        <p><strong>URL:</strong> /auth/reg</p>
+        <p><strong>Method:</strong> GET</p>
+        <p><strong>Parameters:</strong></p>
+        <ul class="parameter-list">
+            <li><strong>username:</strong> 用户名</li>
+            <li><strong>password:</strong> 密码</li>
+            <li><strong>email:</strong> 邮箱</li>
+            <li><strong>qq:</strong> QQ号码</li>
+            <li><strong>userkey:</strong> 用户密钥</li>
+        </ul>
+    </div>
+
+    <div class="api-section">
+        <h2>登录 (Login)</h2>
+        <p><strong>URL:</strong> /auth/login</p>
+        <p><strong>Method:</strong> GET</p>
+        <p><strong>Parameters:</strong></p>
+        <ul class="parameter-list">
+            <li><strong>username:</strong> 用户名</li>
+            <li><strong>password:</strong> 密码</li>
+        </ul>
+    </div>
+
+    <div class="api-section">
+        <h2>添加用户密钥 (AddUserKey)</h2>
+        <p><strong>URL:</strong> /auth/addkey</p>
+        <p><strong>Method:</strong> GET</p>
+        <p><strong>Parameters:</strong></p>
+        <ul class="parameter-list">
+            <li><strong>userKey:</strong> 用户密钥 (自动生成)</li>
+            <li><strong>level:</strong> 等级参数</li>
+        </ul>
+    </div>
+
+    <div class="api-section">
+        <h2>获取用户信息 (Info)</h2>
+        <p><strong>URL:</strong> /auth/info</p>
+        <p><strong>Method:</strong> GET</p>
+        <p><strong>Parameters:</strong></p>
+        <ul class="parameter-list">
+            <li><strong>authkey:</strong> 验证密钥</li>
+        </ul>
+    </div>
+
+    <div class="api-section">
+        <h2>添加 SKEY (Add SKEY)</h2>
+        <p><strong>URL:</strong> /skey/add</p>
+        <p><strong>Method:</strong> GET</p>
+        <p><strong>Parameters:</strong></p>
+        <ul class="parameter-list">
+            <li><strong>authkey:</strong> 验证密钥</li>
+        </ul>
+    </div>
+
+    <div class="api-section">
+        <h2>添加 API SKEY (Add API SKEY)</h2>
+        <p><strong>URL:</strong> /skey/addapi</p>
+        <p><strong>Method:</strong> GET</p>
+        <p><strong>Parameters:</strong></p>
+        <ul class="parameter-list">
+            <li><strong>username:</strong> 用户名</li>
+            <li><strong>content:</strong> base64编码后的RC4 (点号需要去除)</li>
+        </ul>
+    </div>
+
+    <div class="api-section">
+        <h2>获取 SKEY (Get SKEY)</h2>
+        <p><strong>URL:</strong> /skey/get</p>
+        <p><strong>Method:</strong> GET</p>
+        <p><strong>Parameters:</strong></p>
+        <ul class="parameter-list">
+            <li><strong>authkey:</strong> 验证密钥</li>
+            <li><strong>username:</strong> 用户名</li>
+        </ul>
+    </div>
+
+    <div class="api-section">
+        <h2>删除 SKEY (Del SKEY)</h2>
+        <p><strong>URL:</strong> /skey/del</p>
+        <p><strong>Method:</strong> GET</p>
+        <p><strong>Parameters:</strong></p>
+        <ul class="parameter-list">
+            <li><strong>authkey:</strong> 验证密钥</li>
+            <li><strong>username:</strong> 用户名</li>
+            <li><strong>skeyID:</strong> SKEY ID</li>
+        </ul>
+    </div>
+
+    <div class="api-section">
+        <h2>构建 (Build)</h2>
+        <p><strong>URL:</strong> /skey/build</p>
+        <p><strong>Method:</strong> GET</p>
+        <p><strong>Parameters:</strong></p>
+        <ul class="parameter-list">
+            <li><strong>authkey:</strong> 验证密钥</li>
+            <li><strong>username:</strong> 用户名</li>
+            <li><strong>mail:</strong> 邮箱</li>
+            <li><strong>keymode:</strong> 密钥模式</li>
+            <li><strong>injectname:</strong> (可选) 注入名称 (仅在密钥模式为其他时需要)</li>
+        </ul>
+    </div>
+    <script>
+        document.querySelectorAll('.api-section h2').forEach(sectionHeader => {
+            sectionHeader.addEventListener('click', () => {
+                const section = sectionHeader.parentElement;
+                section.classList.toggle('expanded');
+            });
+        });
+    </script>
+</body>
+</html>
