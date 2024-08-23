@@ -5,8 +5,16 @@ const mainContent = document.getElementById('main-content');
 // 用于切换侧边栏的隐藏显示
 menuToggle.addEventListener('click', function () {
     sidebar.classList.toggle('hidden');
-    mainContent.style.marginLeft = sidebar.classList.contains('hidden') ? '0' : '250px';
+
+    if (sidebar.classList.contains('hidden')) {
+        sidebar.style.transform = 'translateX(-100%)';
+        mainContent.style.marginLeft = '0';
+    } else {
+        sidebar.style.transform = 'translateX(0)';
+        mainContent.style.marginLeft = '250px';
+    }
 });
+
 
 // 添加点击事件，处理菜单的折叠和展开
 document.querySelectorAll('#sidebar ul li.collapsible').forEach((el) => {

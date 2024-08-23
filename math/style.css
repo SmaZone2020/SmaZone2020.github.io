@@ -9,6 +9,7 @@ body, html {
     font-family: Arial, sans-serif;
 }
 
+/* 设置全局过渡效果 */
 #sidebar {
     width: 250px;
     height: 100%;
@@ -16,10 +17,12 @@ body, html {
     background: #34495e;
     color: white;
     overflow-y: auto;
-    transition: transform 0.3s ease;
-    box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease; /* 添加过渡效果 */
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    transform: translateX(0); /* 初始状态 */
 }
 
+/* 隐藏状态的侧边栏 */
 #sidebar.hidden {
     transform: translateX(-100%);
 }
@@ -106,6 +109,9 @@ li{
     height: 50px;
 }
 
+
+
+/* 响应式样式 */
 @media (max-width: 768px) {
     #sidebar {
         transform: translateX(-100%);
@@ -123,6 +129,7 @@ li{
         display: block;
     }
 }
+
 
 .hidden {
     display: none;
