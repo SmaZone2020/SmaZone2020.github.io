@@ -66,25 +66,16 @@ function createNewIframe(path) {
 function initializeFromHash() {
     const hash = window.location.hash.substring(1);
     const [basePath, relativePath] = hash.split('|');
-    console.log("Base Path:", basePath);  // 检查 basePath
-    console.log("Relative Path:", relativePath);  // 检查 relativePath
-
-    // 修正选择器，确保 data-basepath 中的斜杠匹配
-    const targetItem = document.querySelector(`#sidebar li[data-basepath="${basePath}"] ul li[data-path="${relativePath}"]`);
-    if (targetItem) {
-        const parentItem = targetItem.closest('li.collapsible');
-        if (parentItem) {
-            // 展开父菜单
-            const subMenu = parentItem.querySelector('ul');
-            if (subMenu) {
-                subMenu.classList.remove('hidden');
+    if (relativePath) {
+        const targetItem = document.querySelector(`#sidebar li[data-basepath="${basePath}|"] ul li[data-path="${relativePath}"]`);
+        if (targetItem) {
+            const parentItem = targetItem.closest('li.collapsible');
+            if (parentItem) {
+                parentItem.querySelector('ul').classList.remove('hidden');
+                targetItem.click(); // 触发点击事件以加载内容
             }
-            // 手动触发点击事件
-            const event = new Event('click', { bubbles: true });
-            targetItem.dispatchEvent(event);
         }
     }
 }
 
-// 确保页面加载完成后调用初始化函数
-document.addEventListener('DOMContentLoaded', initializeFromHash);
+initializeFromHash();
