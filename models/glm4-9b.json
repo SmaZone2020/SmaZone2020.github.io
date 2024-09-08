@@ -3,7 +3,7 @@
         "filename": "Gemma2-9b.json",
         "size": "10kb",
         "type": "Json",
-        "download_url": "https://hf-mirror.com/QuantFactory/glm-4-9b-chat-abliterated-GGUF/resolve/main/glm-4-9b-chat-abliterated.Q2_K.gguf?download=true"
+        "download_url": "https://sc.n0v4.site/models/gemma2-9b.json"
     },
     {
         "filename": "glm-4-9b-chat-abliterated.Q2_K.gguf",
