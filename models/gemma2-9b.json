@@ -1,0 +1,86 @@
+[
+    {
+        "filename": "gemma2-gutenberg-9B.Q2_K.gguf",
+        "size": "3.81 GB",
+        "type": "LFS",
+        "download_url": "https://hf-mirror.com/QuantFactory/gemma2-gutenberg-9B-GGUF/resolve/main/gemma2-gutenberg-9B.Q2_K.gguf?download=true"
+    },
+    {
+        "filename": "gemma2-gutenberg-9B.Q3_K_L.gguf",
+        "size": "5.13 GB",
+        "type": "LFS",
+        "download_url": "https://hf-mirror.com/QuantFactory/gemma2-gutenberg-9B-GGUF/resolve/main/gemma2-gutenberg-9B.Q3_K_L.gguf?download=true"
+    },
+    {
+        "filename": "gemma2-gutenberg-9B.Q3_K_M.gguf",
+        "size": "4.76 GB",
+        "type": "LFS",
+        "download_url": "https://hf-mirror.com/QuantFactory/gemma2-gutenberg-9B-GGUF/resolve/main/gemma2-gutenberg-9B.Q3_K_M.gguf?download=true"
+    },
+    {
+        "filename": "gemma2-gutenberg-9B.Q3_K_S.gguf",
+        "size": "4.34 GB",
+        "type": "LFS",
+        "download_url": "https://hf-mirror.com/QuantFactory/gemma2-gutenberg-9B-GGUF/resolve/main/gemma2-gutenberg-9B.Q3_K_S.gguf?download=true"
+    },
+    {
+        "filename": "gemma2-gutenberg-9B.Q4_0.gguf",
+        "size": "5.44 GB",
+        "type": "LFS",
+        "download_url": "https://hf-mirror.com/QuantFactory/gemma2-gutenberg-9B-GGUF/resolve/main/gemma2-gutenberg-9B.Q4_0.gguf?download=true"
+    },
+    {
+        "filename": "gemma2-gutenberg-9B.Q4_1.gguf",
+        "size": "5.96 GB",
+        "type": "LFS",
+        "download_url": "https://hf-mirror.com/QuantFactory/gemma2-gutenberg-9B-GGUF/resolve/main/gemma2-gutenberg-9B.Q4_1.gguf?download=true"
+    },
+    {
+        "filename": "gemma2-gutenberg-9B.Q4_K_M.gguf",
+        "size": "5.76 GB",
+        "type": "LFS",
+        "download_url": "https://hf-mirror.com/QuantFactory/gemma2-gutenberg-9B-GGUF/resolve/main/gemma2-gutenberg-9B.Q4_K_M.gguf?download=true"
+    },
+    {
+        "filename": "gemma2-gutenberg-9B.Q4_K_S.gguf",
+        "size": "5.48 GB",
+        "type": "LFS",
+        "download_url": "https://hf-mirror.com/QuantFactory/gemma2-gutenberg-9B-GGUF/resolve/main/gemma2-gutenberg-9B.Q4_K_S.gguf?download=true"
+    },
+    {
+        "filename": "gemma2-gutenberg-9B.Q5_0.gguf",
+        "size": "6.48 GB",
+        "type": "LFS",
+        "download_url": "https://hf-mirror.com/QuantFactory/gemma2-gutenberg-9B-GGUF/resolve/main/gemma2-gutenberg-9B.Q5_0.gguf?download=true"
+    },
+    {
+        "filename": "gemma2-gutenberg-9B.Q5_1.gguf",
+        "size": "7 GB",
+        "type": "LFS",
+        "download_url": "https://hf-mirror.com/QuantFactory/gemma2-gutenberg-9B-GGUF/resolve/main/gemma2-gutenberg-9B.Q5_1.gguf?download=true"
+    },
+    {
+        "filename": "gemma2-gutenberg-9B.Q5_K_M.gguf",
+        "size": "6.65 GB",
+        "type": "LFS",
+        "download_url": "https://hf-mirror.com/QuantFactory/gemma2-gutenberg-9B-GGUF/resolve/main/gemma2-gutenberg-9B.Q5_K_M.gguf?download=true"
+    },
+    {
+        "filename": "gemma2-gutenberg-9B.Q5_K_S.gguf",
+        "size": "6.48 GB",
+        "type": "LFS",
+        "download_url": "https://hf-mirror.com/QuantFactory/gemma2-gutenberg-9B-GGUF/resolve/main/gemma2-gutenberg-9B.Q5_K_S.gguf?download=true"
+    },
+    {
+        "filename": "gemma2-gutenberg-9B.Q6_K.gguf",
+        "size": "7.59 GB",
+        "type": "LFS",
+        "download_url": "https://hf-mirror.com/QuantFactory/gemma2-gutenberg-9B-GGUF/resolve/main/gemma2-gutenberg-9B.Q6_K.gguf?download=true"
+    },
+    {
+        "filename": "gemma2-gutenberg-9B.Q8_0.gguf",
+        "size": "9.83 GB",
+        "type": "LFS",
+        "download_url": "https://hf-mirror.com/QuantFactory/gemma2-gutenberg-9B-GGUF/resolve/main/gemma2-gutenberg-9B.Q8_0.gguf?download=true"
+    }
+]
