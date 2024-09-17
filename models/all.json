@@ -14,5 +14,32 @@
   {
     "name":"Mistral",
     "url":"mistral-7b.json"
+  },
+  {
+    "name":"LLaMa-3.1-SuperNova-Lite",
+    "url":"llama3-sn-lite.json"
+  },
+  {
+    "name":"LLaMa-160M",
+    "url":"llama-160m.json"
+  },
+  {
+    "name":"Gemma-2-27B-it-Abliterated",
+    "url":"gemma-2-27b-it-abliterated.json"
+  },
+  {
+    "name":"Buddy-2B",
+    "url":"buddy-2b.json"
+  },
+  {
+    "name":"Minecraft-Model",
+    "url":"minecraft.json"
+  },
+  {
+    "name":"Qwen2-1.5B",
+    "url":"qwen2-1.5b.json"
+  },{
+    "name":"Qwen2-Math-7B",
+    "url":"qwen2-math-7b.json"
   }
 ]

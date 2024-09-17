@@ -1,0 +1,86 @@
+[
+    {
+        "filename": "Qwen2-1.5b-Instruct-Replete-Adapted.Q2_K.gguf",
+        "size": "676 MB",
+        "type": "LFS",
+        "download_url": "https://hf-mirror.com/QuantFactory/Qwen2-1.5b-Instruct-Replete-Adapted-GGUF/resolve/main/Qwen2-1.5b-Instruct-Replete-Adapted.Q2_K.gguf?download=true"
+    },
+    {
+        "filename": "Qwen2-1.5b-Instruct-Replete-Adapted.Q3_K_L.gguf",
+        "size": "880 MB",
+        "type": "LFS",
+        "download_url": "https://hf-mirror.com/QuantFactory/Qwen2-1.5b-Instruct-Replete-Adapted-GGUF/resolve/main/Qwen2-1.5b-Instruct-Replete-Adapted.Q3_K_L.gguf?download=true"
+    },
+    {
+        "filename": "Qwen2-1.5b-Instruct-Replete-Adapted.Q3_K_M.gguf",
+        "size": "824 MB",
+        "type": "LFS",
+        "download_url": "https://hf-mirror.com/QuantFactory/Qwen2-1.5b-Instruct-Replete-Adapted-GGUF/resolve/main/Qwen2-1.5b-Instruct-Replete-Adapted.Q3_K_M.gguf?download=true"
+    },
+    {
+        "filename": "Qwen2-1.5b-Instruct-Replete-Adapted.Q3_K_S.gguf",
+        "size": "761 MB",
+        "type": "LFS",
+        "download_url": "https://hf-mirror.com/QuantFactory/Qwen2-1.5b-Instruct-Replete-Adapted-GGUF/resolve/main/Qwen2-1.5b-Instruct-Replete-Adapted.Q3_K_S.gguf?download=true"
+    },
+    {
+        "filename": "Qwen2-1.5b-Instruct-Replete-Adapted.Q4_0.gguf",
+        "size": "935 MB",
+        "type": "LFS",
+        "download_url": "https://hf-mirror.com/QuantFactory/Qwen2-1.5b-Instruct-Replete-Adapted-GGUF/resolve/main/Qwen2-1.5b-Instruct-Replete-Adapted.Q4_0.gguf?download=true"
+    },
+    {
+        "filename": "Qwen2-1.5b-Instruct-Replete-Adapted.Q4_1.gguf",
+        "size": "1.02 GB",
+        "type": "LFS",
+        "download_url": "https://hf-mirror.com/QuantFactory/Qwen2-1.5b-Instruct-Replete-Adapted-GGUF/resolve/main/Qwen2-1.5b-Instruct-Replete-Adapted.Q4_1.gguf?download=true"
+    },
+    {
+        "filename": "Qwen2-1.5b-Instruct-Replete-Adapted.Q4_K_M.gguf",
+        "size": "986 MB",
+        "type": "LFS",
+        "download_url": "https://hf-mirror.com/QuantFactory/Qwen2-1.5b-Instruct-Replete-Adapted-GGUF/resolve/main/Qwen2-1.5b-Instruct-Replete-Adapted.Q4_K_M.gguf?download=true"
+    },
+    {
+        "filename": "Qwen2-1.5b-Instruct-Replete-Adapted.Q4_K_S.gguf",
+        "size": "940 MB",
+        "type": "LFS",
+        "download_url": "https://hf-mirror.com/QuantFactory/Qwen2-1.5b-Instruct-Replete-Adapted-GGUF/resolve/main/Qwen2-1.5b-Instruct-Replete-Adapted.Q4_K_S.gguf?download=true"
+    },
+    {
+        "filename": "Qwen2-1.5b-Instruct-Replete-Adapted.Q5_0.gguf",
+        "size": "1.1 GB",
+        "type": "LFS",
+        "download_url": "https://hf-mirror.com/QuantFactory/Qwen2-1.5b-Instruct-Replete-Adapted-GGUF/resolve/main/Qwen2-1.5b-Instruct-Replete-Adapted.Q5_0.gguf?download=true"
+    },
+    {
+        "filename": "Qwen2-1.5b-Instruct-Replete-Adapted.Q5_1.gguf",
+        "size": "1.18 GB",
+        "type": "LFS",
+        "download_url": "https://hf-mirror.com/QuantFactory/Qwen2-1.5b-Instruct-Replete-Adapted-GGUF/resolve/main/Qwen2-1.5b-Instruct-Replete-Adapted.Q5_1.gguf?download=true"
+    },
+    {
+        "filename": "Qwen2-1.5b-Instruct-Replete-Adapted.Q5_K_M.gguf",
+        "size": "1.13 GB",
+        "type": "LFS",
+        "download_url": "https://hf-mirror.com/QuantFactory/Qwen2-1.5b-Instruct-Replete-Adapted-GGUF/resolve/main/Qwen2-1.5b-Instruct-Replete-Adapted.Q5_K_M.gguf?download=true"
+    },
+    {
+        "filename": "Qwen2-1.5b-Instruct-Replete-Adapted.Q5_K_S.gguf",
+        "size": "1.1 GB",
+        "type": "LFS",
+        "download_url": "https://hf-mirror.com/QuantFactory/Qwen2-1.5b-Instruct-Replete-Adapted-GGUF/resolve/main/Qwen2-1.5b-Instruct-Replete-Adapted.Q5_K_S.gguf?download=true"
+    },
+    {
+        "filename": "Qwen2-1.5b-Instruct-Replete-Adapted.Q6_K.gguf",
+        "size": "1.27 GB",
+        "type": "LFS",
+        "download_url": "https://hf-mirror.com/QuantFactory/Qwen2-1.5b-Instruct-Replete-Adapted-GGUF/resolve/main/Qwen2-1.5b-Instruct-Replete-Adapted.Q6_K.gguf?download=true"
+    },
+    {
+        "filename": "Qwen2-1.5b-Instruct-Replete-Adapted.Q8_0.gguf",
+        "size": "1.65 GB",
+        "type": "LFS",
+        "download_url": "https://hf-mirror.com/QuantFactory/Qwen2-1.5b-Instruct-Replete-Adapted-GGUF/resolve/main/Qwen2-1.5b-Instruct-Replete-Adapted.Q8_0.gguf?download=true"
+    }
+]

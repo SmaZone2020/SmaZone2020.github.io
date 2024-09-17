@@ -1,0 +1,86 @@
+[
+    {
+        "filename": "Qwen2-Math-7B.Q2_K.gguf",
+        "size": "3.02 GB",
+        "type": "LFS",
+        "download_url": "https://hf-mirror.com/QuantFactory/Qwen2-Math-7B-GGUF/resolve/main/Qwen2-Math-7B.Q2_K.gguf?download=true"
+    },
+    {
+        "filename": "Qwen2-Math-7B.Q3_K_L.gguf",
+        "size": "4.09 GB",
+        "type": "LFS",
+        "download_url": "https://hf-mirror.com/QuantFactory/Qwen2-Math-7B-GGUF/resolve/main/Qwen2-Math-7B.Q3_K_L.gguf?download=true"
+    },
+    {
+        "filename": "Qwen2-Math-7B.Q3_K_M.gguf",
+        "size": "3.81 GB",
+        "type": "LFS",
+        "download_url": "https://hf-mirror.com/QuantFactory/Qwen2-Math-7B-GGUF/resolve/main/Qwen2-Math-7B.Q3_K_M.gguf?download=true"
+    },
+    {
+        "filename": "Qwen2-Math-7B.Q3_K_S.gguf",
+        "size": "3.49 GB",
+        "type": "LFS",
+        "download_url": "https://hf-mirror.com/QuantFactory/Qwen2-Math-7B-GGUF/resolve/main/Qwen2-Math-7B.Q3_K_S.gguf?download=true"
+    },
+    {
+        "filename": "Qwen2-Math-7B.Q4_0.gguf",
+        "size": "4.43 GB",
+        "type": "LFS",
+        "download_url": "https://hf-mirror.com/QuantFactory/Qwen2-Math-7B-GGUF/resolve/main/Qwen2-Math-7B.Q4_0.gguf?download=true"
+    },
+    {
+        "filename": "Qwen2-Math-7B.Q4_1.gguf",
+        "size": "4.87 GB",
+        "type": "LFS",
+        "download_url": "https://hf-mirror.com/QuantFactory/Qwen2-Math-7B-GGUF/resolve/main/Qwen2-Math-7B.Q4_1.gguf?download=true"
+    },
+    {
+        "filename": "Qwen2-Math-7B.Q4_K_M.gguf",
+        "size": "4.68 GB",
+        "type": "LFS",
+        "download_url": "https://hf-mirror.com/QuantFactory/Qwen2-Math-7B-GGUF/resolve/main/Qwen2-Math-7B.Q4_K_M.gguf?download=true"
+    },
+    {
+        "filename": "Qwen2-Math-7B.Q4_K_S.gguf",
+        "size": "4.46 GB",
+        "type": "LFS",
+        "download_url": "https://hf-mirror.com/QuantFactory/Qwen2-Math-7B-GGUF/resolve/main/Qwen2-Math-7B.Q4_K_S.gguf?download=true"
+    },
+    {
+        "filename": "Qwen2-Math-7B.Q5_0.gguf",
+        "size": "5.32 GB",
+        "type": "LFS",
+        "download_url": "https://hf-mirror.com/QuantFactory/Qwen2-Math-7B-GGUF/resolve/main/Qwen2-Math-7B.Q5_0.gguf?download=true"
+    },
+    {
+        "filename": "Qwen2-Math-7B.Q5_1.gguf",
+        "size": "5.76 GB",
+        "type": "LFS",
+        "download_url": "https://hf-mirror.com/QuantFactory/Qwen2-Math-7B-GGUF/resolve/main/Qwen2-Math-7B.Q5_1.gguf?download=true"
+    },
+    {
+        "filename": "Qwen2-Math-7B.Q5_K_M.gguf",
+        "size": "5.44 GB",
+        "type": "LFS",
+        "download_url": "https://hf-mirror.com/QuantFactory/Qwen2-Math-7B-GGUF/resolve/main/Qwen2-Math-7B.Q5_K_M.gguf?download=true"
+    },
+    {
+        "filename": "Qwen2-Math-7B.Q5_K_S.gguf",
+        "size": "5.32 GB",
+        "type": "LFS",
+        "download_url": "https://hf-mirror.com/QuantFactory/Qwen2-Math-7B-GGUF/resolve/main/Qwen2-Math-7B.Q5_K_S.gguf?download=true"
+    },
+    {
+        "filename": "Qwen2-Math-7B.Q6_K.gguf",
+        "size": "6.25 GB",
+        "type": "LFS",
+        "download_url": "https://hf-mirror.com/QuantFactory/Qwen2-Math-7B-GGUF/resolve/main/Qwen2-Math-7B.Q6_K.gguf?download=true"
+    },
+    {
+        "filename": "Qwen2-Math-7B.Q8_0.gguf",
+        "size": "8.1 GB",
+        "type": "LFS",
+        "download_url": "https://hf-mirror.com/QuantFactory/Qwen2-Math-7B-GGUF/resolve/main/Qwen2-Math-7B.Q8_0.gguf?download=true"
+    }
+]

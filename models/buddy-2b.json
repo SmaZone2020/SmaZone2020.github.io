@@ -1,0 +1,86 @@
+[
+    {
+        "filename": "Buddy-2B-v1.Q2_K.gguf",
+        "size": "1.23 GB",
+        "type": "LFS",
+        "download_url": "https://hf-mirror.com/QuantFactory/Buddy-2B-v1-GGUF/resolve/main/Buddy-2B-v1.Q2_K.gguf?download=true"
+    },
+    {
+        "filename": "Buddy-2B-v1.Q3_K_L.gguf",
+        "size": "1.55 GB",
+        "type": "LFS",
+        "download_url": "https://hf-mirror.com/QuantFactory/Buddy-2B-v1-GGUF/resolve/main/Buddy-2B-v1.Q3_K_L.gguf?download=true"
+    },
+    {
+        "filename": "Buddy-2B-v1.Q3_K_M.gguf",
+        "size": "1.46 GB",
+        "type": "LFS",
+        "download_url": "https://hf-mirror.com/QuantFactory/Buddy-2B-v1-GGUF/resolve/main/Buddy-2B-v1.Q3_K_M.gguf?download=true"
+    },
+    {
+        "filename": "Buddy-2B-v1.Q3_K_S.gguf",
+        "size": "1.36 GB",
+        "type": "LFS",
+        "download_url": "https://hf-mirror.com/QuantFactory/Buddy-2B-v1-GGUF/resolve/main/Buddy-2B-v1.Q3_K_S.gguf?download=true"
+    },
+    {
+        "filename": "Buddy-2B-v1.Q4_0.gguf",
+        "size": "1.63 GB",
+        "type": "LFS",
+        "download_url": "https://hf-mirror.com/QuantFactory/Buddy-2B-v1-GGUF/resolve/main/Buddy-2B-v1.Q4_0.gguf?download=true"
+    },
+    {
+        "filename": "Buddy-2B-v1.Q4_1.gguf",
+        "size": "1.76 GB",
+        "type": "LFS",
+        "download_url": "https://hf-mirror.com/QuantFactory/Buddy-2B-v1-GGUF/resolve/main/Buddy-2B-v1.Q4_1.gguf?download=true"
+    },
+    {
+        "filename": "Buddy-2B-v1.Q4_K_M.gguf",
+        "size": "1.71 GB",
+        "type": "LFS",
+        "download_url": "https://hf-mirror.com/QuantFactory/Buddy-2B-v1-GGUF/resolve/main/Buddy-2B-v1.Q4_K_M.gguf?download=true"
+    },
+    {
+        "filename": "Buddy-2B-v1.Q4_K_S.gguf",
+        "size": "1.64 GB",
+        "type": "LFS",
+        "download_url": "https://hf-mirror.com/QuantFactory/Buddy-2B-v1-GGUF/resolve/main/Buddy-2B-v1.Q4_K_S.gguf?download=true"
+    },
+    {
+        "filename": "Buddy-2B-v1.Q5_0.gguf",
+        "size": "1.88 GB",
+        "type": "LFS",
+        "download_url": "https://hf-mirror.com/QuantFactory/Buddy-2B-v1-GGUF/resolve/main/Buddy-2B-v1.Q5_0.gguf?download=true"
+    },
+    {
+        "filename": "Buddy-2B-v1.Q5_1.gguf",
+        "size": "2.01 GB",
+        "type": "LFS",
+        "download_url": "https://hf-mirror.com/QuantFactory/Buddy-2B-v1-GGUF/resolve/main/Buddy-2B-v1.Q5_1.gguf?download=true"
+    },
+    {
+        "filename": "Buddy-2B-v1.Q5_K_M.gguf",
+        "size": "1.92 GB",
+        "type": "LFS",
+        "download_url": "https://hf-mirror.com/QuantFactory/Buddy-2B-v1-GGUF/resolve/main/Buddy-2B-v1.Q5_K_M.gguf?download=true"
+    },
+    {
+        "filename": "Buddy-2B-v1.Q5_K_S.gguf",
+        "size": "1.88 GB",
+        "type": "LFS",
+        "download_url": "https://hf-mirror.com/QuantFactory/Buddy-2B-v1-GGUF/resolve/main/Buddy-2B-v1.Q5_K_S.gguf?download=true"
+    },
+    {
+        "filename": "Buddy-2B-v1.Q6_K.gguf",
+        "size": "2.15 GB",
+        "type": "LFS",
+        "download_url": "https://hf-mirror.com/QuantFactory/Buddy-2B-v1-GGUF/resolve/main/Buddy-2B-v1.Q6_K.gguf?download=true"
+    },
+    {
+        "filename": "Buddy-2B-v1.Q8_0.gguf",
+        "size": "2.78 GB",
+        "type": "LFS",
+        "download_url": "https://hf-mirror.com/QuantFactory/Buddy-2B-v1-GGUF/resolve/main/Buddy-2B-v1.Q8_0.gguf?download=true"
+    }
+]

@@ -1,0 +1,86 @@
+[
+    {
+        "filename": "llama-160m.Q2_K.gguf",
+        "size": "70.5 MB",
+        "type": "LFS",
+        "download_url": "https://hf-mirror.com/QuantFactory/Llama-3.1-SuperNova-Lite-GGUF/blob/main/llama-160m.Q2_K.gguf?download=true"
+    },
+    {
+        "filename": "llama-160m.Q3_K_L.gguf",
+        "size": "91.1 MB",
+        "type": "LFS",
+        "download_url": "https://hf-mirror.com/QuantFactory/Llama-3.1-SuperNova-Lite-GGUF/blob/main/llama-160m.Q3_K_L.gguf?download=true"
+    },
+    {
+        "filename": "llama-160m.Q3_K_M.gguf",
+        "size": "86 MB",
+        "type": "LFS",
+        "download_url": "https://hf-mirror.com/QuantFactory/Llama-3.1-SuperNova-Lite-GGUF/blob/main/llama-160m.Q3_K_M.gguf?download=true"
+    },
+    {
+        "filename": "llama-160m.Q3_K_S.gguf",
+        "size": "80.2 MB",
+        "type": "LFS",
+        "download_url": "https://hf-mirror.com/QuantFactory/Llama-3.1-SuperNova-Lite-GGUF/blob/main/llama-160m.Q3_K_S.gguf?download=true"
+    },
+    {
+        "filename": "llama-160m.Q4_0.gguf",
+        "size": "98.5 MB",
+        "type": "LFS",
+        "download_url": "https://hf-mirror.com/QuantFactory/Llama-3.1-SuperNova-Lite-GGUF/blob/main/llama-160m.Q4_0.gguf?download=true"
+    },
+    {
+        "filename": "llama-160m.Q4_1.gguf",
+        "size": "107 MB",
+        "type": "LFS",
+        "download_url": "https://hf-mirror.com/QuantFactory/Llama-3.1-SuperNova-Lite-GGUF/blob/main/llama-160m.Q4_1.gguf?download=true"
+    },
+    {
+        "filename": "llama-160m.Q4_K_M.gguf",
+        "size": "103 MB",
+        "type": "LFS",
+        "download_url": "https://hf-mirror.com/QuantFactory/Llama-3.1-SuperNova-Lite-GGUF/blob/main/llama-160m.Q4_K_M.gguf?download=true"
+    },
+    {
+        "filename": "llama-160m.Q4_K_S.gguf",
+        "size": "99.1 MB",
+        "type": "LFS",
+        "download_url": "https://hf-mirror.com/QuantFactory/Llama-3.1-SuperNova-Lite-GGUF/blob/main/llama-160m.Q4_K_S.gguf?download=true"
+    },
+    {
+        "filename": "llama-160m.Q5_0.gguf",
+        "size": "116 MB",
+        "type": "LFS",
+        "download_url": "https://hf-mirror.com/QuantFactory/Llama-3.1-SuperNova-Lite-GGUF/blob/main/llama-160m.Q5_0.gguf?download=true"
+    },
+    {
+        "filename": "llama-160m.Q5_1.gguf",
+        "size": "124 MB",
+        "type": "LFS",
+        "download_url": "https://hf-mirror.com/QuantFactory/Llama-3.1-SuperNova-Lite-GGUF/blob/main/llama-160m.Q5_1.gguf?download=true"
+    },
+    {
+        "filename": "llama-160m.Q5_K_M.gguf",
+        "size": "118 MB",
+        "type": "LFS",
+        "download_url": "https://hf-mirror.com/QuantFactory/Llama-3.1-SuperNova-Lite-GGUF/blob/main/llama-160m.Q5_K_M.gguf?download=true"
+    },
+    {
+        "filename": "llama-160m.Q5_K_S.gguf",
+        "size": "116 MB",
+        "type": "LFS",
+        "download_url": "https://hf-mirror.com/QuantFactory/Llama-3.1-SuperNova-Lite-GGUF/blob/main/llama-160m.Q5_K_S.gguf?download=true"
+    },
+    {
+        "filename": "llama-160m.Q6_K.gguf",
+        "size": "134 MB",
+        "type": "LFS",
+        "download_url": "https://hf-mirror.com/QuantFactory/Llama-3.1-SuperNova-Lite-GGUF/blob/main/llama-160m.Q6_K.gguf?download=true"
+    },
+    {
+        "filename": "llama-160m.Q8_0.gguf",
+        "size": "173 MB",
+        "type": "LFS",
+        "download_url": "https://hf-mirror.com/QuantFactory/Llama-3.1-SuperNova-Lite-GGUF/blob/main/llama-160m.Q8_0.gguf?download=true"
+    }
+]

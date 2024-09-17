@@ -1,0 +1,86 @@
+[
+    {
+        "filename": "gemma-2-27b-it-abliterated.Q2_K.gguf",
+        "size": "10.4 GB",
+        "type": "LFS",
+        "download_url": "https://hf-mirror.com/QuantFactory/gemma-2-27b-it-abliterated-GGUF/resolve/main/gemma-2-27b-it-abliterated.Q2_K.gguf?download=true"
+    },
+    {
+        "filename": "gemma-2-27b-it-abliterated.Q3_K_L.gguf",
+        "size": "14.5 GB",
+        "type": "LFS",
+        "download_url": "https://hf-mirror.com/QuantFactory/gemma-2-27b-it-abliterated-GGUF/resolve/main/gemma-2-27b-it-abliterated.Q3_K_L.gguf?download=true"
+    },
+    {
+        "filename": "gemma-2-27b-it-abliterated.Q3_K_M.gguf",
+        "size": "13.4 GB",
+        "type": "LFS",
+        "download_url": "https://hf-mirror.com/QuantFactory/gemma-2-27b-it-abliterated-GGUF/resolve/main/gemma-2-27b-it-abliterated.Q3_K_M.gguf?download=true"
+    },
+    {
+        "filename": "gemma-2-27b-it-abliterated.Q3_K_S.gguf",
+        "size": "12.2 GB",
+        "type": "LFS",
+        "download_url": "https://hf-mirror.com/QuantFactory/gemma-2-27b-it-abliterated-GGUF/resolve/main/gemma-2-27b-it-abliterated.Q3_K_S.gguf?download=true"
+    },
+    {
+        "filename": "gemma-2-27b-it-abliterated.Q4_0.gguf",
+        "size": "15.6 GB",
+        "type": "LFS",
+        "download_url": "https://hf-mirror.com/QuantFactory/gemma-2-27b-it-abliterated-GGUF/resolve/main/gemma-2-27b-it-abliterated.Q4_0.gguf?download=true"
+    },
+    {
+        "filename": "gemma-2-27b-it-abliterated.Q4_1.gguf",
+        "size": "17.3 GB",
+        "type": "LFS",
+        "download_url": "https://hf-mirror.com/QuantFactory/gemma-2-27b-it-abliterated-GGUF/resolve/main/gemma-2-27b-it-abliterated.Q4_1.gguf?download=true"
+    },
+    {
+        "filename": "gemma-2-27b-it-abliterated.Q4_K_M.gguf",
+        "size": "16.6 GB",
+        "type": "LFS",
+        "download_url": "https://hf-mirror.com/QuantFactory/gemma-2-27b-it-abliterated-GGUF/resolve/main/gemma-2-27b-it-abliterated.Q4_K_M.gguf?download=true"
+    },
+    {
+        "filename": "gemma-2-27b-it-abliterated.Q4_K_S.gguf",
+        "size": "15.7 GB",
+        "type": "LFS",
+        "download_url": "https://hf-mirror.com/QuantFactory/gemma-2-27b-it-abliterated-GGUF/resolve/main/gemma-2-27b-it-abliterated.Q4_K_S.gguf?download=true"
+    },
+    {
+        "filename": "gemma-2-27b-it-abliterated.Q5_0.gguf",
+        "size": "18.9 GB",
+        "type": "LFS",
+        "download_url": "https://hf-mirror.com/QuantFactory/gemma-2-27b-it-abliterated-GGUF/resolve/main/gemma-2-27b-it-abliterated.Q5_0.gguf?download=true"
+    },
+    {
+        "filename": "gemma-2-27b-it-abliterated.Q5_1.gguf",
+        "size": "20.5 GB",
+        "type": "LFS",
+        "download_url": "https://hf-mirror.com/QuantFactory/gemma-2-27b-it-abliterated-GGUF/resolve/main/gemma-2-27b-it-abliterated.Q5_1.gguf?download=true"
+    },
+    {
+        "filename": "gemma-2-27b-it-abliterated.Q5_K_M.gguf",
+        "size": "19.4 GB",
+        "type": "LFS",
+        "download_url": "https://hf-mirror.com/QuantFactory/gemma-2-27b-it-abliterated-GGUF/resolve/main/gemma-2-27b-it-abliterated.Q5_K_M.gguf?download=true"
+    },
+    {
+        "filename": "gemma-2-27b-it-abliterated.Q5_K_S.gguf",
+        "size": "18.9 GB",
+        "type": "LFS",
+        "download_url": "https://hf-mirror.com/QuantFactory/gemma-2-27b-it-abliterated-GGUF/resolve/main/gemma-2-27b-it-abliterated.Q5_K_S.gguf?download=true"
+    },
+    {
+        "filename": "gemma-2-27b-it-abliterated.Q6_K.gguf",
+        "size": "22.3 GB",
+        "type": "LFS",
+        "download_url": "https://hf-mirror.com/QuantFactory/gemma-2-27b-it-abliterated-GGUF/resolve/main/gemma-2-27b-it-abliterated.Q6_K.gguf?download=true"
+    },
+    {
+        "filename": "gemma-2-27b-it-abliterated.Q8_0.gguf",
+        "size": "28.9 GB",
+        "type": "LFS",
+        "download_url": "https://hf-mirror.com/QuantFactory/gemma-2-27b-it-abliterated-GGUF/resolve/main/gemma-2-27b-it-abliterated.Q8_0.gguf?download=true"
+    }
+]

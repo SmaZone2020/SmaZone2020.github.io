@@ -1,0 +1,86 @@
+[
+    {
+        "filename": "minecraft.Q2_K.gguf",
+        "size": "432 MB",
+        "type": "LFS",
+        "download_url": "https://hf-mirror.com/QuantFactory/minecraft-GGUF/resolve/main/minecraft.Q2_K.gguf?download=true"
+    },
+    {
+        "filename": "minecraft.Q3_K_L.gguf",
+        "size": "592 MB",
+        "type": "LFS",
+        "download_url": "https://hf-mirror.com/QuantFactory/minecraft-GGUF/resolve/main/minecraft.Q3_K_L.gguf?download=true"
+    },
+    {
+        "filename": "minecraft.Q3_K_M.gguf",
+        "size": "548 MB",
+        "type": "LFS",
+        "download_url": "https://hf-mirror.com/QuantFactory/minecraft-GGUF/resolve/main/minecraft.Q3_K_M.gguf?download=true"
+    },
+    {
+        "filename": "minecraft.Q3_K_S.gguf",
+        "size": "499 MB",
+        "type": "LFS",
+        "download_url": "https://hf-mirror.com/QuantFactory/minecraft-GGUF/resolve/main/minecraft.Q3_K_S.gguf?download=true"
+    },
+    {
+        "filename": "minecraft.Q4_0.gguf",
+        "size": "637 MB",
+        "type": "LFS",
+        "download_url": "https://hf-mirror.com/QuantFactory/minecraft-GGUF/resolve/main/minecraft.Q4_0.gguf?download=true"
+    },
+    {
+        "filename": "minecraft.Q4_1.gguf",
+        "size": "701 MB",
+        "type": "LFS",
+        "download_url": "https://hf-mirror.com/QuantFactory/minecraft-GGUF/resolve/main/minecraft.Q4_1.gguf?download=true"
+    },
+    {
+        "filename": "minecraft.Q4_K_M.gguf",
+        "size": "668 MB",
+        "type": "LFS",
+        "download_url": "https://hf-mirror.com/QuantFactory/minecraft-GGUF/resolve/main/minecraft.Q4_K_M.gguf?download=true"
+    },
+    {
+        "filename": "minecraft.Q4_K_S.gguf",
+        "size": "640 MB",
+        "type": "LFS",
+        "download_url": "https://hf-mirror.com/QuantFactory/minecraft-GGUF/resolve/main/minecraft.Q4_K_S.gguf?download=true"
+    },
+    {
+        "filename": "minecraft.Q5_0.gguf",
+        "size": "766 MB",
+        "type": "LFS",
+        "download_url": "https://hf-mirror.com/QuantFactory/minecraft-GGUF/resolve/main/minecraft.Q5_0.gguf?download=true"
+    },
+    {
+        "filename": "minecraft.Q5_1.gguf",
+        "size": "831 MB",
+        "type": "LFS",
+        "download_url": "https://hf-mirror.com/QuantFactory/minecraft-GGUF/resolve/main/minecraft.Q5_1.gguf?download=true"
+    },
+    {
+        "filename": "minecraft.Q5_K_M.gguf",
+        "size": "782 MB",
+        "type": "LFS",
+        "download_url": "https://hf-mirror.com/QuantFactory/minecraft-GGUF/resolve/main/minecraft.Q5_K_M.gguf?download=true"
+    },
+    {
+        "filename": "minecraft.Q5_K_S.gguf",
+        "size": "766 MB",
+        "type": "LFS",
+        "download_url": "https://hf-mirror.com/QuantFactory/minecraft-GGUF/resolve/main/minecraft.Q5_K_S.gguf?download=true"
+    },
+    {
+        "filename": "minecraft.Q6_K.gguf",
+        "size": "903 MB",
+        "type": "LFS",
+        "download_url": "https://hf-mirror.com/QuantFactory/minecraft-GGUF/resolve/main/minecraft.Q6_K.gguf?download=true"
+    },
+    {
+        "filename": "minecraft.Q8_0.gguf",
+        "size": "1.17 GB",
+        "type": "LFS",
+        "download_url": "https://hf-mirror.com/QuantFactory/minecraft-GGUF/resolve/main/minecraft.Q8_0.gguf?download=true"
+    }
+]
