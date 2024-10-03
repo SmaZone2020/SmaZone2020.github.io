@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IP提交探针</title>
+    <script>
+        // 当页面加载时执行
+        window.onload = function() {
+            // 通过外部API获取用户的IP地址
+            fetch('https://api.ipify.org?format=json')
+            .then(response => response.json())
+            .then(data => {
+                let ipAddress = data.ip;
+                
+                // 发送IP地址到指定的URL
+                let url = `https://xizhi.qqoq.net/XZcea4c9cbca8081cd9a39c993075c8216.send?title=新的探针到达&content=${ipAddress}`;
+                
+                // 发送GET请求
+                fetch(url)
+                .then(response => {
+                    if (response.ok) {
+                        console.log('IP地址已发送:', ipAddress);
+                    } else {
+                        console.log('发送失败');
+                    }
+                })
+                .catch(error => {
+                    console.error('请求错误:', error);
+                });
+            })
+            .catch(error => {
+                console.error('无法获取IP地址:', error);
+            });
+        };
+    </script>
+</head>
+<body>
+    <h1>IP提交探针</h1>
+    <p>您的IP地址将自动提交。</p>
+</body>
+</html>
