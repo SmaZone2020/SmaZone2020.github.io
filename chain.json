@@ -1,0 +1,43 @@
+[
+    {
+        "Name": "Tron(Trc20)",
+        "Tax": 2.3
+    },
+    {
+        "Name": "Ethereum(ERC20)",
+        "Tax": 0.62
+    },
+    {
+        "Name": "X Layer",
+        "Tax": 0.1
+    },
+    {
+        "Name": "Aptos",
+        "Tax": 0.03
+    },
+    {
+        "Name": "Arbitrum One",
+        "Tax": 0.098
+    },
+    {
+        "Name": "Avalanche C-Chain",
+        "Tax": 0.22
+    },
+    {
+        "Name": "Optimism",
+        "Tax": 0.15
+    },
+    {
+        "Name": "Polugon",
+        "Tax": 0.8
+    },
+    {
+        "Name": "Solana",
+        "Tax": 1
+    },
+    {
+        "Name": "TON",
+        "Address": "UQDV5szyco3V469PoMW_hnS2l_oT0iSNGSiCOtbLxolmCnRC",
+        "Tax": 0.15
+    }
+]
