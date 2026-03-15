@@ -1,0 +1,7 @@
+import{c as a}from"./index-DzGlhIJk.js";/**
+ * @license lucide-react v0.575.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */const c=[["path",{d:"M10 21V3h8",key:"br2l0g"}],["path",{d:"M6 16h9",key:"2py0wn"}],["path",{d:"M10 9.5h7",key:"13dmhz"}]],s=a("swiss-franc",c);export{c as __iconNode,s as default};
+//# sourceMappingURL=swiss-franc-B9uCxepP.js.map
