@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title><![CDATA[Sma.Zone]]></title>
+        <description><![CDATA[Hi, I am Ma Maxwell, a software engineer, and I also enjoy photography and music. Welcome to my personal blog, where I will share some photography works and programming.]]></description>
+        <link>sma.zone</link>
+        <generator>RSS for Node</generator>
+        <lastBuildDate>Mon, 30 Mar 2026 09:20:03 GMT</lastBuildDate>
+        <atom:link href="sma.zone/rss.xml" rel="self" type="application/rss+xml"/>
+        <pubDate>Mon, 30 Mar 2026 09:20:03 GMT</pubDate>
+        <copyright><![CDATA[All rights reserved 2026, Maxwell Ma]]></copyright>
+        <language><![CDATA[en]]></language>
+        <item>
+            <title><![CDATA[Markdown & LaTeX Guide]]></title>
+            <description><![CDATA[A comprehensive demonstration of all formatting features on this site: typography, GFM tables, syntax highlighting, and complex mathematical rendering.]]></description>
+            <link>sma.zone/blog/hello-world</link>
+            <guid isPermaLink="true">sma.zone/blog/hello-world</guid>
+            <category><![CDATA[Demo]]></category>
+            <category><![CDATA[Markdown]]></category>
+            <category><![CDATA[LaTeX]]></category>
+            <dc:creator><![CDATA[Maxwell Ma]]></dc:creator>
+            <pubDate>Tue, 11 Nov 2025 00:00:00 GMT</pubDate>
+        </item>
+    </channel>
+</rss>
