@@ -44,8 +44,8 @@ export default {
     archive: {
         title: 'Archive',
         subtitle: '{count} posts in total',
-        year: '',
-        month: '',
+        year: 'Year',
+        month: 'Month',
     },
     portfolio: {
         title: 'Portfolio',
