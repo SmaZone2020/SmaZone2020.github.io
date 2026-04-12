@@ -1,38 +1,12 @@
 import { useState, useMemo, useEffect } from 'react';
-import { Card, Pagination } from '@heroui/react';
 import DefaultLayout from '../../layout/DefaultLayout';
 import { siteConfig } from '../../config/site';
 import { useI18n } from '../../i18n';
 import { setTitle } from '../../App';
-import { LogoGithub, Globe, ArrowUpRightFromSquare, CirclePlay, TvRetro } from '@gravity-ui/icons';
-
-const platformIcon: Record<string, React.ReactNode> = {
-    github: <LogoGithub className="w-4 h-4" />,
-    web: <Globe className="w-4 h-4" />,
-    douyin: <CirclePlay className="w-4 h-4" />,
-    bilibili: <TvRetro className="w-4 h-4" />,
-};
-
-const platformLabel: Record<string, string> = {
-    github: 'GitHub',
-    web: 'Web',
-    douyin: '抖音',
-    bilibili: 'Bilibili',
-};
+import ProjectCard from './ProjectCard';
+import PaginationBar from '../../components/PaginationBar';
 
 const ITEMS_PER_PAGE = 30;
-
-function getPageRange(current: number, total: number): (number | 'ellipsis')[] {
-    if (total <= 7) return Array.from({ length: total }, (_, i) => i + 1);
-    const pages: (number | 'ellipsis')[] = [];
-    const near = new Set([1, total, current - 1, current, current + 1].filter(p => p >= 1 && p <= total));
-    const sorted = [...near].sort((a, b) => a - b);
-    for (let i = 0; i < sorted.length; i++) {
-        if (i > 0 && sorted[i] - sorted[i - 1] > 1) pages.push('ellipsis');
-        pages.push(sorted[i]);
-    }
-    return pages;
-}
 
 function Portfolio() {
     const { t } = useI18n();
@@ -63,84 +37,15 @@ function Portfolio() {
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     {paginatedProjects.map((project) => (
-                        <a
-                            key={project.href}
-                            href={project.href}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="block group"
-                        >
-                            <Card className="h-full overflow-hidden rounded-2xl hover:shadow-lg hover:-translate-y-0.5 transition-all duration-200">
-                                <div className="h-40 overflow-hidden">
-                                    <img
-                                        src={project.image}
-                                        alt={project.title}
-                                        className="w-full h-full object-cover rounded-none group-hover:scale-105 transition-transform duration-300"
-                                    />
-                                </div>
-
-                                <Card.Content className="p-4">
-                                    <div className="flex items-center justify-between mb-2">
-                                        <h3 className="font-semibold text-base line-clamp-1">
-                                            {project.title}
-                                        </h3>
-                                        <ArrowUpRightFromSquare className="w-3.5 h-3.5 text-gray-400 dark:text-gray-500 opacity-0 group-hover:opacity-100 transition-opacity" />
-                                    </div>
-
-                                    <p className="text-sm text-gray-500 dark:text-gray-400 line-clamp-2 mb-3">
-                                        {project.description}
-                                    </p>
-
-                                    <span className="flex items-center gap-1.5">
-                                        {platformIcon[project.platform] || <Globe className="w-4 h-4" />}
-                                        {platformLabel[project.platform] || project.platform}
-                                    </span>
-                                </Card.Content>
-                            </Card>
-                        </a>
+                        <ProjectCard key={project.href} project={project} />
                     ))}
                 </div>
 
-                {totalPages > 1 && (
-                    <div className="flex justify-center mt-8 mb-4">
-                        <Pagination>
-                            <Pagination.Content>
-                                <Pagination.Item>
-                                    <Pagination.Previous
-                                        isDisabled={currentPage === 1}
-                                        onPress={() => setCurrentPage(p => p - 1)}
-                                    >
-                                        <Pagination.PreviousIcon />
-                                    </Pagination.Previous>
-                                </Pagination.Item>
-                                {getPageRange(currentPage, totalPages).map((page, idx) =>
-                                    page === 'ellipsis' ? (
-                                        <Pagination.Item key={`ellipsis-${idx}`}>
-                                            <Pagination.Ellipsis />
-                                        </Pagination.Item>
-                                    ) : (
-                                        <Pagination.Item key={page}>
-                                            <Pagination.Link
-                                                isActive={page === currentPage}
-                                                onPress={() => setCurrentPage(page)}
-                                            >
-                                                {page}
-                                            </Pagination.Link>
-                                        </Pagination.Item>
-                                    )
-                                )}
-                                <Pagination.Item>
-                                    <Pagination.Next
-                                        isDisabled={currentPage === totalPages}
-                                        onPress={() => setCurrentPage(p => p + 1)}
-                                    >
-                                        <Pagination.NextIcon />
-                                    </Pagination.Next>
-                                </Pagination.Item>
-                            </Pagination.Content>
-                        </Pagination>
-                    </div>
-                )}
+                <PaginationBar
+                    currentPage={currentPage}
+                    totalPages={totalPages}
+                    onPageChange={setCurrentPage}
+                />
 
                 {siteConfig.projects.length === 0 && (
                     <div className="text-center py-12 text-gray-500 dark:text-gray-400">
