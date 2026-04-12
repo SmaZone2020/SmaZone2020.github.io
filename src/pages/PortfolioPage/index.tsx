@@ -1,5 +1,5 @@
-import { useEffect } from 'react';
-import { Card } from '@heroui/react';
+import { useState, useMemo, useEffect } from 'react';
+import { Card, Pagination } from '@heroui/react';
 import DefaultLayout from '../../layout/DefaultLayout';
 import { siteConfig } from '../../config/site';
 import { useI18n } from '../../i18n';
@@ -20,12 +20,36 @@ const platformLabel: Record<string, string> = {
     bilibili: 'Bilibili',
 };
 
+const ITEMS_PER_PAGE = 30;
+
+function getPageRange(current: number, total: number): (number | 'ellipsis')[] {
+    if (total <= 7) return Array.from({ length: total }, (_, i) => i + 1);
+    const pages: (number | 'ellipsis')[] = [];
+    const near = new Set([1, total, current - 1, current, current + 1].filter(p => p >= 1 && p <= total));
+    const sorted = [...near].sort((a, b) => a - b);
+    for (let i = 0; i < sorted.length; i++) {
+        if (i > 0 && sorted[i] - sorted[i - 1] > 1) pages.push('ellipsis');
+        pages.push(sorted[i]);
+    }
+    return pages;
+}
+
 function Portfolio() {
     const { t } = useI18n();
+    const [currentPage, setCurrentPage] = useState(1);
 
     useEffect(() => {
         setTitle(t('nav.portfolio'));
     }, [t]);
+
+    const totalPages = Math.ceil(siteConfig.projects.length / ITEMS_PER_PAGE);
+    const paginatedProjects = useMemo(
+        () => siteConfig.projects.slice(
+            (currentPage - 1) * ITEMS_PER_PAGE,
+            currentPage * ITEMS_PER_PAGE
+        ),
+        [currentPage]
+    );
 
     return (
         <DefaultLayout>
@@ -38,7 +62,7 @@ function Portfolio() {
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    {siteConfig.projects.map((project) => (
+                    {paginatedProjects.map((project) => (
                         <a
                             key={project.href}
                             href={project.href}
@@ -76,6 +100,47 @@ function Portfolio() {
                         </a>
                     ))}
                 </div>
+
+                {totalPages > 1 && (
+                    <div className="flex justify-center mt-8 mb-4">
+                        <Pagination>
+                            <Pagination.Content>
+                                <Pagination.Item>
+                                    <Pagination.Previous
+                                        isDisabled={currentPage === 1}
+                                        onPress={() => setCurrentPage(p => p - 1)}
+                                    >
+                                        <Pagination.PreviousIcon />
+                                    </Pagination.Previous>
+                                </Pagination.Item>
+                                {getPageRange(currentPage, totalPages).map((page, idx) =>
+                                    page === 'ellipsis' ? (
+                                        <Pagination.Item key={`ellipsis-${idx}`}>
+                                            <Pagination.Ellipsis />
+                                        </Pagination.Item>
+                                    ) : (
+                                        <Pagination.Item key={page}>
+                                            <Pagination.Link
+                                                isActive={page === currentPage}
+                                                onPress={() => setCurrentPage(page)}
+                                            >
+                                                {page}
+                                            </Pagination.Link>
+                                        </Pagination.Item>
+                                    )
+                                )}
+                                <Pagination.Item>
+                                    <Pagination.Next
+                                        isDisabled={currentPage === totalPages}
+                                        onPress={() => setCurrentPage(p => p + 1)}
+                                    >
+                                        <Pagination.NextIcon />
+                                    </Pagination.Next>
+                                </Pagination.Item>
+                            </Pagination.Content>
+                        </Pagination>
+                    </div>
+                )}
 
                 {siteConfig.projects.length === 0 && (
                     <div className="text-center py-12 text-gray-500 dark:text-gray-400">

@@ -32,7 +32,7 @@ function Home() {
                             src={siteConfig.avatar}
                             alt={siteConfig.author}
                             size="xl"
-                            className="border-2 border-white/30 shadow-lg"
+                            className="shadow-xl rounded-[30px]"
                         />
                         <div>
                             <h1 className="text-2xl sm:text-3xl font-bold libre">

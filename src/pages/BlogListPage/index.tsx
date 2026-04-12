@@ -1,5 +1,5 @@
 import { useState, useEffect, useMemo } from 'react';
-import { Card, Chip, Separator } from '@heroui/react';
+import { Card, Chip, Separator, Pagination } from '@heroui/react';
 import { Link } from 'react-router-dom';
 import DefaultLayout from '../../layout/DefaultLayout';
 import { getSortedPostsData, getAllTags } from '../../lib/posts';
@@ -7,7 +7,19 @@ import { siteConfig } from '../../config/site';
 import { useI18n } from '../../i18n';
 import { setTitle } from '../../App';
 
-const POSTS_PER_PAGE = 6;
+const POSTS_PER_PAGE = 15;
+
+function getPageRange(current: number, total: number): (number | 'ellipsis')[] {
+    if (total <= 7) return Array.from({ length: total }, (_, i) => i + 1);
+    const pages: (number | 'ellipsis')[] = [];
+    const near = new Set([1, total, current - 1, current, current + 1].filter(p => p >= 1 && p <= total));
+    const sorted = [...near].sort((a, b) => a - b);
+    for (let i = 0; i < sorted.length; i++) {
+        if (i > 0 && sorted[i] - sorted[i - 1] > 1) pages.push('ellipsis');
+        pages.push(sorted[i]);
+    }
+    return pages;
+}
 
 function BlogList() {
     const { t } = useI18n();
@@ -60,7 +72,7 @@ function BlogList() {
                     <div className="mb-6">
                         <div className="flex flex-wrap gap-2">
                             <Chip
-                                size="sm"
+                                size="lg"
                                 variant={selectedTag === null ? 'primary' : 'soft'}
                                 className="cursor-pointer py-[3px] px-[6px]"
                                 onClick={() => { setSelectedTag(null); setCurrentPage(1); }}
@@ -71,9 +83,9 @@ function BlogList() {
                             {allTags.map((tag) => (
                                 <Chip
                                     key={tag}
-                                    size="sm"
+                                    size="lg"
                                     variant={selectedTag === tag ? 'primary' : 'soft'}
-                                    className="cursor-pointer"
+                                    className="cursor-pointer py-[3px] px-[6px]"
                                     onClick={() => handleTagClick(tag)}
                                 >
                                     {tag}
@@ -147,34 +159,43 @@ function BlogList() {
                 </div>
 
                 {totalPages > 1 && (
-                    <div className="flex justify-center items-center gap-2 mt-8 mb-4">
-                        <button
-                            disabled={currentPage === 1}
-                            onClick={() => setCurrentPage(p => p - 1)}
-                            className="px-3 py-1.5 rounded-lg text-sm bg-gray-100 dark:bg-gray-800 disabled:opacity-40 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
-                        >
-                            ← {t('blog.prev')}
-                        </button>
-                        {Array.from({ length: totalPages }, (_, i) => i + 1).map(page => (
-                            <button
-                                key={page}
-                                onClick={() => setCurrentPage(page)}
-                                className={`w-8 h-8 rounded-lg text-sm transition-colors ${
-                                    page === currentPage
-                                        ? 'bg-black text-white dark:bg-white dark:text-black'
-                                        : 'bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700'
-                                }`}
-                            >
-                                {page}
-                            </button>
-                        ))}
-                        <button
-                            disabled={currentPage === totalPages}
-                            onClick={() => setCurrentPage(p => p + 1)}
-                            className="px-3 py-1.5 rounded-lg text-sm bg-gray-100 dark:bg-gray-800 disabled:opacity-40 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
-                        >
-                            {t('blog.next')} →
-                        </button>
+                    <div className="flex justify-center mt-8 mb-4">
+                        <Pagination>
+                            <Pagination.Content>
+                                <Pagination.Item>
+                                    <Pagination.Previous
+                                        isDisabled={currentPage === 1}
+                                        onPress={() => setCurrentPage(p => p - 1)}
+                                    >
+                                        <Pagination.PreviousIcon />
+                                    </Pagination.Previous>
+                                </Pagination.Item>
+                                {getPageRange(currentPage, totalPages).map((page, idx) =>
+                                    page === 'ellipsis' ? (
+                                        <Pagination.Item key={`ellipsis-${idx}`}>
+                                            <Pagination.Ellipsis />
+                                        </Pagination.Item>
+                                    ) : (
+                                        <Pagination.Item key={page}>
+                                            <Pagination.Link
+                                                isActive={page === currentPage}
+                                                onPress={() => setCurrentPage(page)}
+                                            >
+                                                {page}
+                                            </Pagination.Link>
+                                        </Pagination.Item>
+                                    )
+                                )}
+                                <Pagination.Item>
+                                    <Pagination.Next
+                                        isDisabled={currentPage === totalPages}
+                                        onPress={() => setCurrentPage(p => p + 1)}
+                                    >
+                                        <Pagination.NextIcon />
+                                    </Pagination.Next>
+                                </Pagination.Item>
+                            </Pagination.Content>
+                        </Pagination>
                     </div>
                 )}
             </div>

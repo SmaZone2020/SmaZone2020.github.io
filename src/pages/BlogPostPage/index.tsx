@@ -69,7 +69,7 @@ function BlogPost() {
                     <div className="flex items-center gap-3 mb-4">
                         
                         <p className="text-xs text-gray-500 dark:text-gray-400">
-                            {post.date}
+                            {t('blog.publishedOn')} {post.date}
                         </p>
                     </div>
 
@@ -116,27 +116,6 @@ function BlogPost() {
                 </article>
 
                 <Separator className="my-8" />
-
-                <Card variant="secondary" className="mb-6 rounded-2xl">
-                    <Card.Content className="p-4">
-                        <div className="flex items-center gap-3">
-                            <AdaptiveAvatar
-                                src={siteConfig.avatar}
-                                alt={siteConfig.author}
-                                size="md"
-                            />
-                            <div>
-                                <p className="font-medium">{siteConfig.author}</p>
-                                <p className="text-sm text-gray-500 dark:text-gray-400">
-                                    {siteConfig.handle}
-                                </p>
-                            </div>
-                        </div>
-                        <p className="text-sm text-gray-500 dark:text-gray-400 mt-3">
-                            {t('blog.publishedOn')} {post.date}
-                        </p>
-                    </Card.Content>
-                </Card>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
                     {prevPost ? (
