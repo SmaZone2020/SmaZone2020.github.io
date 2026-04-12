@@ -1,4 +1,4 @@
-import { Chip } from '@heroui/react';
+import { TagGroup, Tag } from '@heroui/react';
 import { useI18n } from '../../i18n';
 
 interface TagFilterBarProps {
@@ -17,29 +17,28 @@ function TagFilterBar({ allTags, tagCounts, selectedTag, totalCount, filteredCou
         <>
             {allTags.length > 0 && (
                 <div className="mb-6">
-                    <div className="flex flex-wrap gap-2">
-                        <Chip
-                            size="lg"
-                            variant={selectedTag === null ? 'primary' : 'soft'}
-                            className="cursor-pointer py-[3px] px-[6px]"
-                            onClick={() => onSelectTag(null)}
-                        >
-                            {t('blog.allPosts')}
-                            <span className="ml-1 text-xs opacity-60">{totalCount}</span>
-                        </Chip>
-                        {allTags.map((tag) => (
-                            <Chip
-                                key={tag}
-                                size="lg"
-                                variant={selectedTag === tag ? 'primary' : 'soft'}
-                                className="cursor-pointer py-[3px] px-[6px]"
-                                onClick={() => onSelectTag(selectedTag === tag ? null : tag)}
-                            >
-                                {tag}
-                                <span className="ml-1 text-xs opacity-60">{tagCounts[tag]}</span>
-                            </Chip>
-                        ))}
-                    </div>
+                    <TagGroup 
+                        aria-label="Tags"
+                        selectionMode="single"
+                        selectedKeys={selectedTag ? new Set([selectedTag]) : new Set([])}
+                        onSelectionChange={(keys) => {
+                            const selected = Array.from(keys)[0] as string | undefined;
+                            onSelectTag(selected || null);
+                        }}
+                    >
+                        <TagGroup.List>
+                            <Tag id="all-posts">
+                                {t('blog.allPosts')}
+                                <span className="ml-1 text-xs opacity-60">{totalCount}</span>
+                            </Tag>
+                            {allTags.map((tag) => (
+                                <Tag key={tag} id={tag}>
+                                    {tag}
+                                    <span className="ml-1 text-xs opacity-60">{tagCounts[tag]}</span>
+                                </Tag>
+                            ))}
+                        </TagGroup.List>
+                    </TagGroup>
                 </div>
             )}
 
@@ -48,7 +47,9 @@ function TagFilterBar({ allTags, tagCounts, selectedTag, totalCount, filteredCou
                     <span className="text-sm text-gray-500 dark:text-gray-400">
                         {t('blog.filteredBy')}
                     </span>
-                    <Chip size="sm" variant="primary">{selectedTag}</Chip>
+                    <span className="px-2 py-0.5 text-xs bg-default-100 text-default-700 rounded-md">
+                        {selectedTag}
+                    </span>
                     <span className="text-sm text-gray-500 dark:text-gray-400">
                         · {filteredCount} {t('blog.postsCount')}
                     </span>
@@ -59,3 +60,5 @@ function TagFilterBar({ allTags, tagCounts, selectedTag, totalCount, filteredCou
 }
 
 export default TagFilterBar;
+
+

@@ -10,7 +10,9 @@ export default {
     common: {
         welcome: '欢迎',
         loading: '加载中...',
-        language: '语言'
+        language: '语言',
+        tech: '技术栈',
+        goal: '小目标',
     },
     theme: {
         light: '明亮模式',

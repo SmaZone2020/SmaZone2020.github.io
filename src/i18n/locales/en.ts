@@ -10,7 +10,9 @@ export default {
     common: {
         welcome: 'Welcome',
         loading: 'Loading...',
-        language: 'Language'
+        language: 'Language',
+        tech: 'Tech Stack',
+        goal: 'Goals',
     },
     theme: {
         light: 'Light',

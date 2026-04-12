@@ -26,6 +26,17 @@ export const siteConfig = {
         bonjour: "https://bonjour.bio/8tozg1",
         wecom: "https://work.weixin.qq.com/ca/cawcde19a5eede7ba5",
     },
+    goals:[
+        { name: "骑行", description: "单次骑行100KM以上", isOk: false },
+        { name: "摄影", description: "拍摄高质量照片", isOk: true },
+    ],
+    tech: [
+        { name: "C#", proficiency: 90, color: "default" },
+        { name: "TypeScript/JS", proficiency: 85, color: "accent" },
+        { name: "React", proficiency: 80, color: "success" },
+        { name: "Java", proficiency: 40, color: "warning" },
+        { name: "C++", proficiency: 35, color: "danger" },
+    ] as { name: string; proficiency: number; color: "default" | "accent" | "success" | "warning" | "danger" | undefined }[],
     projects: [
         {
             title: "VirgoBot",
