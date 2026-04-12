@@ -14,7 +14,7 @@ function DefaultLayout({ children, className }: { children: React.ReactNode; cla
                     {t(`nav.about`)}
                 </Link>
             </div>
-            <div className="sm:pb-0 mt-[58px] sm:mt-0 pb-[58px]">
+            <div className="sm:pb-0 mt-[58px] sm:mt-0 pb-[78px]">
                 {children}
 
                 <Separator className="my-6" />
