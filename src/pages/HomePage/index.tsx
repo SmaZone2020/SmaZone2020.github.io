@@ -23,7 +23,7 @@ function Home() {
         <DefaultLayout>
             <HeroSection />
             <div className="flex justify-center">
-                <div className="container px-4 py-6 max-w-5xl">
+                <div className="container px-4 py-6 max-w-4xl">
                     <div className="mb-6">
                         <div className="flex items-center justify-between mb-4">
                             <h2 className="text-xl font-bold">{t('blog.latestPosts')}</h2>
