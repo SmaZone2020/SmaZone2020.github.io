@@ -19,7 +19,7 @@ function DefaultLayout({ children, className }: { children: React.ReactNode; cla
 
                 <Separator className="my-6" />
 
-                <div className="text-center text-sm text-gray-500 dark:text-gray-400">
+                <div className="text-center text-sm text-gray-500 dark:text-gray-400 pb-4">
                     <p>© {new Date().getFullYear()} {siteConfig.author}</p>
                     <p className="mt-1">{t('about.builtWith')}</p>
                 </div>
