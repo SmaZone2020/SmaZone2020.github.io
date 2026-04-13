@@ -8,7 +8,7 @@ import HeroSection from './HeroSection';
 import PostCard from '../../components/PostCard';
 import { siteConfig } from '../../config/site';
 import { Calendar, Card, CardHeader, Checkbox, CheckboxGroup, Description, Label, Meter } from '@heroui/react';
-import { Code, LogoMermaid } from '@gravity-ui/icons';
+import { Check, Code, LogoMermaid } from '@gravity-ui/icons';
 
 function Home() {
     const posts = getSortedPostsData();
@@ -44,7 +44,7 @@ function Home() {
                 </div>
                 <div className='hidden sm:block'>
                     <Card className='mb-4'>
-                        <Calendar aria-label="Event date">
+                        <Calendar aria-label="Event date" isReadOnly>
                             <Calendar.Header>
                                 <Calendar.Heading />
                                 <Calendar.NavButton slot="previous" />
@@ -84,12 +84,12 @@ function Home() {
                         </CardHeader>
                         <CheckboxGroup name="interests">
                             {siteConfig.goals.map((goal) => (
-                                <Checkbox key={goal.name} value={goal.name} isSelected isReadOnly>
+                                <Checkbox key={goal.name} value={goal.name} >
                                     <Checkbox.Control>
                                         <Checkbox.Indicator>
                                             {() =>
                                             goal.isOk ? (
-                                                null
+                                                <Check />
                                             ) : <svg
                                                     aria-hidden="true"
                                                     fill="none"

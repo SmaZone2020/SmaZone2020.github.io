@@ -1,5 +1,5 @@
 import { Card } from '@heroui/react';
-import { LogoGithub, Globe, ArrowUpRightFromSquare, CirclePlay, TvRetro } from '@gravity-ui/icons';
+import { LogoGithub, Globe, ArrowUpRightFromSquare, CirclePlay, TvRetro, CircleTree } from '@gravity-ui/icons';
 import type { ProjectConfig } from '../../config/site';
 
 const platformIcon: Record<string, React.ReactNode> = {
@@ -49,10 +49,20 @@ function ProjectCard({ project }: ProjectCardProps) {
                         {project.description}
                     </p>
 
-                    <span className="flex items-center gap-1.5">
-                        {platformIcon[project.platform] || <Globe className="w-4 h-4" />}
-                        {platformLabel[project.platform] || project.platform}
-                    </span>
+                    <div className='flex items-center justify-between'>
+                        <span className="flex items-center gap-1.5">
+                            {platformIcon[project.platform] || <Globe className="w-4 h-4" />}
+                            {platformLabel[project.platform] || project.platform}
+                        </span>
+
+                        {(project.platform === 'github') && (
+                            <span className="flex items-center text-sm text-gray-500 dark:text-gray-400 gap-0.5">
+                                <CircleTree className="w-4 h-4" />
+                                {project.href?.split('/')[3]}/
+                                {project.href?.split('/')[4]}
+                            </span>
+                        )}
+                    </div>
                 </Card.Content>
             </Card>
         </a>
@@ -60,3 +70,4 @@ function ProjectCard({ project }: ProjectCardProps) {
 }
 
 export default ProjectCard;
+
