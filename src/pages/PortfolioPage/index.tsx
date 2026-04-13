@@ -27,7 +27,7 @@ function Portfolio() {
 
     return (
         <DefaultLayout>
-            <div className="container mx-auto px-4 py-6 max-w-4xl">
+            <div className="container mx-auto px-4 py-6 max-w-6xl">
                 <div className="mb-6">
                     <h1 className="text-3xl font-bold libre mb-2">{t('portfolio.title')}</h1>
                     <p className="text-gray-500 dark:text-gray-400">
@@ -35,7 +35,7 @@ function Portfolio() {
                     </p>
                 </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                     {paginatedProjects.map((project) => (
                         <ProjectCard key={project.href} project={project} />
                     ))}
@@ -58,3 +58,4 @@ function Portfolio() {
 }
 
 export default Portfolio;
+

@@ -15,7 +15,7 @@ function PostCard({ post, variant = 'default' }: PostCardProps) {
 
     return (
         <Link to={`/blog/${post.id}`} className="block">
-            <Card className="hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 overflow-hidden rounded-2xl">
+            <Card className="hover:shadow-md hover:-translate-y-1 transition-all duration-200 overflow-hidden rounded-2xl">
                 <div className="flex flex-col sm:flex-row">
                     {post.image && (
                         <div className={`${imageSize} sm:h-auto`}>
