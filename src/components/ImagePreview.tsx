@@ -1,6 +1,7 @@
 import { Modal, useOverlayState, Button } from '@heroui/react';
 import { createContext, useContext, useState, ReactNode, useEffect } from 'react';
 import { ArrowDownToSquare } from '@gravity-ui/icons';
+import FadeImg from './FadeImg';
 
 interface ImagePreviewContextType {
   showImage: (src: string, type?: 'image' | 'video') => void;
@@ -53,7 +54,7 @@ export function ImagePreviewProvider({ children }: { children: ReactNode }) {
         <Modal.Container placement="center">
           <Modal.Dialog className="max-w-[90vw] max-h-[90vh]">
             <Modal.Body className="p-0 relative">
-              {mediaSrc && mediaType === 'image' && <img src={mediaSrc} alt="" className="w-full h-full object-contain rounded-lg" />}
+              {mediaSrc && mediaType === 'image' && <FadeImg key={mediaSrc} src={mediaSrc} alt="" className="w-full h-full object-contain rounded-lg" />}
               {mediaSrc && mediaType === 'video' && <video src={mediaSrc} controls className="w-full h-full object-contain rounded-lg" />}
               <Button isIconOnly className="absolute bottom-4 right-4" onClick={handleSave}>
                 <ArrowDownToSquare className="w-5 h-5" />

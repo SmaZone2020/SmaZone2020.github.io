@@ -2,6 +2,7 @@ import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import rehypeRaw from 'rehype-raw';
 import rehypeHighlight from 'rehype-highlight';
+import FadeImg from '../../components/FadeImg';
 
 interface MarkdownArticleProps {
     content: string;
@@ -14,8 +15,8 @@ function MarkdownArticle({ content }: MarkdownArticleProps) {
                 remarkPlugins={[remarkGfm]}
                 rehypePlugins={[rehypeRaw, rehypeHighlight]}
                 components={{
-                    img: ({ src, alt, ...props }) => (
-                        <img
+                    img: ({ node: _node, src, alt, ...props }) => (
+                        <FadeImg
                             src={src}
                             alt={alt || ''}
                             className="rounded-2xl max-w-full h-auto my-4"

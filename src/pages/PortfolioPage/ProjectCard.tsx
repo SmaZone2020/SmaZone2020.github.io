@@ -1,6 +1,7 @@
 import { Card } from '@heroui/react';
 import { LogoGithub, Globe, ArrowUpRightFromSquare, CirclePlay, TvRetro, CircleTree } from '@gravity-ui/icons';
 import type { ProjectConfig } from '../../config/site';
+import FadeImg from '../../components/FadeImg';
 
 const platformIcon: Record<string, React.ReactNode> = {
     github: <LogoGithub className="w-4 h-4" />,
@@ -30,10 +31,11 @@ function ProjectCard({ project }: ProjectCardProps) {
         >
             <Card className="h-full overflow-hidden rounded-2xl hover:shadow-lg hover:-translate-y-0.5 transition-all duration-200">
                 <div className="h-40 overflow-hidden">
-                    <img
+                    <FadeImg
                         src={project.image}
                         alt={project.title}
-                        className="w-full h-full object-cover rounded-none group-hover:scale-105 transition-transform duration-300"
+                        className="w-full h-full object-cover rounded-none"
+                        imgClassName="group-hover:scale-105 transition-transform duration-300"
                     />
                 </div>
 

@@ -1,3 +1,5 @@
+import FadeImg from './FadeImg';
+
 interface AdaptiveAvatarProps {
     src: string;
     alt?: string;
@@ -25,10 +27,12 @@ export default function AdaptiveAvatar({
             className={`${sizeMap[size]} rounded-2xl overflow-hidden bg-gray-200 dark:bg-gray-700 flex-shrink-0 ${className}`}
         >
             {src ? (
-                <img
+                <FadeImg
+                    shimmer={false}
                     src={src}
                     alt={alt}
-                    className="w-full h-full object-cover"
+                    className="w-full h-full"
+                    imgClassName="w-full h-full object-cover"
                 />
             ) : (
                 <div className="w-full h-full flex items-center justify-center text-gray-500 dark:text-gray-400 font-bold text-lg">

@@ -1,16 +1,19 @@
 import { siteConfig } from '../../config/site';
 import { useI18n } from '../../i18n';
 import AdaptiveAvatar from '../../components/AdaptiveAvatar';
+import FadeImg from '../../components/FadeImg';
 
 function HeroSection() {
     const { t } = useI18n();
 
     return (
         <div className="relative mb-8 h-64 sm:h-80 w-full">
-            <img
+            <FadeImg
+                shimmer={false}
                 src={siteConfig.heroImage}
                 alt="Hero"
-                className="w-full h-full object-cover rounded-none mt-[-40px]"
+                className="w-full h-full"
+                imgClassName="w-full h-full object-cover mt-[-40px]"
                 style={{borderRadius: 0}}
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />

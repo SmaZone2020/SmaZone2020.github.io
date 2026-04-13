@@ -2,6 +2,7 @@ import { Card, Chip } from '@heroui/react';
 import { Link } from 'react-router-dom';
 import { siteConfig } from '../config/site';
 import type { PostData } from '../lib/posts';
+import FadeImg from './FadeImg';
 
 interface PostCardProps {
     post: PostData;
@@ -19,10 +20,11 @@ function PostCard({ post, variant = 'default' }: PostCardProps) {
                 <div className="flex flex-col sm:flex-row">
                     {post.image && (
                         <div className={`${imageSize} sm:h-auto`}>
-                            <img
+                            <FadeImg
                                 src={post.image}
                                 alt={post.title}
-                                className="w-full h-full object-cover rounded-none"
+                                className="w-full h-full"
+                                imgClassName="w-full h-full object-cover"
                             />
                         </div>
                     )}
