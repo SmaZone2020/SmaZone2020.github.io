@@ -78,10 +78,10 @@ export function BottomNav({ defaultActive, onItemClick }: BottomNavProps) {
   return (
     <div className={`fixed bottom-[35px] left-[20px] right-[20px] px-1 scale-105 z-50 sm:hidden ${shouldHide ? 'hidden' : ''}`}>
 
-      <div className="relative bg-white/40 dark:bg-gray-800/40 backdrop-blur-sm rounded-[35px] shadow-lg">
+      <div className="relative bg-white/40 dark:bg-[#18181B]/40 backdrop-blur-sm rounded-[35px] shadow-lg">
         
         <motion.div
-          className={`absolute bg-gray-200/70 dark:bg-gray-700/70 rounded-[60px] ${
+          className={`absolute bg-gray-200/30 backdrop-blur-lg dark:bg-[#18181B]/50 rounded-[60px] ${
             activeIndex === 0 ? 'ml-[1px]' : activeIndex === items.length - 1 ? '-ml-[1px]' : ''
           }`}
           animate={controls}
@@ -100,7 +100,7 @@ export function BottomNav({ defaultActive, onItemClick }: BottomNavProps) {
               className={`flex-1 flex flex-col items-center justify-center p-2 transition-colors ${
                 activeId === item.url
                   ? 'text-black dark:text-white'
-                  : 'text-gray-500/80'
+                  : 'text-black/50 dark:text-gray-300/80'
               }`}
             >
               <div className={`text-2xl ${item.label ? 'scale-110' : 'scale-130'}`}>

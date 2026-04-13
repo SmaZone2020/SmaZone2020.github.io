@@ -8,11 +8,15 @@ function DefaultLayout({ children, className }: { children: React.ReactNode; cla
     
     return(
         <div className={className}>
-            <div className={`px-4 py-2 sm:hidden fixed h-[48px] top-0 left-0 right-0 z-50 flex items-center justify-between gap-4 bg-white/80 dark:bg-black/40 backdrop-blur-sm shadow-lg ${className}`}>
-                <Link className="libre text-xl font-bold flex items-center" to="/">{siteConfig.handle}</Link>
-                <Link to="/about" className="flex items-center text-primary">
-                    {t(`nav.about`)}
-                </Link>
+            <div className={`px-4 py-2 sm:hidden fixed h-[54px] top-0 left-0 right-0 z-50 flex items-center justify-between gap-4 bg-white/50 dark:bg-black/40 backdrop-blur-sm shadow-lg ${className}`}>
+                <div className="flex items-center">
+                    <Link className="libre text-xl font-bold flex items-center" to="/">{siteConfig.handle}</Link>
+                </div>
+                <div className="flex items-center">
+                    <Link to="/about" className="flex items-center text-primary">
+                        {t(`nav.about`)}
+                    </Link>
+                </div>
             </div>
             <div className="sm:pb-0 mt-[58px] sm:mt-0 pb-[78px]">
                 {children}

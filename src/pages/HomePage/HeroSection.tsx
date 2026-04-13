@@ -10,7 +10,7 @@ function HeroSection() {
             <img
                 src={siteConfig.heroImage}
                 alt="Hero"
-                className="w-full h-full object-cover rounded-none"
+                className="w-full h-full object-cover rounded-none mt-[-40px]"
                 style={{borderRadius: 0}}
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
