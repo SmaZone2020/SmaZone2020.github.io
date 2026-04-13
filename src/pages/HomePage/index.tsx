@@ -43,7 +43,7 @@ function Home() {
                     </div>
                 </div>
                 <div className='hidden sm:block'>
-                    <Card className='mb-4 bg-gradient-to-br from-[#FFFDD0] via-[#F8F8FF] to-[#F5F5F5] dark:from-gray-800 dark:via-gray-900 dark:to-black'>
+                    <Card className='mb-4'>
                         <Calendar aria-label="Event date">
                             <Calendar.Header>
                                 <Calendar.Heading />
