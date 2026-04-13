@@ -1,7 +1,10 @@
 import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-interface FadeImgProps extends React.ImgHTMLAttributes<HTMLImageElement> {
+// Properties that conflict between React's HTML attributes and Framer Motion's motion props
+type MotionConflicts = 'onAnimationStart' | 'onDrag' | 'onDragEnd' | 'onDragStart';
+
+interface FadeImgProps extends Omit<React.ImgHTMLAttributes<HTMLImageElement>, MotionConflicts> {
     shimmer?: boolean;
     imgClassName?: string;
 }
