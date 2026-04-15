@@ -46,6 +46,13 @@ export const siteConfig = {
             description: "基于 .NET 的AI Agent框架, 可通过Telegram、Douyin、WeChat等平台交互",
         },
         {
+            title: "iLink4NET",
+            platform: "github",
+            href: "https://github.com/Yuxi-IT/iLink4NET",
+            image: "/images/951d3885-6690-438d-bf52-ad8728f301e3.webp",
+            description: "基于.NET平台的iLinkBot SDK, 支持多平台接入和丰富的功能扩展",
+        },
+        {
             title: "Libra",
             platform: "github",
             href: "https://github.com/SmaZone2020/Libra",

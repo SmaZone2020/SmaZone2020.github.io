@@ -34,7 +34,7 @@ function ProjectCard({ project }: ProjectCardProps) {
                     <FadeImg
                         src={project.image}
                         alt={project.title}
-                        className="w-full h-full object-cover rounded-none"
+                        className="object-cover rounded-none"
                         imgClassName="group-hover:scale-105 transition-transform duration-300"
                     />
                 </div>
