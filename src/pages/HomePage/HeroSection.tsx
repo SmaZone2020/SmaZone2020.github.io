@@ -13,7 +13,7 @@ function HeroSection() {
                 src={siteConfig.heroImage}
                 alt="Hero"
                 className="w-full h-full"
-                imgClassName="w-full h-full object-cover mt-[-40px]"
+                imgClassName="w-full h-full object-cover"
                 style={{borderRadius: 0}}
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
