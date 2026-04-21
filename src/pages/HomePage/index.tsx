@@ -12,7 +12,7 @@ import { Check, Code, LogoMermaid } from '@gravity-ui/icons';
 
 function Home() {
     const posts = getSortedPostsData();
-    const latestPosts = posts.slice(0, 3);
+    const latestPosts = posts.slice(0, 4);
     const { t } = useI18n();
 
     useEffect(() => {
