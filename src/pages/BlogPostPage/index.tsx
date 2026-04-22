@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { Separator } from '@heroui/react';
+import { Button, Separator } from '@heroui/react';
 import DefaultLayout from '../../layout/DefaultLayout';
 import { getPostById, getSortedPostsData } from '../../lib/posts';
 import { useI18n } from '../../i18n';
@@ -33,12 +33,12 @@ function BlogPost() {
                 <div className="container mx-auto px-4 py-12 text-center max-w-4xl">
                     <h1 className="text-4xl font-bold mb-4">404</h1>
                     <p className="text-gray-500 dark:text-gray-400 mb-6">{t('blog.postNotFound')}</p>
-                    <button
+                    <Button
                         onClick={() => navigate('/blog')}
-                        className="px-4 py-2 rounded-lg bg-black text-white dark:bg-white dark:text-black text-sm"
+                        className="bg-black text-white dark:bg-white dark:text-black text-sm"
                     >
                         {t('blog.backToBlog')}
-                    </button>
+                    </Button>
                 </div>
             </DefaultLayout>
         );
