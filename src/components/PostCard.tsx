@@ -19,7 +19,7 @@ function PostCard({ post, variant = 'default' }: PostCardProps) {
             <Card className="hover:shadow-md hover:-translate-y-1 transition-all duration-200 overflow-hidden rounded-2xl">
                 <div className="flex flex-col sm:flex-row">
                     {post.image && (
-                        <div className={`${imageSize} sm:h-auto`}>
+                        <div className={`${imageSize} sm:h-[150px]`}>
                             <FadeImg
                                 src={post.image}
                                 alt={post.title}
