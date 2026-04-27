@@ -27,7 +27,8 @@ export const siteConfig = {
         wecom: "https://work.weixin.qq.com/ca/cawcde19a5eede7ba5",
     },
     goals:[
-        { name: "骑行", description: "单次骑行100KM以上", isOk: false },
+        { name: "事业", description: "拿到首次融资(Seed轮)", isOk: false },
+        { name: "骑行", description: "单次骑行100KM以上", isOk: true },
         { name: "摄影", description: "拍摄高质量照片", isOk: true },
     ],
     tech: [
