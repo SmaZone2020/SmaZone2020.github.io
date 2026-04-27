@@ -5,6 +5,8 @@ import { setTitle } from '../../App';
 import ProfileCard from './ProfileCard';
 import InterestsCard from './InterestsCard';
 import SocialLinksCard from './SocialLinksCard';
+import GolaList from '../../components/GoalList';
+import TechStack from '../../components/TechStack';
 
 function About() {
     const { t } = useI18n();
@@ -19,6 +21,10 @@ function About() {
                 <ProfileCard />
                 <InterestsCard />
                 <SocialLinksCard />
+                <div>
+                    <TechStack />
+                    <GolaList />
+                </div>
             </div>
         </DefaultLayout>
     );
