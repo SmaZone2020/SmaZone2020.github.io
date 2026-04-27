@@ -6,9 +6,7 @@ import { setTitle } from '../../App';
 import { useEffect } from 'react';
 import HeroSection from './HeroSection';
 import PostCard from '../../components/PostCard';
-import { siteConfig } from '../../config/site';
-import { Calendar, Card, CardHeader, Checkbox, CheckboxGroup, Description, Label, Meter } from '@heroui/react';
-import { Check, Code, LogoMermaid } from '@gravity-ui/icons';
+import { Calendar, Card } from '@heroui/react';
 import TechStack from '../../components/TechStack';
 import GolaList from '../../components/GoalList';
 
