@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { Button, Separator } from '@heroui/react';
 import DefaultLayout from '../../layout/DefaultLayout';
@@ -14,6 +14,7 @@ function BlogPost() {
     const navigate = useNavigate();
     const { t } = useI18n();
     const post = id ? getPostById(id) : undefined;
+    const [viewCount, setViewCount] = useState<number | null>(null);
 
     useEffect(() => {
         if (post) {
@@ -26,6 +27,15 @@ function BlogPost() {
     useEffect(() => {
         window.scrollTo(0, 0);
     }, [id]);
+
+    useEffect(() => {
+        if (!post) return;
+        setViewCount(null);
+        fetch(`https://api.counterapi.dev/v1/${post.id}.sma.zone/visits/up`)
+            .then(res => res.json())
+            .then(data => setViewCount(data.count))
+            .catch(() => {});
+    }, [post?.id]);
 
     if (!post) {
         return (
@@ -52,7 +62,7 @@ function BlogPost() {
     return (
         <DefaultLayout>
             <div className="container mx-auto px-4 py-6 max-w-6xl">
-                <PostHeader post={post} />
+                <PostHeader post={post} viewCount={viewCount} />
 
                 <Separator className="mb-6" />
 
