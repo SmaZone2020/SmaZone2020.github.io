@@ -40,6 +40,13 @@ export const siteConfig = {
     ] as { name: string; proficiency: number; color: "default" | "accent" | "success" | "warning" | "danger" | undefined }[],
     projects: [
         {
+            title: "光纤里的海",
+            platform: "文章",
+            href: "/blog/2604291842",
+            image: "/images/bdb98729-930a-4b7d-a975-407845f2243f.webp",
+            description: "短篇科幻小说：她用了五十七年，向一道10毫秒的物理之墙，学习触碰一个人",
+        },
+        {
             title: "VirgoBot",
             platform: "github",
             href: "https://github.com/Yuxi-IT/VirgoBot",
@@ -73,7 +80,7 @@ export const siteConfig = {
             href: "https://github.com/Yuxi-IT/HeroUI4Blazor",
             image: "/images/ah89a3f-3hfa-f92f-h8a9-ah9fh923h8f9sh.webp",
             description: "HeroUI 的 Blazor 移植组件库",
-        },
+        }
     ] as ProjectConfig[],
 }
 
