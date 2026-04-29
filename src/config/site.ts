@@ -44,7 +44,7 @@ export const siteConfig = {
             platform: "文章",
             href: "/blog/2604291842",
             image: "/images/bdb98729-930a-4b7d-a975-407845f2243f.webp",
-            description: "短篇科幻小说：她用了五十七年，向一道10毫秒的物理之墙，学习触碰一个人",
+            description: "短篇科幻小说：用宇宙的热寂，证明爱不是奇迹，是物理定律允许的、最固执的低熵态。",
         },
         {
             title: "VirgoBot",
