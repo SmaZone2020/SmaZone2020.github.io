@@ -107,6 +107,16 @@ p {
 }
 
 /* Headings */
+.prose-article h1,
+.prose-article h2,
+.prose-article h3,
+.prose-article h4,
+.prose-article h5,
+.prose-article h6 {
+    position: relative;
+    scroll-margin-top: 4rem;
+}
+
 .prose-article h1 {
     font-size: 1.875rem;
     font-weight: 700;
@@ -156,6 +166,59 @@ p {
     font-weight: 600;
     margin-top: 1rem;
     margin-bottom: 0.5rem;
+}
+
+/* Heading anchor links */
+.prose-article .heading-anchor {
+    display: inline-flex;
+    align-items: center;
+    margin-left: 0.4em;
+    color: transparent;
+    text-decoration: none;
+    font-weight: 400;
+    font-size: 0.85em;
+    transition: color 0.15s;
+    vertical-align: middle;
+    user-select: none;
+}
+
+.prose-article h1:hover .heading-anchor,
+.prose-article h2:hover .heading-anchor,
+.prose-article h3:hover .heading-anchor,
+.prose-article h4:hover .heading-anchor,
+.prose-article h5:hover .heading-anchor,
+.prose-article h6:hover .heading-anchor {
+    color: #9ca3af;
+}
+
+.prose-article .heading-anchor:hover {
+    color: #3b82f6 !important;
+}
+
+.dark .prose-article h1:hover .heading-anchor,
+.dark .prose-article h2:hover .heading-anchor,
+.dark .prose-article h3:hover .heading-anchor,
+.dark .prose-article h4:hover .heading-anchor,
+.dark .prose-article h5:hover .heading-anchor,
+.dark .prose-article h6:hover .heading-anchor {
+    color: #6b7280;
+}
+
+.dark .prose-article .heading-anchor:hover {
+    color: #60a5fa !important;
+}
+
+/* Active heading highlight when navigated via hash */
+.prose-article :is(h1, h2, h3, h4, h5, h6):target {
+    background-color: rgba(59, 130, 246, 0.08);
+    border-radius: 0.25rem;
+    padding-left: 0.5rem;
+    margin-left: -0.5rem;
+    outline: none;
+}
+
+.dark .prose-article :is(h1, h2, h3, h4, h5, h6):target {
+    background-color: rgba(96, 165, 250, 0.1);
 }
 
 /* Paragraphs */
