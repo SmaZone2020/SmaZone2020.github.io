@@ -27,7 +27,7 @@ function TagFilterBar({ allTags, tagCounts, selectedTag, totalCount, filteredCou
                         }}
                     >
                         <TagGroup.List>
-                            <Tag id="all-posts">
+                            <Tag id="">
                                 {t('blog.allPosts')}
                                 <span className="ml-1 text-xs opacity-60">{totalCount}</span>
                             </Tag>
