@@ -39,6 +39,8 @@ export default {
         postNotFound: 'Post not found',
         backToBlog: 'Back to Blog',
         publishedOn: 'Published on',
+        wordCount: '{count} words',
+        readingTime: '{min} min read',
         readMore: 'Read More',
         filteredBy: 'Filtered by',
         postsCount: 'posts',

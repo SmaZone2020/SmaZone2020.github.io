@@ -39,6 +39,8 @@ export default {
         postNotFound: '文章未找到',
         backToBlog: '返回博客',
         publishedOn: '发布于',
+        wordCount: '{count} 字',
+        readingTime: '约 {min} 分钟',
         readMore: '阅读更多',
         filteredBy: '筛选：',
         postsCount: '篇',
