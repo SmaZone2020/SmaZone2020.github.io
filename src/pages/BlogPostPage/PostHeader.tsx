@@ -9,24 +9,18 @@ interface PostHeaderProps {
 }
 
 function countWords(content: string): number {
-    // Strip markdown syntax (front matter already removed by posts.ts)
-    const plain = content
+    let plain = content
         .replace(/```[\s\S]*?```/g, '')   // fenced code blocks
         .replace(/`[^`]*`/g, '')           // inline code
         .replace(/!\[.*?\]\(.*?\)/g, '')   // images
         .replace(/\[.*?\]\(.*?\)/g, '')    // links
-        .replace(/#{1,6}\s/g, '')          // headings
-        .replace(/[*_~>|]/g, '')           // emphasis, blockquote, table chars
-        .replace(/\s+/g, ' ')
-        .trim();
+        .replace(/#{1,6}\s/g, '')          // headings (# Title -> Title)
+        .replace(/[*_~>|]/g, '');          // emphasis, blockquote, table chars
 
-    // CJK characters each count as one word
-    const cjk = (plain.match(/[\u4e00-\u9fa5\u3040-\u30ff\uac00-\ud7af]/g) || []).length;
-    // Non-CJK words
-    const latin = (plain.replace(/[\u4e00-\u9fa5\u3040-\u30ff\uac00-\ud7af]/g, ' ').match(/\b\w+\b/g) || []).length;
-    return cjk + latin;
+    const nonWhitespaceChars = plain.match(/\S/g);
+    
+    return nonWhitespaceChars ? nonWhitespaceChars.length : 0;
 }
-
 function PostHeader({ post, viewCount }: PostHeaderProps) {
     const { t } = useI18n();
 
