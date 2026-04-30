@@ -13,8 +13,8 @@ function ProfileCard() {
                     <AdaptiveAvatar
                         src={siteConfig.avatar}
                         alt={siteConfig.author}
-                        size="xl"
-                        className="mr-4 shadow-lg"
+                        size="lg"
+                        className="mr-4"
                     />
                     <div className="flex-1">
                         <h1 className="text-2xl font-bold libre mb-1">{siteConfig.author}</h1>

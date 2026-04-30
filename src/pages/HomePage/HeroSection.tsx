@@ -23,7 +23,6 @@ function HeroSection() {
                         src={siteConfig.avatar}
                         alt={siteConfig.author}
                         size="xl"
-                        className="shadow-xl rounded-[30px]"
                     />
                     <div>
                         <h1 className="text-2xl sm:text-3xl font-bold libre">

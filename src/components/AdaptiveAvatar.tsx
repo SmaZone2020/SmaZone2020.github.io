@@ -9,10 +9,10 @@ interface AdaptiveAvatarProps {
 }
 
 const sizeMap = {
-    sm: 'w-9 h-11',
-    md: 'w-11 h-14',
-    lg: 'w-14 h-18',
-    xl: 'w-22 h-28',
+    sm: 'w-11 h-11',
+    md: 'w-14 h-14',
+    lg: 'w-26 h-26',
+    xl: 'w-34 h-34',
 };
 
 export default function AdaptiveAvatar({
@@ -24,7 +24,7 @@ export default function AdaptiveAvatar({
 }: AdaptiveAvatarProps) {
     return (
         <div
-            className={`${sizeMap[size]} rounded-2xl overflow-hidden bg-gray-200 dark:bg-gray-700 flex-shrink-0 ${className}`}
+            className={`${sizeMap[size]} rounded-[45px] overflow-hidden flex-shrink-0 ${className}`}
         >
             {src ? (
                 <FadeImg
