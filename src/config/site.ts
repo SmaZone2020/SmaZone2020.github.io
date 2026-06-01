@@ -40,11 +40,11 @@ export const siteConfig = {
     ] as { name: string; proficiency: number; color: "default" | "accent" | "success" | "warning" | "danger" | undefined }[],
     projects: [
         {
-            title: "光纤里的海",
-            platform: "文章",
-            href: "/blog/2605010132",
-            image: "/images/bdb98729-930a-4b7d-a975-407845f2243f.webp",
-            description: "短篇科幻小说：用宇宙的热寂，证明爱不是奇迹，是物理定律允许的、最固执的低熵态。",
+            title: "知源拾光",
+            platform: "博客",
+            href: "/blog/2605301655",
+            image: "/images/zhiyuanshiguang.jpg",
+            description: "我想帮全国老师，偷出一些时间。",
         },
         {
             title: "VirgoBot",
