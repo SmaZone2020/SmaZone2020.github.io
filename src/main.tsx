@@ -16,7 +16,9 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
             <I18nProvider>
                 <BrowserRouter>
                     <ImagePreviewProvider>
-                        <App />
+                        <div className="bg-gray-100 dark:bg-gray-950 min-h-screen">
+                            <App />
+                        </div>
                     </ImagePreviewProvider>
                 </BrowserRouter>
             </I18nProvider>

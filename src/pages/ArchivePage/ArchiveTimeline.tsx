@@ -36,7 +36,7 @@ function ArchiveTimeline({ groups, emptyMessage }: ArchiveTimelineProps) {
                     <div className="space-y-3 sm:pl-10">
                         {group.posts.map((post) => (
                             <Link key={post.id} to={`/blog/${post.id}`} className="block">
-                                <Card className="hover:shadow-md transition-shadow duration-200 rounded-2xl">
+                                <Card className="bg-white/40 dark:bg-surface/50 backdrop-blur-sm hover:shadow-md transition-shadow duration-200 rounded-2xl">
                                     <Card.Content className="p-4">
                                         <div className="flex items-start gap-4">
                                             <span className="text-xs text-gray-400 dark:text-gray-500 whitespace-nowrap mt-0.5 font-mono">

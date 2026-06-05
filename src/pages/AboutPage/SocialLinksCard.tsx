@@ -8,7 +8,7 @@ function SocialLinksCard() {
     const { t } = useI18n();
 
     return (
-        <Card className="mb-6 rounded-2xl w-full">
+        <Card className="bg-white/40 dark:bg-surface/50 backdrop-blur-sm mb-6 rounded-2xl w-full">
             <Card.Header>
                 <Card.Title>{t('about.socialLinks')}</Card.Title>
             </Card.Header>

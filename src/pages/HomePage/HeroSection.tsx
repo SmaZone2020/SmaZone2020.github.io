@@ -7,7 +7,7 @@ function HeroSection() {
     const { t } = useI18n();
 
     return (
-        <div className="relative mb-8 h-64 sm:h-80 w-full">
+        <div className="relative mb-8 left-2 h-64 sm:h-80 w-full">
             <FadeImg
                 shimmer={false}
                 src={siteConfig.heroImage}
@@ -17,7 +17,7 @@ function HeroSection() {
                 style={{borderRadius: 0}}
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
-            <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
+            <div className="absolute pt-[30px] bottom-0 left-0 right-0 p-6 text-white">
                 <div className="flex items-center gap-4 mb-3">
                     <AdaptiveAvatar
                         src={siteConfig.avatar}

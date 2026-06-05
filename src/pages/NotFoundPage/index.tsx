@@ -13,7 +13,7 @@ export default function NotFound() {
 
   return (
     <div className="flex items-center justify-center min-h-screen p-4">
-      <Card className="max-w-md w-full">
+      <Card className="bg-white/40 dark:bg-surface/50 backdrop-blur-sm max-w-md w-full">
         <div className="text-center py-10">
           <h1 className="text-6xl font-bold mb-4">404</h1>
           <p className="text-xl mb-6">{t('notFound.description')}</p>

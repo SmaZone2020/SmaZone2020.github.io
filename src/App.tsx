@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { BottomNav } from './layout/BottomNav';
-import Navbar from './layout/Navbar';
+import Sidebar from './layout/Navbar';
 import AppRoutes from './routes';
 import { siteConfig } from './config/site';
 
@@ -10,6 +10,7 @@ export function setTitle(title: string) {
 
 const Navigation = () => {
     const [isSmallScreen, setIsSmallScreen] = useState(false);
+    const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
 
     useEffect(() => {
         const checkScreenSize = () => {
@@ -25,9 +26,18 @@ const Navigation = () => {
 
     return (
         <>
-            {!isSmallScreen && <Navbar />}
+            {!isSmallScreen && (
+                <Sidebar collapsed={sidebarCollapsed} onToggle={setSidebarCollapsed} />
+            )}
             {isSmallScreen && <BottomNav />}
-            <div className={`${isSmallScreen ? '' : 'ml-54'}`}>
+            <div
+                className={`transition-all duration-300 ${
+                    isSmallScreen ? '' : sidebarCollapsed ? 'ml-20' : 'ml-56'
+                }`}
+                style={{
+                    '--sidebar-offset': isSmallScreen ? '0px' : sidebarCollapsed ? '80px' : '224px',
+                } as React.CSSProperties}
+            >
                 <AppRoutes />
             </div>
         </>

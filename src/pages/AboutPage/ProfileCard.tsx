@@ -7,7 +7,7 @@ function ProfileCard() {
     const { t } = useI18n();
 
     return (
-        <Card className="mb-6 rounded-2xl">
+        <Card className="bg-white/40 dark:bg-surface/50 backdrop-blur-sm mb-6 rounded-2xl">
             <Card.Content className="p-4">
                 <div className="flex flex-row items-center text-left">
                     <AdaptiveAvatar

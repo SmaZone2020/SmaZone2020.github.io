@@ -29,7 +29,7 @@ function ProjectCard({ project }: ProjectCardProps) {
             rel="noopener noreferrer"
             className="block group"
         >
-            <Card className="h-full overflow-hidden rounded-2xl hover:shadow-lg hover:-translate-y-0.5 transition-all duration-200">
+            <Card className="bg-white/40 dark:bg-surface/50 backdrop-blur-sm h-full overflow-hidden rounded-2xl hover:shadow-lg hover:-translate-y-0.5 transition-all duration-200">
                 <div className="h-40 overflow-hidden">
                     <FadeImg
                         src={project.image}

@@ -17,7 +17,7 @@ function PostNavigation({ prevPost, nextPost }: PostNavigationProps) {
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
             {prevPost ? (
                 <Link to={`/blog/${prevPost.id}`} className="block">
-                    <Card className="hover:shadow-md transition-shadow duration-200 h-full rounded-2xl">
+                    <Card className="bg-white/40 dark:bg-surface/50 backdrop-blur-sm hover:shadow-md transition-shadow duration-200 h-full rounded-2xl">
                         <Card.Content>
                             <p className="text-xs text-gray-500 dark:text-gray-400 mb-1">
                                 ← {t('blog.prevPost')}
@@ -31,7 +31,7 @@ function PostNavigation({ prevPost, nextPost }: PostNavigationProps) {
             ) : <div />}
             {nextPost ? (
                 <Link to={`/blog/${nextPost.id}`} className="block">
-                    <Card className="hover:shadow-md transition-shadow duration-200 h-full rounded-2xl">
+                    <Card className="bg-white/40 dark:bg-surface/50 backdrop-blur-sm hover:shadow-md transition-shadow duration-200 h-full rounded-2xl">
                         <Card.Content className="text-right">
                             <p className="text-xs text-gray-500 dark:text-gray-400 mb-1">
                                 {t('blog.nextPost')} →

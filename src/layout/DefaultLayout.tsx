@@ -1,14 +1,13 @@
 import { Link } from "react-router-dom";
 import { siteConfig } from "../config/site";
 import { useI18n } from "../i18n";
-import { Separator } from "@heroui/react";
 
 function DefaultLayout({ children, className }: { children: React.ReactNode; className?: string }) {
     const { t } = useI18n();
     
     return(
         <div className={className}>
-            <div className={`px-4 py-2 sm:hidden fixed h-[54px] top-0 left-0 right-0 z-50 flex items-center justify-between gap-4 bg-white/50 dark:bg-black/40 backdrop-blur-sm shadow-lg ${className}`}>
+            <div className={`px-4 py-2 sm:hidden fixed h-[54px] top-0 left-0 right-0 z-50 flex items-center justify-between gap-4 bg-white/40 dark:bg-surface/50 backdrop-blur-sm shadow-lg`}>
                 <div className="flex items-center">
                     <Link className="libre text-xl font-bold flex items-center" to="/">{siteConfig.handle}</Link>
                 </div>
@@ -18,14 +17,18 @@ function DefaultLayout({ children, className }: { children: React.ReactNode; cla
                     </Link>
                 </div>
             </div>
-            <div className="sm:pb-0 mt-[58px] sm:mt-0 pb-[78px]">
+            <div className="sm:pb-0 sm:mt-0 pb-[78px]">
                 {children}
 
-                <Separator className="my-6" />
-
-                <div className="text-center text-sm text-gray-500 dark:text-gray-400 pb-4">
-                    <p>© {new Date().getFullYear()} {siteConfig.author}</p>
-                    <p className="mt-1">{t('about.builtWith')}</p>
+                <div className="mt-6 mb-4 max-w-2xl mx-auto rounded-[30px]">
+                    <div className="bg-white/40 dark:bg-surface/50 backdrop-blur-sm rounded-2xl shadow-md p-4 text-center">
+                        <p className="text-sm text-gray-600 dark:text-gray-300">
+                            © {new Date().getFullYear()} {siteConfig.author}
+                        </p>
+                        <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
+                            {t('about.builtWith')}
+                        </p>
+                    </div>
                 </div>
             </div>    
         </div>

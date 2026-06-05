@@ -76,14 +76,12 @@ export function BottomNav({ defaultActive, onItemClick }: BottomNavProps) {
   const shouldHide = currentItem?.label == null || currentItem?.showBottomNav === false;
 
   return (
-    <div className={`fixed bottom-[35px] left-[20px] right-[20px] px-1 scale-105 z-50 sm:hidden ${shouldHide ? 'hidden' : ''}`}>
+    <div className={`fixed bottom-[35px] left-[20px] right-[20px] scale-105 z-50 sm:hidden ${shouldHide ? 'hidden' : ''}`}>
 
-      <div className="relative bg-white/40 dark:bg-[#18181B]/40 backdrop-blur-sm rounded-[35px] shadow-lg">
-        
+      <div className="relative bg-white/40 dark:bg-surface/50 backdrop-blur-sm rounded-[35px] shadow-lg">
+
         <motion.div
-          className={`absolute bg-gray-200/30 backdrop-blur-lg dark:bg-[#18181B]/50 rounded-[60px] ${
-            activeIndex === 0 ? 'ml-[1px]' : activeIndex === items.length - 1 ? '-ml-[1px]' : ''
-          }`}
+          className="absolute bg-blue-500/80 rounded-[60px] scale-95 pointer-events-none"
           animate={controls}
           initial={false}
           style={{
@@ -97,17 +95,17 @@ export function BottomNav({ defaultActive, onItemClick }: BottomNavProps) {
               key={item.url}
               to={item.url}
               onClick={() => handleClick(item.url)}
-              className={`flex-1 flex flex-col items-center justify-center p-2 transition-colors ${
+              className={`flex-1 flex flex-col items-center justify-center p-3 transition-colors ${
                 activeId === item.url
-                  ? 'text-black dark:text-white'
-                  : 'text-black/50 dark:text-gray-300/80'
+                  ? 'text-white'
+                  : 'text-gray-500/80'
               }`}
             >
-              <div className={`text-2xl ${item.label ? 'scale-110' : 'scale-130'}`}>
+              <div className={`text-xl ${item.label ? 'scale-120' : 'scale-140'}`}>
                 <item.icon />
               </div>
               {(item.label)&&(
-                <span className="text-xs mt-1">
+                <span className="text-sm font-medium">
                   {t(`nav.${item.label.toLowerCase()}`)}
                 </span>
               )}

@@ -43,7 +43,7 @@ function Home() {
                     </div>
                 </div>
                 <div className='hidden sm:block'>
-                    <Card className='mb-4'>
+                    <Card className='bg-white/40 dark:bg-surface/50 backdrop-blur-sm mb-4'>
                         <Calendar aria-label="Event date" isReadOnly>
                             <Calendar.Header>
                                 <Calendar.Heading />

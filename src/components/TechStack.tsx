@@ -7,7 +7,7 @@ function TechStack() {
     const { t } = useI18n();
     
     return (
-        <Card className='mb-4'>
+        <Card className='bg-white/40 dark:bg-surface/50 backdrop-blur-sm mb-4'>
             <CardHeader>
                 <div className='flex items-center gap-2'>
                     <Code className='w-5 h-5'/>
