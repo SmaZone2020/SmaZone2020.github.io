@@ -24,7 +24,7 @@ function Sidebar({ collapsed, onToggle }: SidebarProps) {
         transition-all duration-300 ease-in-out
         ${collapsed ? 'w-18' : 'w-54'}`}
       >
-        <div className="h-full bg-white/40 dark:bg-surface/60 backdrop-blur-sm rounded-[32px] shadow-lg p-4">
+        <div className="h-full bg-white/40 dark:bg-surface/60 backdrop-blur-sm rounded-[32px] p-4 py-6">
           <div className="flex flex-col h-full">
             <div
               className={`flex items-center mb-8 transition-all duration-300 ${
