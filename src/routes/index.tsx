@@ -9,6 +9,7 @@ import Portfolio from '../pages/PortfolioPage';
 import Archive from '../pages/ArchivePage';
 import About from '../pages/AboutPage';
 import NotFound from '../pages/NotFoundPage';
+import { Card } from '@heroui/react';
 
 function AppRoutes() {
     const location = useLocation();
@@ -37,10 +38,12 @@ function PageTransition({ children }: { children: React.ReactNode }) {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
-            className="overflow-y-auto"
+            className="overflow-hidden"
             style={{ touchAction: 'pan-y' }}
         >
-            {children}
+            <Card className="my-auto bg-white/60 dark:bg-surface/60 backdrop-blur-sm p-0 m-0 sm:m-6 rounded-none sm:rounded-[30px] max-h-[calc(100vh-50px)] overflow-y-auto [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
+                {children}
+            </Card>
         </motion.div>
     );
 }

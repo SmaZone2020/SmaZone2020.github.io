@@ -17,7 +17,7 @@ function DefaultLayout({ children, className }: { children: React.ReactNode; cla
                     </Link>
                 </div>
             </div>
-            <div className="sm:pb-0 sm:mt-0 pb-[78px]">
+            <div className="sm:pb-0 sm:mt-0 mt-[58px] pb-[78px]">
                 {children}
 
                 <div className="mt-6 mb-4 max-w-2xl mx-auto rounded-[30px]">

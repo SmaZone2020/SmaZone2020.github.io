@@ -7,7 +7,7 @@ function HeroSection() {
     const { t } = useI18n();
 
     return (
-        <div className="relative mb-8 left-2 h-64 sm:h-80 w-full">
+        <div className="relative mb-8 -left-2 h-64 sm:h-80 w-[110%]">
             <FadeImg
                 shimmer={false}
                 src={siteConfig.heroImage}
