@@ -41,7 +41,7 @@ function PageTransition({ children }: { children: React.ReactNode }) {
             className="overflow-hidden"
             style={{ touchAction: 'pan-y' }}
         >
-            <Card className="my-auto bg-white/60 dark:bg-surface/60 backdrop-blur-sm p-0 m-0 sm:m-6 rounded-none sm:rounded-[30px] max-h-[calc(100vh-50px)] overflow-y-auto [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
+            <Card className="bg-white/60 dark:bg-surface/60 p-0 m-0 sm:mx-6 rounded-none sm:rounded-[30px] max-h-[calc(100vh-32px)] overflow-y-auto [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
                 {children}
             </Card>
         </motion.div>

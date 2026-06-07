@@ -20,8 +20,8 @@ function DefaultLayout({ children, className }: { children: React.ReactNode; cla
             <div className="sm:pb-0 sm:mt-0 mt-[58px] pb-[78px]">
                 {children}
 
-                <div className="mt-6 mb-4 max-w-2xl mx-auto rounded-[30px]">
-                    <div className="bg-white/40 dark:bg-surface/50 backdrop-blur-sm rounded-2xl shadow-md p-4 text-center">
+                <div className="mt-6 mb-4 max-w-[260px] sm:max-w-2xl mx-auto ">
+                    <div className="bg-white/40 dark:bg-surface/50 backdrop-blur-sm rounded-[30px] shadow-md p-4 text-center">
                         <p className="text-sm text-gray-600 dark:text-gray-300">
                             © {new Date().getFullYear()} {siteConfig.author}
                         </p>

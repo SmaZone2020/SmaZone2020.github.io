@@ -24,7 +24,7 @@ function Sidebar({ collapsed, onToggle }: SidebarProps) {
         transition-all duration-300 ease-in-out
         ${collapsed ? 'w-18' : 'w-54'}`}
       >
-        <div className="h-full bg-white/40 dark:bg-surface/60 backdrop-blur-sm rounded-[32px] p-4 py-6">
+        <div className="h-[60%] bg-white/40 dark:bg-surface/60 backdrop-blur-sm rounded-[32px] p-4 py-6">
           <div className="flex flex-col h-full">
             <div
               className={`flex items-center mb-8 transition-all duration-300 ${
@@ -73,7 +73,7 @@ function Sidebar({ collapsed, onToggle }: SidebarProps) {
                       isIconOnly={collapsed}
                       variant={isActive ? 'primary' : 'secondary'}
                       size="lg"
-                      className={`flex-1 justify-start px-3 mr-2 transition-all duration-300 ${isActive ? 'rounded-[15px]' : 'opacity-80'}`}
+                      className={`flex-1 justify-start px-3 mr-2 transition-all duration-300 ${isActive ? 'rounded-[15px]' : 'opacity-50 hover:opacity-100 hover:rounded-[15px]'}`}
                       onPress={() => navigate(item.url)}
                     >
                       <item.icon className="w-5 h-5 shrink-0" />
