@@ -1,5 +1,4 @@
-import { Card } from '@heroui/react';
-import { Link } from 'react-router-dom';
+import { Button, Card, Tooltip } from '@heroui/react';
 import { siteConfig } from '../../config/site';
 import { useI18n } from '../../i18n';
 import { Comments, Envelope, Hand, LogoGithub, TvRetro } from '@gravity-ui/icons';
@@ -15,52 +14,74 @@ function SocialLinksCard() {
             <Card.Content>
                 <div className="flex items-center gap-4">
                     {siteConfig.social.github && (
-                        <Link
-                            to={siteConfig.social.github}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="p-3 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
-                        >
-                            <LogoGithub className="w-5 h-5" />
-                        </Link>
+                        <Tooltip delay={0}>
+                            <Button
+                                isIconOnly
+                                variant="tertiary"
+                                onPress={() => window.open(siteConfig.social.github, '_blank')}
+                            >
+                                <LogoGithub className="w-5 h-5" />
+                            </Button>
+                            <Tooltip.Content>
+                                <p>GitHub</p>
+                            </Tooltip.Content>
+                        </Tooltip>
                     )}
                     {siteConfig.social.bili && (
-                        <Link
-                            to={siteConfig.social.bili}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="p-3 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
-                        >
-                            <TvRetro className="w-5 h-5" />
-                        </Link>
+                        <Tooltip delay={0}>
+                            <Button
+                                isIconOnly
+                                variant="tertiary"
+                                onPress={() => window.open(siteConfig.social.bili, '_blank')}
+                            >
+                                <TvRetro className="w-5 h-5" />
+                            </Button>
+                            <Tooltip.Content>
+                                <p>Bilibili</p>
+                            </Tooltip.Content>
+                        </Tooltip>
                     )}
                     {siteConfig.social.email && (
-                        <Link
-                            to={siteConfig.social.email}
-                            className="p-3 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
-                        >
-                            <Envelope className="w-5 h-5" />
-                        </Link>
+                        <Tooltip delay={0}>
+                            <Button
+                                isIconOnly
+                                variant="tertiary"
+                                onPress={() => window.location.href = siteConfig.social.email}
+                            >
+                                <Envelope className="w-5 h-5" />
+                            </Button>
+                            <Tooltip.Content>
+                                <p>Email</p>
+                            </Tooltip.Content>
+                        </Tooltip>
                     )}
                     {siteConfig.social.bonjour && (
-                        <Link
-                            to={siteConfig.social.bonjour}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="p-3 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
-                        >
-                            <Hand className="w-5 h-5 transform rotate-330" />
-                        </Link>
+                        <Tooltip delay={0}>
+                            <Button
+                                isIconOnly
+                                variant="tertiary"
+                                onPress={() => window.open(siteConfig.social.bonjour, '_blank')}
+                            >
+                                <Hand className="w-5 h-5 transform rotate-330" />
+                            </Button>
+                            <Tooltip.Content>
+                                <p>Bonjour</p>
+                            </Tooltip.Content>
+                        </Tooltip>
                     )}
                     {siteConfig.social.wecom && (
-                        <Link
-                            to={siteConfig.social.wecom}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="p-3 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
-                        >
-                            <Comments className="w-5 h-5" />
-                        </Link>
+                        <Tooltip delay={0}>
+                            <Button
+                                isIconOnly
+                                variant="tertiary"
+                                onPress={() => window.open(siteConfig.social.wecom, '_blank')}
+                            >
+                                <Comments className="w-5 h-5" />
+                            </Button>
+                            <Tooltip.Content>
+                                <p>WeChat</p>
+                            </Tooltip.Content>
+                        </Tooltip>
                     )}
                 </div>
             </Card.Content>

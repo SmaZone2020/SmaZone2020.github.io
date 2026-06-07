@@ -16,7 +16,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
             <I18nProvider>
                 <BrowserRouter>
                     <ImagePreviewProvider>
-                        <div className="bg-[url('/light-bg.png')] dark:bg-[url('/dark-bg.png')] bg-cover bg-center bg-fixed min-h-screen">
+                        <div className="bg-[url('https://picui.ogmua.cn/s1/2026/06/07/6a25360ed1469.webp')] dark:bg-[url('https://picui.ogmua.cn/s1/2026/06/07/6a25360d55d06.webp')] bg-cover bg-center bg-fixed min-h-screen">
                             <App />
                         </div>
                     </ImagePreviewProvider>

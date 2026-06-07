@@ -42,9 +42,9 @@ function Sidebar({ collapsed, onToggle }: SidebarProps) {
                   >
                     <Link
                       to="/"
-                      className="text-2xl font-bold libre whitespace-nowrap block"
+                      className="text-2xl font-bold libre whitespace-nowrap block text-light"
                     >
-                      {siteConfig.name}
+                      {siteConfig.author}
                     </Link>
                   </motion.div>
                 )}
