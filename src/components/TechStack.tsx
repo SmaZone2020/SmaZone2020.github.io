@@ -17,7 +17,6 @@ function TechStack() {
             {siteConfig.tech.map((tech) => (
                 <Meter aria-label={tech.name} color={tech.color} className="w-full" value={tech.proficiency}>
                     <Label>{tech.name}</Label>
-                    <Meter.Output />
                     <Meter.Track>
                         <Meter.Fill />
                     </Meter.Track>

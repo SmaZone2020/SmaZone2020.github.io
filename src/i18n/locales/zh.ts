@@ -23,7 +23,7 @@ export default {
         button: '返回首页'
     },
     site: {
-        description: '你好, 我是Maxwell·Ma, 生于2006年, base西安。 Xi\'an Yuxi NetTech 的创始人, 软件工程师, 对情感 LLM 较感兴趣',
+        description: '你好, 我是Maxwell·Ma, 生于2006年, base西安。 Xi\'an Yuxi NetTech 的创始人, 软件工程师, 对拟人LLM、网络安全感兴趣',
     },
     blog: {
         title: '博客',

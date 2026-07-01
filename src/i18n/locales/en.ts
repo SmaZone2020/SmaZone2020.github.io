@@ -23,7 +23,7 @@ export default {
         button: 'Go to Home'
     },
     site: {
-        description: 'Hi, I\'m Maxwell Ma, born in 2006, based in Xi\'an, INFP. Founder of Xi\'an Yuxi NetTech. Software engineer with a passion for emotional LLM.',
+        description: 'Hi, I\'m Maxwell Ma, born in 2006, based in Xi\'an, INFP. Founder of Xi\'an Yuxi NetTech. Software engineer with a passion for anthropomorphic LLM and cybersecurity.',
     },
     blog: {
         title: 'Blog',
