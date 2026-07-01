@@ -113,14 +113,13 @@ function Sidebar({ collapsed, onToggle }: SidebarProps) {
                 <Button
                   aria-label="Language"
                   variant="secondary"
-                  size="sm"
-                  className={`${collapsed ? '' : 'justify-start'} w-full opacity-70`}
+                  className={`${collapsed ? '' : 'justify-start'} opacity-70`}
                   isIconOnly={collapsed}
                 >
-                  <Globe className="w-4 h-4 shrink-0" />
+                  <Globe className="shrink-0" />
                   <span
                     className={`overflow-hidden whitespace-nowrap transition-all duration-300 ${
-                      collapsed ? 'w-0 opacity-0' : 'max-w-20 opacity-100 ml-1'
+                      collapsed ? 'hidden opacity-0' : 'max-w-20 opacity-100 ml-1'
                     }`}
                   >
                     {t('common.language')}

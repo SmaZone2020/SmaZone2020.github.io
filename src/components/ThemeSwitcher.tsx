@@ -10,16 +10,15 @@ export function ThemeSwitcher({ collapsed }: { collapsed: boolean }) {
 
   return (
     <Button
-      size="sm"
       variant="secondary"
       onPress={toggle}
-      className={`${collapsed ? '' : 'justify-start'} w-full opacity-70`}
+      className={`${collapsed ? '' : 'justify-start'} opacity-70`}
       isIconOnly={collapsed}
     >
-      {isDark ? <Moon className="w-4 h-4 shrink-0" /> : <Sun className="w-4 h-4 shrink-0" />}
+      {isDark ? <Moon className="shrink-0" /> : <Sun className="shrink-0" />}
       <span
         className={`overflow-hidden whitespace-nowrap transition-all duration-300 ${
-          collapsed ? 'w-0 opacity-0' : 'max-w-20 opacity-100 ml-1'
+          collapsed ? 'hidden opacity-0' : 'max-w-20 opacity-100 ml-1'
         }`}
       >
         {isDark ? 'Dark' : 'Light'}
