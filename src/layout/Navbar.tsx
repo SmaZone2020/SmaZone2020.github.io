@@ -113,6 +113,7 @@ function Sidebar({ collapsed, onToggle }: SidebarProps) {
                 <Button
                   aria-label="Language"
                   variant="secondary"
+                  size="lg"
                   className={`${collapsed ? '' : 'justify-start'} opacity-70`}
                   isIconOnly={collapsed}
                 >

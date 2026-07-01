@@ -12,6 +12,7 @@ export function ThemeSwitcher({ collapsed }: { collapsed: boolean }) {
     <Button
       variant="secondary"
       onPress={toggle}
+      size="lg"
       className={`${collapsed ? '' : 'justify-start'} opacity-70`}
       isIconOnly={collapsed}
     >
