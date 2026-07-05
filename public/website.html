@@ -1,0 +1,1265 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>智能管家 — 旧手机变身家庭守护者</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700;900&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --primary: #3DA085;
+  --primary-dark: #2A7A63;
+  --primary-light: #6DC4AD;
+  --primary-glow: rgba(61,160,133,0.15);
+  --bg: #F5F2ED;
+  --bg-warm: #EDE9E3;
+  --text: #2D3436;
+  --text-light: #636E72;
+  --text-muted: #A0A8AB;
+  --white: #FFFFFF;
+  --serif: 'Noto Serif SC', serif;
+  --sans: 'Noto Sans SC', sans-serif;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--sans);
+  background: var(--bg);
+  color: var(--text);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ═══ NAVIGATION ═══ */
+.nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  padding: 1.2rem 3rem;
+  display: flex; align-items: center; justify-content: space-between;
+  transition: all 0.4s cubic-bezier(0.4,0,0.2,1);
+}
+.nav.scrolled {
+  background: rgba(245,242,237,0.85);
+  backdrop-filter: blur(20px) saturate(1.4);
+  box-shadow: 0 1px 0 rgba(0,0,0,0.06);
+  padding: 0.8rem 3rem;
+}
+.nav-logo {
+  font-family: var(--serif);
+  font-size: 1.3rem; font-weight: 900;
+  color: var(--primary-dark);
+  display: flex; align-items: center; gap: 0.5rem;
+}
+.nav-logo .dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: var(--primary);
+  animation: pulse-dot 2s infinite;
+}
+@keyframes pulse-dot {
+  0%,100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.4); opacity: 0.6; }
+}
+.nav-links { display: flex; gap: 2rem; list-style: none; }
+.nav-links a {
+  text-decoration: none; color: var(--text-light);
+  font-size: 0.85rem; font-weight: 500;
+  transition: color 0.3s;
+  position: relative;
+}
+.nav-links a::after {
+  content: ''; position: absolute;
+  bottom: -4px; left: 0; width: 0; height: 2px;
+  background: var(--primary);
+  transition: width 0.3s cubic-bezier(0.4,0,0.2,1);
+}
+.nav-links a:hover { color: var(--primary-dark); }
+.nav-links a:hover::after { width: 100%; }
+
+/* ═══ HERO ═══ */
+.hero {
+  min-height: 100vh;
+  display: flex; align-items: center;
+  padding: 0 6vw;
+  position: relative;
+  overflow: hidden;
+}
+.hero-bg-circle {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.07;
+  background: var(--primary);
+  filter: blur(80px);
+}
+.hero-bg-circle:nth-child(1) { width: 600px; height: 600px; top: -200px; right: -100px; }
+.hero-bg-circle:nth-child(2) { width: 400px; height: 400px; bottom: -100px; left: -50px; opacity: 0.05; }
+.hero-bg-circle:nth-child(3) { width: 300px; height: 300px; top: 40%; left: 50%; opacity: 0.04; }
+
+.hero-content {
+  max-width: 680px;
+  position: relative; z-index: 2;
+}
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  background: var(--primary-glow);
+  border: 1px solid rgba(61,160,133,0.2);
+  padding: 0.4rem 1rem;
+  border-radius: 100px;
+  font-size: 0.8rem; color: var(--primary-dark);
+  font-weight: 500;
+  margin-bottom: 2rem;
+  opacity: 0; transform: translateY(20px);
+  animation: fadeUp 0.8s 0.3s forwards;
+}
+.hero-badge .live { width: 6px; height: 6px; border-radius: 50%; background: var(--primary); animation: pulse-dot 1.5s infinite; }
+
+.hero h1 {
+  font-family: var(--serif);
+  font-size: clamp(2.8rem, 6vw, 4.5rem);
+  font-weight: 900;
+  line-height: 1.2;
+  color: var(--primary-dark);
+  margin-bottom: 1.5rem;
+  opacity: 0; transform: translateY(30px);
+  animation: fadeUp 0.8s 0.5s forwards;
+}
+.hero h1 .accent {
+  color: var(--primary);
+  position: relative;
+  display: inline-block;
+}
+.hero h1 .accent::after {
+  content: '';
+  position: absolute; bottom: 4px; left: 0; right: 0;
+  height: 12px;
+  background: rgba(61,160,133,0.15);
+  z-index: -1;
+  border-radius: 2px;
+}
+.hero-desc {
+  font-size: 1.15rem;
+  line-height: 1.9;
+  color: var(--text-light);
+  margin-bottom: 2.5rem;
+  max-width: 540px;
+  opacity: 0; transform: translateY(30px);
+  animation: fadeUp 0.8s 0.7s forwards;
+}
+.hero-stats {
+  display: flex; gap: 3rem;
+  opacity: 0; transform: translateY(30px);
+  animation: fadeUp 0.8s 0.9s forwards;
+}
+.hero-stat-num {
+  font-family: var(--serif);
+  font-size: 2.2rem; font-weight: 900;
+  color: var(--primary-dark);
+}
+.hero-stat-label {
+  font-size: 0.8rem; color: var(--text-muted);
+  margin-top: 0.2rem;
+}
+
+/* Hero right — floating cards */
+.hero-visual {
+  position: absolute;
+  right: 4vw; top: 50%;
+  transform: translateY(-50%);
+  width: 420px; height: 500px;
+  z-index: 1;
+}
+.float-card {
+  position: absolute;
+  background: var(--white);
+  border-radius: 16px;
+  box-shadow: 0 8px 40px rgba(0,0,0,0.06), 0 1px 3px rgba(0,0,0,0.04);
+  padding: 1.2rem 1.5rem;
+  opacity: 0;
+  animation: floatIn 0.8s forwards;
+  transition: transform 0.4s cubic-bezier(0.4,0,0.2,1);
+}
+.float-card:hover { transform: translateY(-4px) scale(1.02); }
+
+.fc-chat { top: 20px; left: 0; animation-delay: 1s; width: 280px; }
+.fc-chat .fc-header { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.8rem; }
+.fc-chat .fc-icon { width: 32px; height: 32px; border-radius: 10px; background: linear-gradient(135deg, var(--primary), var(--primary-light)); display: flex; align-items: center; justify-content: center; color: white; font-size: 0.9rem; }
+.fc-chat .fc-title { font-size: 0.8rem; font-weight: 600; }
+.fc-chat .fc-bubble {
+  background: var(--bg); border-radius: 12px; padding: 0.7rem 1rem;
+  font-size: 0.78rem; color: var(--text-light); line-height: 1.6;
+  position: relative;
+}
+.fc-chat .typing { display: flex; gap: 3px; margin-top: 0.6rem; }
+.fc-chat .typing span {
+  width: 5px; height: 5px; border-radius: 50%;
+  background: var(--primary);
+  animation: typingBounce 1.2s infinite;
+}
+.fc-chat .typing span:nth-child(2) { animation-delay: 0.15s; }
+.fc-chat .typing span:nth-child(3) { animation-delay: 0.3s; }
+
+.fc-sensor { top: 200px; right: 0; animation-delay: 1.2s; width: 200px; }
+.fc-sensor .fc-val { font-family: var(--serif); font-size: 2rem; font-weight: 700; color: var(--primary-dark); }
+.fc-sensor .fc-unit { font-size: 0.8rem; color: var(--text-muted); }
+.fc-sensor .fc-bar { height: 4px; background: var(--bg-warm); border-radius: 2px; margin-top: 0.8rem; overflow: hidden; }
+.fc-sensor .fc-bar-fill { height: 100%; width: 0; background: var(--primary); border-radius: 2px; animation: barGrow 1.5s 1.8s forwards; }
+
+.fc-emotion { bottom: 30px; left: 40px; animation-delay: 1.4s; width: 240px; }
+.fc-emotion .emojis { display: flex; gap: 0.5rem; margin-bottom: 0.5rem; font-size: 1.5rem; }
+.fc-emotion .fc-mini-chart { display: flex; align-items: flex-end; gap: 3px; height: 40px; }
+.fc-emotion .fc-mini-bar {
+  width: 12px; border-radius: 3px;
+  background: var(--primary);
+  opacity: 0.3;
+  animation: miniBarGrow 0.6s forwards;
+}
+.fc-emotion .fc-mini-bar:nth-child(1) { height: 40%; animation-delay: 1.6s; }
+.fc-emotion .fc-mini-bar:nth-child(2) { height: 70%; animation-delay: 1.7s; opacity: 0.5; }
+.fc-emotion .fc-mini-bar:nth-child(3) { height: 55%; animation-delay: 1.8s; opacity: 0.4; }
+.fc-emotion .fc-mini-bar:nth-child(4) { height: 85%; animation-delay: 1.9s; opacity: 0.7; }
+.fc-emotion .fc-mini-bar:nth-child(5) { height: 60%; animation-delay: 2.0s; opacity: 0.5; }
+.fc-emotion .fc-mini-bar:nth-child(6) { height: 90%; animation-delay: 2.1s; opacity: 0.8; }
+.fc-emotion .fc-mini-bar:nth-child(7) { height: 75%; animation-delay: 2.2s; opacity: 0.6; }
+
+@keyframes typingBounce {
+  0%,60%,100% { transform: translateY(0); }
+  30% { transform: translateY(-5px); }
+}
+@keyframes barGrow { to { width: 72%; } }
+@keyframes miniBarGrow { to { opacity: var(--o, 0.5); } }
+@keyframes floatIn {
+  from { opacity: 0; transform: translateY(30px) scale(0.95); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+@keyframes fadeUp {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ═══ SECTION COMMON ═══ */
+section { padding: 8rem 6vw; }
+.section-label {
+  font-size: 0.75rem; font-weight: 700;
+  letter-spacing: 3px; text-transform: uppercase;
+  color: var(--primary);
+  margin-bottom: 1rem;
+}
+.section-title {
+  font-family: var(--serif);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 900;
+  color: var(--primary-dark);
+  line-height: 1.3;
+  margin-bottom: 1rem;
+}
+.section-desc {
+  font-size: 1.05rem;
+  color: var(--text-light);
+  line-height: 1.8;
+  max-width: 560px;
+}
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ═══ SELLING POINTS ═══ */
+.selling {
+  background: var(--white);
+  border-radius: 32px;
+  margin: 0 3vw;
+  padding: 5rem 4rem;
+}
+.selling-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.5rem;
+  margin-top: 3rem;
+}
+.sell-card {
+  padding: 2rem;
+  border-radius: 20px;
+  border: 1px solid rgba(0,0,0,0.04);
+  background: var(--bg);
+  transition: all 0.4s cubic-bezier(0.4,0,0.2,1);
+  position: relative;
+  overflow: hidden;
+}
+.sell-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; height: 3px;
+  background: linear-gradient(90deg, var(--primary), var(--primary-light));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s cubic-bezier(0.4,0,0.2,1);
+}
+.sell-card:hover { transform: translateY(-6px); box-shadow: 0 20px 60px rgba(61,160,133,0.1); }
+.sell-card:hover::before { transform: scaleX(1); }
+.sell-icon {
+  width: 52px; height: 52px;
+  border-radius: 14px;
+  background: var(--primary-glow);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.5rem;
+  margin-bottom: 1.2rem;
+}
+.sell-icon img, .s-icon img, .dk-icon img, .an-icon img { width: 1em; height: 1em; }
+.chat-avatar img { width: 1em; height: 1em; }
+.voice-flow .step img { width: 0.85em; height: 0.85em; vertical-align: -0.1em; }
+.sell-card h3 {
+  font-family: var(--serif);
+  font-size: 1.15rem; font-weight: 700;
+  color: var(--primary-dark);
+  margin-bottom: 0.6rem;
+}
+.sell-card p {
+  font-size: 0.88rem;
+  color: var(--text-light);
+  line-height: 1.7;
+}
+
+/* ═══ FEATURES ═══ */
+.feature-block {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+  padding: 5rem 0;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+.feature-block:last-child { border-bottom: none; }
+.feature-block.reverse { direction: rtl; }
+.feature-block.reverse > * { direction: ltr; }
+.feature-num {
+  font-family: var(--serif);
+  font-size: 5rem; font-weight: 900;
+  color: var(--primary);
+  opacity: 0.12;
+  line-height: 1;
+  margin-bottom: 1rem;
+}
+.feature-block h3 {
+  font-family: var(--serif);
+  font-size: 1.8rem; font-weight: 700;
+  color: var(--primary-dark);
+  margin-bottom: 1rem;
+}
+.feature-block p {
+  font-size: 0.95rem;
+  color: var(--text-light);
+  line-height: 1.9;
+  margin-bottom: 1.5rem;
+}
+.feature-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.feature-tag {
+  padding: 0.3rem 0.8rem;
+  background: var(--primary-glow);
+  border-radius: 100px;
+  font-size: 0.75rem;
+  color: var(--primary-dark);
+  font-weight: 500;
+}
+
+/* Feature Visual Demos */
+.feature-visual {
+  background: var(--white);
+  border-radius: 24px;
+  padding: 2rem;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.04);
+  min-height: 320px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Voice animation */
+.voice-demo {
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  gap: 1.5rem; height: 100%;
+}
+.voice-waves {
+  display: flex; align-items: center; gap: 3px;
+  height: 60px;
+}
+.voice-wave {
+  width: 4px; border-radius: 4px;
+  background: var(--primary);
+  animation: waveAnim 1.2s infinite ease-in-out;
+}
+.voice-wave:nth-child(1) { height: 20px; animation-delay: 0s; }
+.voice-wave:nth-child(2) { height: 35px; animation-delay: 0.1s; }
+.voice-wave:nth-child(3) { height: 50px; animation-delay: 0.2s; }
+.voice-wave:nth-child(4) { height: 40px; animation-delay: 0.3s; }
+.voice-wave:nth-child(5) { height: 55px; animation-delay: 0.15s; }
+.voice-wave:nth-child(6) { height: 30px; animation-delay: 0.25s; }
+.voice-wave:nth-child(7) { height: 45px; animation-delay: 0.35s; }
+.voice-wave:nth-child(8) { height: 25px; animation-delay: 0.05s; }
+.voice-wave:nth-child(9) { height: 38px; animation-delay: 0.2s; }
+@keyframes waveAnim {
+  0%,100% { transform: scaleY(0.4); opacity: 0.4; }
+  50% { transform: scaleY(1); opacity: 1; }
+}
+.voice-flow {
+  display: flex; align-items: center; gap: 0.8rem;
+  font-size: 0.78rem; color: var(--text-muted);
+}
+.voice-flow .step {
+  padding: 0.35rem 0.7rem;
+  background: var(--bg);
+  border-radius: 8px;
+  font-weight: 500;
+  transition: all 0.3s;
+}
+.voice-flow .step.active { background: var(--primary); color: white; }
+.voice-flow .arrow { color: var(--primary); }
+
+/* Chat demo */
+.chat-demo { padding: 1rem; }
+.chat-msg {
+  display: flex; gap: 0.6rem;
+  margin-bottom: 1rem;
+  animation: chatIn 0.4s ease both;
+}
+.chat-msg:nth-child(2) { animation-delay: 0.8s; }
+.chat-msg:nth-child(3) { animation-delay: 1.6s; }
+.chat-avatar {
+  width: 30px; height: 30px; border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.85rem; flex-shrink: 0;
+}
+.chat-avatar.user { background: var(--bg-warm); }
+.chat-avatar.ai { background: linear-gradient(135deg, var(--primary), var(--primary-light)); color: white; font-size: 0.7rem; }
+.chat-text {
+  padding: 0.6rem 1rem;
+  border-radius: 12px;
+  font-size: 0.82rem; line-height: 1.6;
+  max-width: 80%;
+}
+.chat-msg.from-user .chat-text { background: var(--primary); color: white; margin-left: auto; border-bottom-right-radius: 4px; }
+.chat-msg.from-ai .chat-text { background: var(--bg); color: var(--text); border-bottom-left-radius: 4px; }
+.chat-cot {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  padding: 0.4rem 0.8rem;
+  border-left: 2px solid var(--primary-light);
+  margin: 0.4rem 0 0.4rem 2.4rem;
+  opacity: 0.7;
+}
+@keyframes chatIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Sensor grid demo */
+.sensor-demo {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;
+  padding: 0.5rem;
+}
+.sensor-tile {
+  background: var(--bg);
+  border-radius: 16px;
+  padding: 1.2rem;
+  text-align: center;
+}
+.sensor-tile .s-icon { font-size: 1.8rem; margin-bottom: 0.4rem; }
+.sensor-tile .s-val {
+  font-family: var(--serif);
+  font-size: 1.6rem; font-weight: 700;
+  color: var(--primary-dark);
+}
+.sensor-tile .s-label { font-size: 0.72rem; color: var(--text-muted); margin-top: 0.2rem; }
+.sensor-tile .s-spark {
+  display: flex; align-items: flex-end; justify-content: center;
+  gap: 2px; height: 24px; margin-top: 0.6rem;
+}
+.sensor-tile .s-spark span {
+  width: 3px; border-radius: 2px;
+  background: var(--primary); opacity: 0.5;
+}
+
+/* Emotion nebula */
+.nebula-wrap {
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  height: 100%;
+}
+#nebula-canvas {
+  border-radius: 16px;
+  width: 100%; height: 260px;
+}
+.nebula-legend {
+  display: flex; gap: 1.2rem; margin-top: 1rem;
+}
+.nebula-legend span {
+  display: flex; align-items: center; gap: 0.4rem;
+  font-size: 0.75rem; color: var(--text-muted);
+}
+.nebula-legend .ndot {
+  width: 8px; height: 8px; border-radius: 50%;
+}
+
+/* Family demo */
+.family-demo {
+  display: flex; flex-direction: column; gap: 0.8rem;
+}
+.family-row {
+  display: flex; align-items: center; gap: 1rem;
+  padding: 0.8rem 1rem;
+  background: var(--bg);
+  border-radius: 14px;
+  transition: all 0.3s;
+}
+.family-row:hover { background: var(--primary-glow); }
+.family-emoji { font-size: 1.8rem; }
+.family-info { flex: 1; }
+.family-info .name { font-weight: 600; font-size: 0.9rem; }
+.family-info .role { font-size: 0.72rem; color: var(--text-muted); }
+.family-status {
+  padding: 0.2rem 0.6rem;
+  border-radius: 100px;
+  font-size: 0.7rem; font-weight: 500;
+}
+.family-status.home { background: rgba(61,160,133,0.15); color: var(--primary-dark); }
+.family-status.away { background: rgba(0,0,0,0.05); color: var(--text-muted); }
+
+/* Dashboard demo */
+.dash-demo {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.8rem;
+}
+.dash-kpi {
+  background: var(--bg);
+  border-radius: 12px;
+  padding: 1rem;
+  text-align: center;
+}
+.dash-kpi .dk-icon { font-size: 1.3rem; }
+.dash-kpi .dk-val {
+  font-family: var(--serif);
+  font-size: 1.4rem; font-weight: 700;
+  color: var(--primary-dark);
+  margin: 0.3rem 0 0.1rem;
+}
+.dash-kpi .dk-label { font-size: 0.68rem; color: var(--text-muted); }
+.dash-chart {
+  grid-column: 1 / -1;
+  background: var(--bg);
+  border-radius: 12px;
+  padding: 1rem;
+  height: 100px;
+  position: relative;
+  overflow: hidden;
+}
+.dash-chart svg { width: 100%; height: 100%; }
+
+/* ═══ TECH STACK ═══ */
+.tech-section { background: var(--white); border-radius: 32px; margin: 0 3vw; padding: 5rem 4rem; }
+.tech-grid {
+  display: flex; flex-wrap: wrap; gap: 1rem;
+  margin-top: 2.5rem;
+  justify-content: center;
+}
+.tech-pill {
+  display: flex; align-items: center; gap: 0.6rem;
+  padding: 0.7rem 1.4rem;
+  background: var(--bg);
+  border-radius: 100px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text);
+  transition: all 0.3s;
+  border: 1px solid transparent;
+}
+.tech-pill:hover {
+  border-color: var(--primary);
+  background: var(--primary-glow);
+  color: var(--primary-dark);
+  transform: translateY(-2px);
+}
+.tech-pill .tp-dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: var(--primary);
+  opacity: 0.5;
+}
+
+/* ═══ ARCHITECTURE ═══ */
+.arch-visual {
+  margin-top: 3rem;
+  background: var(--bg);
+  border-radius: 24px;
+  padding: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+.arch-node {
+  text-align: center;
+  padding: 1.5rem 2rem;
+  background: var(--white);
+  border-radius: 16px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+  min-width: 160px;
+  transition: all 0.3s;
+}
+.arch-node:hover { transform: translateY(-4px); box-shadow: 0 8px 30px rgba(61,160,133,0.12); }
+.arch-node .an-icon { font-size: 2rem; margin-bottom: 0.5rem; }
+.arch-node .an-title { font-weight: 700; font-size: 0.9rem; color: var(--primary-dark); }
+.arch-node .an-sub { font-size: 0.72rem; color: var(--text-muted); margin-top: 0.2rem; }
+.arch-arrow {
+  font-size: 1.5rem; color: var(--primary); opacity: 0.4;
+}
+
+/* ═══ FOOTER ═══ */
+.footer {
+  padding: 4rem 6vw 2rem;
+  text-align: center;
+}
+.footer-logo {
+  font-family: var(--serif);
+  font-size: 1.5rem; font-weight: 900;
+  color: var(--primary-dark);
+  margin-bottom: 1rem;
+}
+.footer-tagline {
+  font-size: 0.95rem;
+  color: var(--text-light);
+  margin-bottom: 2rem;
+}
+.footer-links {
+  display: flex; justify-content: center; gap: 2rem;
+  margin-bottom: 2rem;
+}
+.footer-links a {
+  font-size: 0.82rem; color: var(--text-muted);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+.footer-links a:hover { color: var(--primary); }
+.footer-copy {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  padding-top: 2rem;
+  border-top: 1px solid rgba(0,0,0,0.06);
+}
+
+/* ═══ SCROLL PROGRESS ═══ */
+.scroll-progress {
+  position: fixed; top: 0; left: 0; height: 3px;
+  background: linear-gradient(90deg, var(--primary), var(--primary-light));
+  z-index: 200;
+  width: 0;
+  transition: width 0.1s;
+}
+
+/* ═══ RESPONSIVE ═══ */
+@media (max-width: 900px) {
+  .hero { flex-direction: column; padding-top: 120px; min-height: auto; }
+  .hero-visual { position: relative; right: 0; top: 0; transform: none; width: 100%; height: 350px; margin-top: 3rem; }
+  .feature-block, .feature-block.reverse { grid-template-columns: 1fr; direction: ltr; }
+  .selling-grid { grid-template-columns: 1fr; }
+  .nav-links { display: none; }
+  .selling, .tech-section { margin: 0 1rem; padding: 3rem 1.5rem; }
+  section { padding: 4rem 1.5rem; }
+  .dash-demo { grid-template-columns: repeat(2, 1fr); }
+}
+</style>
+</head>
+<body>
+
+<!-- Scroll Progress -->
+<div class="scroll-progress" id="scrollProgress"></div>
+
+<!-- Navigation -->
+<nav class="nav" id="nav">
+  <div class="nav-logo"><span class="dot"></span> 智能管家</div>
+  <ul class="nav-links">
+    <li><a href="#features">功能</a></li>
+    <li><a href="#detail">详情</a></li>
+    <li><a href="#tech">技术栈</a></li>
+    <li><a href="#arch">架构</a></li>
+  </ul>
+</nav>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="hero-bg-circle"></div>
+  <div class="hero-bg-circle"></div>
+  <div class="hero-bg-circle"></div>
+
+  <div class="hero-content">
+    <h1>面向独居人群的<br><span class="accent">AI 智能管家</span></h1>
+    <p class="hero-desc">
+      一款面向独居人群与小型家庭的 AI 驱动智能管家系统。将闲置手机变身为集摄像头、麦克风、温湿度传感器于一体的家庭感知终端，结合多模态 AI 大模型，提供实时环境监测、语音情感陪伴、家庭健康管理和智能对话等功能，无需购买任何专用硬件，零成本部署。
+    </p>
+    <div class="hero-stats">
+      <div>
+        <div class="hero-stat-num">¥0起</div>
+        <div class="hero-stat-label">硬件成本</div>
+      </div>
+      <div>
+        <div class="hero-stat-num">6</div>
+        <div class="hero-stat-label">核心功能模块</div>
+      </div>
+      <div>
+        <div class="hero-stat-num">3+</div>
+        <div class="hero-stat-label">AI 模型接入</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-visual">
+    <!-- Chat card -->
+    <div class="float-card fc-chat">
+      <div class="fc-header">
+        <div class="fc-icon">AI</div>
+        <div class="fc-title">智能对话</div>
+      </div>
+      <div class="fc-bubble">
+        今天天气不错，要不要打开窗户通通风？客厅温度 26.3°C，湿度适宜。
+      </div>
+      <div class="typing"><span></span><span></span><span></span></div>
+    </div>
+    <!-- Sensor card -->
+    <div class="float-card fc-sensor">
+      <div class="fc-unit">客厅温度</div>
+      <div class="fc-val">26.3°</div>
+      <div class="fc-bar"><div class="fc-bar-fill"></div></div>
+      <div style="margin-top:0.6rem;font-size:0.72rem;color:var(--text-muted);">湿度 58% · 正常</div>
+    </div>
+    <!-- Emotion card -->
+    <div class="float-card fc-emotion">
+      <div class="emojis">👨 👩 👦 👵</div>
+      <div style="font-size:0.8rem;font-weight:600;margin-bottom:0.5rem;">家庭情绪指数</div>
+      <div class="fc-mini-chart">
+        <div class="fc-mini-bar"></div>
+        <div class="fc-mini-bar"></div>
+        <div class="fc-mini-bar"></div>
+        <div class="fc-mini-bar"></div>
+        <div class="fc-mini-bar"></div>
+        <div class="fc-mini-bar"></div>
+        <div class="fc-mini-bar"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Selling Points -->
+<div class="selling reveal" id="features">
+  <div class="section-label">核心优势</div>
+  <div class="section-title">为什么选择智能管家</div>
+  <div class="section-desc">以旧手机为感知终端，以 AI 大模型为智慧中枢，构建真正零成本的家庭守护系统。</div>
+
+  <div class="selling-grid">
+    <div class="sell-card reveal">
+      <div class="sell-icon"><img src="https://api.iconify.design/gravity-ui/smartphone.svg?color=%233DA085" alt=""></div>
+      <h3>零成本部署</h3>
+      <p>旧手机即传感器。摄像头、麦克风、光线传感器、加速度计——你的旧手机早已具备一切，无需额外购买任何硬件。</p>
+    </div>
+    <div class="sell-card reveal">
+      <div class="sell-icon"><img src="https://api.iconify.design/gravity-ui/face-robot.svg?color=%233DA085" alt=""></div>
+      <h3>多模型统一接入</h3>
+      <p>Claude、OpenAI、DeepSeek 一键切换。支持思维链展示、MCP 工具调用，一个对话框驾驭所有 AI 能力。</p>
+    </div>
+    <div class="sell-card reveal">
+      <div class="sell-icon"><img src="https://api.iconify.design/gravity-ui/microphone.svg?color=%233DA085" alt=""></div>
+      <h3>全链路语音对话</h3>
+      <p>说话 → 实时识别 → AI 思考 → 语音播报 → 自动循环。真正的连续语音对话体验，解放双手。</p>
+    </div>
+    <div class="sell-card reveal">
+      <div class="sell-icon"><img src="https://api.iconify.design/gravity-ui/star.svg?color=%233DA085" alt=""></div>
+      <h3>情绪星云可视化</h3>
+      <p>每位家庭成员的情绪数据化为粒子星光，汇聚成独一无二的家庭情绪星云，让关爱可视化。</p>
+    </div>
+    <div class="sell-card reveal">
+      <div class="sell-icon"><img src="https://api.iconify.design/gravity-ui/plug-connection.svg?color=%233DA085" alt=""></div>
+      <h3>MCP 工具生态</h3>
+      <p>通过 MCP 协议接入外部工具服务器，AI 能力无限扩展——查天气、控设备、检索知识，一切皆可。</p>
+    </div>
+    <div class="sell-card reveal">
+      <div class="sell-icon"><img src="https://api.iconify.design/gravity-ui/lock.svg?color=%233DA085" alt=""></div>
+      <h3>数据本地存储</h3>
+      <p>所有数据存储在你自己的服务器上，不经过任何第三方云服务，家庭隐私完全掌控在自己手中。</p>
+    </div>
+  </div>
+</div>
+
+<!-- Feature Details -->
+<section id="detail">
+  <!-- Feature 1: AI Chat -->
+  <div class="feature-block reveal">
+    <div>
+      <div class="feature-num">01</div>
+      <h3>AI 智能对话</h3>
+      <p>
+        接入 Claude、OpenAI、DeepSeek 等主流大模型，支持 SSE 流式输出与思维链（Chain-of-Thought）可视化。
+        通过 MCP 协议调用外部工具，让 AI 不仅能聊，还能做事——查询天气、操控设备、检索知识库，所有能力在一个对话框中完成。
+      </p>
+      <div class="feature-tags">
+        <span class="feature-tag">多模型切换</span>
+        <span class="feature-tag">SSE 流式</span>
+        <span class="feature-tag">思维链展示</span>
+        <span class="feature-tag">MCP 工具调用</span>
+        <span class="feature-tag">Markdown 渲染</span>
+      </div>
+    </div>
+    <div class="feature-visual chat-demo">
+      <div class="chat-msg from-user">
+        <div style="flex:1"></div>
+        <div class="chat-text">现在客厅温度怎么样？</div>
+        <div class="chat-avatar user"><img src="https://api.iconify.design/gravity-ui/person.svg?color=%23636E72" alt=""></div>
+      </div>
+      <div class="chat-cot"><img src="https://api.iconify.design/gravity-ui/comment.svg?color=%23636E72" alt="" style="width:1em;height:1em;vertical-align:-0.15em;"> 正在调用工具：查询传感器数据 → 客厅温度 26.3°C</div>
+      <div class="chat-msg from-ai">
+        <div class="chat-avatar ai">AI</div>
+        <div class="chat-text">客厅当前温度 <b>26.3°C</b>，湿度 <b>58%</b>，体感舒适。比昨天同一时间低了 1.2°C，通风效果不错！</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Feature 2: Voice -->
+  <div class="feature-block reverse reveal">
+    <div>
+      <div class="feature-num">02</div>
+      <h3>语音对话模式</h3>
+      <p>
+        全屏沉浸式语音对话——开启后自动录音，实时语音转文字；2 秒静默自动发送给 AI；
+        AI 回复自动语音合成播放，播完继续录音，形成自然的连续对话循环。采用字节跳动豆包大模型 ASR/TTS 服务，识别快速准确。
+      </p>
+      <div class="feature-tags">
+        <span class="feature-tag">实时 ASR</span>
+        <span class="feature-tag">自动 TTS</span>
+        <span class="feature-tag">静默检测</span>
+        <span class="feature-tag">连续对话</span>
+        <span class="feature-tag">豆包大模型</span>
+      </div>
+    </div>
+    <div class="feature-visual">
+      <div class="voice-demo">
+        <div class="voice-waves">
+          <div class="voice-wave"></div><div class="voice-wave"></div><div class="voice-wave"></div>
+          <div class="voice-wave"></div><div class="voice-wave"></div><div class="voice-wave"></div>
+          <div class="voice-wave"></div><div class="voice-wave"></div><div class="voice-wave"></div>
+        </div>
+        <div style="font-size:0.9rem;color:var(--text-light);font-weight:500;">正在听...</div>
+        <div class="voice-flow">
+          <span class="step active"><img src="https://api.iconify.design/gravity-ui/microphone.svg?color=%233DA085" alt=""> 录音</span>
+          <span class="arrow">→</span>
+          <span class="step"><img src="https://api.iconify.design/gravity-ui/pencil-to-line.svg?color=%233DA085" alt=""> 识别</span>
+          <span class="arrow">→</span>
+          <span class="step"><img src="https://api.iconify.design/gravity-ui/face-robot.svg?color=%233DA085" alt=""> AI</span>
+          <span class="arrow">→</span>
+          <span class="step"><img src="https://api.iconify.design/gravity-ui/volume.svg?color=%233DA085" alt=""> 播报</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Feature 3: Sensor -->
+  <div class="feature-block reveal">
+    <div>
+      <div class="feature-num">03</div>
+      <h3>家庭感知与监控</h3>
+      <p>
+        将旧手机或开发板作为感知终端，通过 IP 地址一键注册。实时查看摄像头画面，
+        浏览器端集成 MediaPipe 人体姿态检测，叠加骨骼线框。支持云台舵机控制、
+        温湿度数据实时采集与趋势图表，全方位感知家庭环境。
+      </p>
+      <div class="feature-tags">
+        <span class="feature-tag">实时画面</span>
+        <span class="feature-tag">人体检测</span>
+        <span class="feature-tag">骨骼线框</span>
+        <span class="feature-tag">云台控制</span>
+        <span class="feature-tag">温湿度监测</span>
+      </div>
+    </div>
+    <div class="feature-visual">
+      <div class="sensor-demo">
+        <div class="sensor-tile">
+          <div class="s-icon"><img src="https://api.iconify.design/gravity-ui/pulse.svg?color=%233DA085" alt=""></div>
+          <div class="s-val">26.3°</div>
+          <div class="s-label">温度</div>
+          <div class="s-spark">
+            <span style="height:40%"></span><span style="height:65%"></span><span style="height:50%"></span>
+            <span style="height:80%"></span><span style="height:60%"></span><span style="height:75%"></span>
+            <span style="height:55%"></span><span style="height:70%"></span>
+          </div>
+        </div>
+        <div class="sensor-tile">
+          <div class="s-icon"><img src="https://api.iconify.design/gravity-ui/droplet.svg?color=%233DA085" alt=""></div>
+          <div class="s-val">58%</div>
+          <div class="s-label">湿度</div>
+          <div class="s-spark">
+            <span style="height:55%"></span><span style="height:70%"></span><span style="height:45%"></span>
+            <span style="height:60%"></span><span style="height:75%"></span><span style="height:50%"></span>
+            <span style="height:65%"></span><span style="height:80%"></span>
+          </div>
+        </div>
+        <div class="sensor-tile">
+          <div class="s-icon"><img src="https://api.iconify.design/gravity-ui/camera.svg?color=%233DA085" alt=""></div>
+          <div class="s-val">2</div>
+          <div class="s-label">在线摄像头</div>
+        </div>
+        <div class="sensor-tile">
+          <div class="s-icon"><img src="https://api.iconify.design/gravity-ui/person.svg?color=%233DA085" alt=""></div>
+          <div class="s-val">ON</div>
+          <div class="s-label">姿态检测</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Feature 4: Emotion -->
+  <div class="feature-block reverse reveal">
+    <div>
+      <div class="feature-num">04</div>
+      <h3>情绪与健康管理</h3>
+      <p>
+        为每位家庭成员独立追踪健康指数、情绪评分、压力指数和睡眠质量。
+        7 日情绪趋势折线图、情绪分布饼图一目了然。独创"情绪星云"粒子动画，
+        将每个人的情绪记录化为星光，汇聚成家庭的专属星云。根据年龄段自动生成个性化 AI 健康建议。
+      </p>
+      <div class="feature-tags">
+        <span class="feature-tag">情绪星云</span>
+        <span class="feature-tag">健康指数</span>
+        <span class="feature-tag">趋势图表</span>
+        <span class="feature-tag">个性化建议</span>
+        <span class="feature-tag">年龄适配</span>
+      </div>
+    </div>
+    <div class="feature-visual">
+      <div class="nebula-wrap">
+        <canvas id="nebula-canvas"></canvas>
+        <div class="nebula-legend">
+          <span><span class="ndot" style="background:#3DA085;"></span> 愉悦</span>
+          <span><span class="ndot" style="background:#6DC4AD;"></span> 平静</span>
+          <span><span class="ndot" style="background:#E8A87C;"></span> 焦虑</span>
+          <span><span class="ndot" style="background:#95B8D1;"></span> 低落</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Feature 5: Family -->
+  <div class="feature-block reveal">
+    <div>
+      <div class="feature-num">05</div>
+      <h3>家庭协作空间</h3>
+      <p>
+        家庭成员管理支持性别与年龄自动匹配 emoji 头像（👶👦👧👨👩👴👵）。
+        共享备忘录支持 Markdown 编辑、彩色标签和置顶功能。
+        家庭相册可创建多个相册、上传照片，自动设置封面，记录家庭温暖瞬间。
+      </p>
+      <div class="feature-tags">
+        <span class="feature-tag">Emoji 头像</span>
+        <span class="feature-tag">Markdown 备忘录</span>
+        <span class="feature-tag">家庭相册</span>
+        <span class="feature-tag">彩色标签</span>
+        <span class="feature-tag">成员管理</span>
+      </div>
+    </div>
+    <div class="feature-visual">
+      <div class="family-demo">
+        <div class="family-row">
+          <div class="family-emoji">👨</div>
+          <div class="family-info"><div class="name">张伟</div><div class="role">成年人 · 管理员</div></div>
+          <div class="family-status home">在家</div>
+        </div>
+        <div class="family-row">
+          <div class="family-emoji">👩</div>
+          <div class="family-info"><div class="name">李婷</div><div class="role">成年人</div></div>
+          <div class="family-status home">在家</div>
+        </div>
+        <div class="family-row">
+          <div class="family-emoji">👦</div>
+          <div class="family-info"><div class="name">张小明</div><div class="role">青少年</div></div>
+          <div class="family-status away">外出</div>
+        </div>
+        <div class="family-row">
+          <div class="family-emoji">👵</div>
+          <div class="family-info"><div class="name">王秀英</div><div class="role">长辈</div></div>
+          <div class="family-status home">在家</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Feature 6: Dashboard -->
+  <div class="feature-block reverse reveal">
+    <div>
+      <div class="feature-num">06</div>
+      <h3>实时数据仪表盘</h3>
+      <p>
+        一览家庭全局：温湿度 KPI 卡片、24 小时传感器趋势折线图、
+        设备在线状态、家庭成员在家情况，所有关键指标实时可视化。
+        响应式布局适配各种屏幕，数据自动刷新，异常自动高亮。
+      </p>
+      <div class="feature-tags">
+        <span class="feature-tag">KPI 卡片</span>
+        <span class="feature-tag">趋势图表</span>
+        <span class="feature-tag">设备状态</span>
+        <span class="feature-tag">实时刷新</span>
+        <span class="feature-tag">响应式</span>
+      </div>
+    </div>
+    <div class="feature-visual">
+      <div class="dash-demo">
+        <div class="dash-kpi">
+          <div class="dk-icon"><img src="https://api.iconify.design/gravity-ui/pulse.svg?color=%233DA085" alt=""></div>
+          <div class="dk-val">26.3°C</div>
+          <div class="dk-label">平均温度</div>
+        </div>
+        <div class="dash-kpi">
+          <div class="dk-icon"><img src="https://api.iconify.design/gravity-ui/droplet.svg?color=%233DA085" alt=""></div>
+          <div class="dk-val">58%</div>
+          <div class="dk-label">平均湿度</div>
+        </div>
+        <div class="dash-kpi">
+          <div class="dk-icon"><img src="https://api.iconify.design/gravity-ui/signal.svg?color=%233DA085" alt=""></div>
+          <div class="dk-val">3/4</div>
+          <div class="dk-label">设备在线</div>
+        </div>
+        <div class="dash-chart">
+          <svg viewBox="0 0 400 80" preserveAspectRatio="none">
+            <defs>
+              <linearGradient id="chartGrad" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#3DA085" stop-opacity="0.3"/>
+                <stop offset="100%" stop-color="#3DA085" stop-opacity="0"/>
+              </linearGradient>
+            </defs>
+            <path d="M0,60 C30,55 60,40 100,42 C140,44 170,30 210,25 C250,20 280,35 320,30 C360,25 390,15 400,18 L400,80 L0,80 Z" fill="url(#chartGrad)"/>
+            <path d="M0,60 C30,55 60,40 100,42 C140,44 170,30 210,25 C250,20 280,35 320,30 C360,25 390,15 400,18" fill="none" stroke="#3DA085" stroke-width="2"/>
+          </svg>
+          <div style="position:absolute;top:0.6rem;left:1rem;font-size:0.7rem;color:var(--text-muted);">24h 温度趋势</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Tech Stack -->
+<div class="tech-section reveal" id="tech">
+  <div class="section-label">技术栈</div>
+  <div class="section-title">前沿技术，匠心打造</div>
+  <div class="section-desc">每一层都选用最合适的技术，追求极致的开发体验与运行性能。</div>
+
+  <div class="tech-grid">
+    <div class="tech-pill"><span class="tp-dot"></span> React 19</div>
+    <div class="tech-pill"><span class="tp-dot"></span> TypeScript</div>
+    <div class="tech-pill"><span class="tp-dot"></span> Vite 6</div>
+    <div class="tech-pill"><span class="tp-dot"></span> Tailwind CSS v4</div>
+    <div class="tech-pill"><span class="tp-dot"></span> HeroUI v3</div>
+    <div class="tech-pill"><span class="tp-dot"></span> Motion</div>
+    <div class="tech-pill"><span class="tp-dot"></span> Recharts</div>
+    <div class="tech-pill"><span class="tp-dot"></span> Bun</div>
+    <div class="tech-pill"><span class="tp-dot"></span> Elysia</div>
+    <div class="tech-pill"><span class="tp-dot"></span> MongoDB</div>
+    <div class="tech-pill"><span class="tp-dot"></span> JWT 认证</div>
+    <div class="tech-pill"><span class="tp-dot"></span> MediaPipe</div>
+    <div class="tech-pill"><span class="tp-dot"></span> .NET Android</div>
+    <div class="tech-pill"><span class="tp-dot"></span> WebSocket</div>
+    <div class="tech-pill"><span class="tp-dot"></span> MCP 协议</div>
+    <div class="tech-pill"><span class="tp-dot"></span> SSE 流式</div>
+  </div>
+</div>
+
+<!-- Architecture -->
+<section id="arch">
+  <div class="section-label reveal">系统架构</div>
+  <div class="section-title reveal">三层架构，端云协同</div>
+  <div class="section-desc reveal">Web 管理面板 + 云端智慧中枢 + Android 感知终端，三端联动构建完整智能家居体系。</div>
+
+  <div class="arch-visual reveal">
+    <div class="arch-node">
+      <div class="an-icon"><img src="https://api.iconify.design/gravity-ui/display.svg?color=%233DA085" alt=""></div>
+      <div class="an-title">Web 管理面板</div>
+      <div class="an-sub">React + Vite + HeroUI</div>
+    </div>
+    <div class="arch-arrow">⟷</div>
+    <div class="arch-node">
+      <div class="an-icon"><img src="https://api.iconify.design/gravity-ui/cloud.svg?color=%233DA085" alt=""></div>
+      <div class="an-title">云端服务</div>
+      <div class="an-sub">Bun + Elysia + MongoDB</div>
+    </div>
+    <div class="arch-arrow">⟷</div>
+    <div class="arch-node">
+      <div class="an-icon"><img src="https://api.iconify.design/gravity-ui/smartphone.svg?color=%233DA085" alt=""></div>
+      <div class="an-title">感知终端</div>
+      <div class="an-sub">.NET Android + 传感器</div>
+    </div>
+  </div>
+  <div class="arch-visual reveal" style="margin-top:1rem;">
+    <div class="arch-node">
+      <div class="an-icon"><img src="https://api.iconify.design/gravity-ui/face-robot.svg?color=%233DA085" alt=""></div>
+      <div class="an-title">AI 服务</div>
+      <div class="an-sub">Claude · OpenAI · DeepSeek</div>
+    </div>
+    <div class="arch-arrow">⟷</div>
+    <div class="arch-node">
+      <div class="an-icon"><img src="https://api.iconify.design/gravity-ui/microphone.svg?color=%233DA085" alt=""></div>
+      <div class="an-title">语音服务</div>
+      <div class="an-sub">豆包 ASR / TTS</div>
+    </div>
+    <div class="arch-arrow">⟷</div>
+    <div class="arch-node">
+      <div class="an-icon"><img src="https://api.iconify.design/gravity-ui/plug-connection.svg?color=%233DA085" alt=""></div>
+      <div class="an-title">MCP 工具</div>
+      <div class="an-sub">可扩展工具生态</div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="footer-logo">智能管家</div>
+  <p class="footer-tagline">AI 驱动的智能管家，零成本守护独居生活。</p>
+  <div class="footer-links">
+    <a href="#features">功能</a>
+    <a href="#detail">详情</a>
+    <a href="#tech">技术栈</a>
+    <a href="#arch">架构</a>
+  </div>
+  <div class="footer-copy">© 2025 智能管家 · AI Smart Home Butler</div>
+</footer>
+
+<script>
+// ─── Scroll Progress ───
+window.addEventListener('scroll', () => {
+  const h = document.documentElement.scrollHeight - window.innerHeight;
+  const p = (window.scrollY / h) * 100;
+  document.getElementById('scrollProgress').style.width = p + '%';
+});
+
+// ─── Nav scroll effect ───
+window.addEventListener('scroll', () => {
+  document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 50);
+});
+
+// ─── Scroll reveal ───
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('visible'); }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// ─── Voice flow animation ───
+(function() {
+  const steps = document.querySelectorAll('.voice-flow .step');
+  let idx = 0;
+  setInterval(() => {
+    steps.forEach(s => s.classList.remove('active'));
+    steps[idx].classList.add('active');
+    idx = (idx + 1) % steps.length;
+  }, 1500);
+})();
+
+// ─── Emotion Nebula Canvas ───
+(function() {
+  const canvas = document.getElementById('nebula-canvas');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+  let W, H;
+
+  function resize() {
+    const rect = canvas.parentElement.getBoundingClientRect();
+    W = canvas.width = rect.width;
+    H = canvas.height = 260;
+  }
+  resize();
+  window.addEventListener('resize', resize);
+
+  const colors = ['#3DA085','#6DC4AD','#E8A87C','#95B8D1'];
+  const particles = [];
+  for (let i = 0; i < 120; i++) {
+    particles.push({
+      x: Math.random() * 1000,
+      y: Math.random() * 260,
+      r: Math.random() * 3 + 1,
+      c: colors[Math.floor(Math.random() * colors.length)],
+      vx: (Math.random() - 0.5) * 0.3,
+      vy: (Math.random() - 0.5) * 0.3,
+      alpha: Math.random() * 0.5 + 0.3,
+      pulse: Math.random() * Math.PI * 2,
+    });
+  }
+
+  function draw() {
+    ctx.clearRect(0, 0, W, H);
+
+    // Glow background
+    const grd = ctx.createRadialGradient(W/2, H/2, 0, W/2, H/2, W*0.4);
+    grd.addColorStop(0, 'rgba(61,160,133,0.06)');
+    grd.addColorStop(1, 'rgba(61,160,133,0)');
+    ctx.fillStyle = grd;
+    ctx.fillRect(0, 0, W, H);
+
+    for (const p of particles) {
+      p.x += p.vx;
+      p.y += p.vy;
+      p.pulse += 0.02;
+
+      if (p.x < 0) p.x = W;
+      if (p.x > W) p.x = 0;
+      if (p.y < 0) p.y = H;
+      if (p.y > H) p.y = 0;
+
+      const a = p.alpha + Math.sin(p.pulse) * 0.15;
+      ctx.beginPath();
+      ctx.arc(p.x * W / 1000, p.y, p.r, 0, Math.PI * 2);
+      ctx.fillStyle = p.c;
+      ctx.globalAlpha = a;
+      ctx.fill();
+
+      // Glow
+      ctx.beginPath();
+      ctx.arc(p.x * W / 1000, p.y, p.r * 3, 0, Math.PI * 2);
+      ctx.fillStyle = p.c;
+      ctx.globalAlpha = a * 0.1;
+      ctx.fill();
+    }
+
+    // Connection lines
+    ctx.globalAlpha = 0.04;
+    ctx.strokeStyle = '#3DA085';
+    ctx.lineWidth = 0.5;
+    for (let i = 0; i < particles.length; i++) {
+      for (let j = i + 1; j < particles.length; j++) {
+        const dx = (particles[i].x * W / 1000) - (particles[j].x * W / 1000);
+        const dy = particles[i].y - particles[j].y;
+        const dist = Math.sqrt(dx*dx + dy*dy);
+        if (dist < 60) {
+          ctx.beginPath();
+          ctx.moveTo(particles[i].x * W / 1000, particles[i].y);
+          ctx.lineTo(particles[j].x * W / 1000, particles[j].y);
+          ctx.stroke();
+        }
+      }
+    }
+    ctx.globalAlpha = 1;
+
+    requestAnimationFrame(draw);
+  }
+  draw();
+})();
+
+// ─── Parallax float cards ───
+window.addEventListener('mousemove', (e) => {
+  const cards = document.querySelectorAll('.float-card');
+  const cx = e.clientX / window.innerWidth - 0.5;
+  const cy = e.clientY / window.innerHeight - 0.5;
+  cards.forEach((card, i) => {
+    const f = (i + 1) * 6;
+    card.style.transform = `translate(${cx * f}px, ${cy * f}px)`;
+  });
+});
+</script>
+</body>
+</html>
