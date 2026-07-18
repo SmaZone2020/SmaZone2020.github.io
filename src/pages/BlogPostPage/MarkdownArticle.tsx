@@ -38,7 +38,7 @@ function CopyCodeBlock({ children, ...props }: React.HTMLAttributes<HTMLPreEleme
     );
 }
 
-function HeadingWithId({ level, id, children }: { level: 1|2|3|4|5|6; id: string; children: ReactNode }) {
+function HeadingWithId({ level, id, children }: { level: 1|2|3|4|5|6; id: string; children?: ReactNode }) {
     const Tag = `h${level}` as 'h1'|'h2'|'h3'|'h4'|'h5'|'h6';
     return (
         <Tag id={id}>
@@ -72,7 +72,7 @@ function MarkdownArticle({ content }: MarkdownArticleProps) {
     headingIdxRef.current = 0;
 
     const makeHeading = (level: 1|2|3|4|5|6) =>
-        ({ children }: { children: ReactNode }) => {
+        ({ children }: { children?: ReactNode }) => {
             const id = headingIds[headingIdxRef.current++] ?? '';
             return <HeadingWithId level={level} id={id}>{children}</HeadingWithId>;
         };
