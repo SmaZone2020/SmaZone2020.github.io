@@ -1,42 +1,8 @@
-import { useEffect, useState, useRef } from 'react';
-
-interface Heading {
-    id: string;
-    text: string;
-    level: number;
-}
-
-function slugify(text: string): string {
-    return text
-        .toLowerCase()
-        .trim()
-        .replace(/[\s]+/g, '-')
-        .replace(/[^\w一-龥-]/g, '')
-        .replace(/--+/g, '-');
-}
-
-function parseHeadings(markdown: string): Heading[] {
-    const headings: Heading[] = [];
-    const lines = markdown.split('\n');
-    let inFence = false;
-    const slugCount: Record<string, number> = {};
-    for (const line of lines) {
-        if (line.startsWith('```') || line.startsWith('~~~')) { inFence = !inFence; continue; }
-        if (inFence) continue;
-        const match = line.match(/^(#{1,6})\s+(.+)$/);
-        if (!match) continue;
-        const level = match[1].length;
-        const text = match[2].replace(/\*\*?([^*]+)\*\*?/g, '$1').replace(/`([^`]+)`/g, '$1').trim();
-        const base = slugify(text);
-        const n = (slugCount[base] = (slugCount[base] ?? 0) + 1);
-        const id = n === 1 ? base : `${base}-${n}`;
-        headings.push({ id, text, level });
-    }
-    return headings;
-}
+import { useEffect, useState, useRef, useMemo } from 'react';
+import { computeHeadings } from '../../lib/headingUtils';
 
 export default function TableOfContents({ content }: { content: string }) {
-    const headings = parseHeadings(content);
+    const headings = useMemo(() => computeHeadings(content), [content]);
     const [activeId, setActiveId] = useState<string>('');
     const [collapsed, setCollapsed] = useState(false);
     const observerRef = useRef<IntersectionObserver | null>(null);
