@@ -1,0 +1,18 @@
+{
+  "name": "Sma.Zone",
+  "title": "Sma.Zone",
+  "author": "Maxwell Ma",
+  "email": "smazone@yuxiit.cn",
+  "siteUrl": "sma.zone",
+  "handle": "@Maxwell·Ma",
+  "avatar": "/avatar.jpg",
+  "heroImage": "/bg1.jpg",
+  "tags": [".NET", "TypeScript", "PM", "摄影", "骑行", "音乐", "旅游"],
+  "social": {
+    "github": "https://github.com/SmaZone2020",
+    "bili": "https://space.bilibili.com/523293679",
+    "email": "mailto:smazone@yuxiit.cn",
+    "bonjour": "https://bonjour.bio/8tozg1",
+    "wecom": "https://work.weixin.qq.com/ca/cawcde19a5eede7ba5"
+  }
+}

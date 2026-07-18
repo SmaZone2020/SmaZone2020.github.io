@@ -1,0 +1,7 @@
+[
+  { "name": "C#", "proficiency": 90, "color": "default" },
+  { "name": "TypeScript/JS", "proficiency": 85, "color": "accent" },
+  { "name": "React", "proficiency": 80, "color": "success" },
+  { "name": "Java", "proficiency": 40, "color": "warning" },
+  { "name": "C++", "proficiency": 35, "color": "danger" }
+]
