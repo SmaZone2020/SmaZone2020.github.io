@@ -11,6 +11,7 @@ import PostHeader from './PostHeader';
 import MarkdownArticle from './MarkdownArticle';
 import PostNavigation from './PostNavigation';
 import DebugFormModal from '../../components/DebugFormModal';
+import TableOfContents from './TableOfContents';
 
 function BlogPost() {
     const IS_DEV = import.meta.env.DEV;
@@ -104,11 +105,16 @@ function BlogPost() {
 
                 <Separator className="mb-6" />
 
-                <MarkdownArticle content={post.content} />
+                <div className="flex gap-12 items-start">
+                    <div className="min-w-0 flex-1">
+                        <MarkdownArticle content={post.content} />
 
-                <Separator className="my-8" />
+                        <Separator className="my-8" />
 
-                <PostNavigation prevPost={prevPost} nextPost={nextPost} />
+                        <PostNavigation prevPost={prevPost} nextPost={nextPost} />
+                    </div>
+                    <TableOfContents content={post.content} />
+                </div>
 
                 {IS_DEV && (
                     <DebugFormModal
