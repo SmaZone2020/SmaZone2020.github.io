@@ -1,6 +1,6 @@
 import { Card, Chip } from '@heroui/react';
 import { Link } from 'react-router-dom';
-import { siteConfig } from '../config/site';
+import { siteData } from '../lib/data';
 import type { PostData } from '../lib/posts';
 import FadeImg from './FadeImg';
 
@@ -34,7 +34,7 @@ function PostCard({ post, variant = 'default' }: PostCardProps) {
                                 {post.title}
                             </Card.Title>
                             <Card.Description className={`text-xs text-gray-500 dark:text-gray-400${isCompact ? '' : ' mt-1'}`}>
-                                {post.date} · {siteConfig.author}
+                                {post.date} · {siteData.author}
                             </Card.Description>
                         </Card.Header>
                         <Card.Content className="p-0 mb-3">

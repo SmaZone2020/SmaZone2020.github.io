@@ -1,6 +1,7 @@
 import { Button, Drawer } from "@heroui/react"
 import { Bars } from "@gravity-ui/icons";
-import { navItems, siteConfig } from "../config/site";
+import { navItems } from "../config/site";
+import { siteData } from "../lib/data";
 import { Link } from "react-router-dom";
 import React from "react";
 import { useI18n } from "../i18n";
@@ -20,7 +21,7 @@ export function MenuList() {
                     <Drawer.Dialog>
                         <Drawer.CloseTrigger />
                         <Drawer.Header>
-                            <Drawer.Heading>{siteConfig.name}</Drawer.Heading>
+                            <Drawer.Heading>{siteData.name}</Drawer.Heading>
                         </Drawer.Header>
                         <Drawer.Body>
                             <nav className="flex flex-col gap-1">

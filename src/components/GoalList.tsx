@@ -1,6 +1,6 @@
 import { LogoMermaid, Check, Xmark } from "@gravity-ui/icons";
 import { Card, CardHeader, CheckboxGroup, Checkbox, Label, Description } from "@heroui/react";
-import { siteConfig } from "../config/site";
+import { goals } from "../lib/data";
 import { useI18n } from "../i18n";
 
 function GolaList() {
@@ -15,7 +15,7 @@ function GolaList() {
                 </div>
             </CardHeader>
             <CheckboxGroup name="interests">
-                {siteConfig.goals.map((goal) => (
+                {goals.map((goal) => (
                     <Checkbox key={goal.name} value={goal.name} isSelected={true}>
                         <Checkbox.Control>
                             <Checkbox.Indicator>

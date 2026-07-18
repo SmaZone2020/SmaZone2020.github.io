@@ -1,6 +1,6 @@
 import { Code } from "@gravity-ui/icons";
 import { Card, CardHeader, Meter, Label } from "@heroui/react";
-import { siteConfig } from "../config/site";
+import { tech } from "../lib/data";
 import { useI18n } from "../i18n";
 
 function TechStack() {
@@ -14,8 +14,8 @@ function TechStack() {
                     {t("common.tech")}
                 </div>
             </CardHeader>
-            {siteConfig.tech.map((tech) => (
-                <Meter aria-label={tech.name} color={tech.color} className="w-full" value={tech.proficiency}>
+            {tech.map((tech) => (
+                <Meter aria-label={tech.name} color={tech.color as "default" | "accent" | "success" | "warning" | "danger"} className="w-full" value={tech.proficiency}>
                     <Label>{tech.name}</Label>
                     <Meter.Track>
                         <Meter.Fill />

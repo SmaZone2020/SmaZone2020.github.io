@@ -2,10 +2,10 @@ import { useState, useEffect } from 'react';
 import { BottomNav } from './layout/BottomNav';
 import Sidebar from './layout/Navbar';
 import AppRoutes from './routes';
-import { siteConfig } from './config/site';
+import { siteData } from './lib/data';
 
 export function setTitle(title: string) {
-    document.title = siteConfig.name + (title ? ` - ${title}` : '');
+    document.title = siteData.name + (title ? ` - ${title}` : '');
 }
 
 const Navigation = () => {
