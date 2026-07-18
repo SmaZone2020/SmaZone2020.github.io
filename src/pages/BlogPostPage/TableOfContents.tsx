@@ -19,6 +19,7 @@ function parseHeadings(markdown: string): Heading[] {
     const headings: Heading[] = [];
     const lines = markdown.split('\n');
     let inFence = false;
+    const slugCount: Record<string, number> = {};
     for (const line of lines) {
         if (line.startsWith('```') || line.startsWith('~~~')) { inFence = !inFence; continue; }
         if (inFence) continue;
@@ -26,7 +27,10 @@ function parseHeadings(markdown: string): Heading[] {
         if (!match) continue;
         const level = match[1].length;
         const text = match[2].replace(/\*\*?([^*]+)\*\*?/g, '$1').replace(/`([^`]+)`/g, '$1').trim();
-        headings.push({ id: slugify(text), text, level });
+        const base = slugify(text);
+        const n = (slugCount[base] = (slugCount[base] ?? 0) + 1);
+        const id = n === 1 ? base : `${base}-${n}`;
+        headings.push({ id, text, level });
     }
     return headings;
 }

@@ -20,31 +20,6 @@ function slugify(text: ReactNode): string {
         .replace(/--+/g, '-');
 }
 
-function HeadingWithAnchor({ level, children }: { level: 1 | 2 | 3 | 4 | 5 | 6; children: ReactNode }) {
-    const Tag = `h${level}` as 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
-    const id = slugify(children);
-    return (
-        <Tag id={id}>
-            {children}
-            <a
-                href={`#${id}`}
-                className="heading-anchor"
-                aria-label={`Link to section: ${String(children)}`}
-                onClick={(e) => {
-                    e.preventDefault();
-                    const el = document.getElementById(id);
-                    if (el) {
-                        el.scrollIntoView({ behavior: 'smooth' });
-                        window.history.pushState(null, '', `#${id}`);
-                    }
-                }}
-            >
-                #
-            </a>
-        </Tag>
-    );
-}
-
 function CopyCodeBlock({ children, ...props }: React.HTMLAttributes<HTMLPreElement>) {
     const [copied, setCopied] = useState(false);
     const preRef = useRef<HTMLPreElement>(null);
@@ -74,18 +49,51 @@ function CopyCodeBlock({ children, ...props }: React.HTMLAttributes<HTMLPreEleme
 function MarkdownArticle({ content }: MarkdownArticleProps) {
     const [lightboxSrc, setLightboxSrc] = useState<string | null>(null);
 
+    // Shared counter reset each render — generates unique IDs in document order
+    const slugCount: Record<string, number> = {};
+    const makeId = (children: ReactNode) => {
+        const base = slugify(children);
+        const n = (slugCount[base] = (slugCount[base] ?? 0) + 1);
+        return n === 1 ? base : `${base}-${n}`;
+    };
+
+    const Heading = ({ level, children }: { level: 1 | 2 | 3 | 4 | 5 | 6; children: ReactNode }) => {
+        const Tag = `h${level}` as 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
+        const id = makeId(children);
+        return (
+            <Tag id={id}>
+                {children}
+                <a
+                    href={`#${id}`}
+                    className="heading-anchor"
+                    aria-label={`Link to section: ${String(children)}`}
+                    onClick={(e) => {
+                        e.preventDefault();
+                        const el = document.getElementById(id);
+                        if (el) {
+                            el.scrollIntoView({ behavior: 'smooth' });
+                            window.history.pushState(null, '', `#${id}`);
+                        }
+                    }}
+                >
+                    #
+                </a>
+            </Tag>
+        );
+    };
+
     return (
         <article className="prose-article">
             <ReactMarkdown
                 remarkPlugins={[remarkGfm]}
                 rehypePlugins={[rehypeRaw, rehypeHighlight]}
                 components={{
-                    h1: ({ children }) => <HeadingWithAnchor level={1}>{children}</HeadingWithAnchor>,
-                    h2: ({ children }) => <HeadingWithAnchor level={2}>{children}</HeadingWithAnchor>,
-                    h3: ({ children }) => <HeadingWithAnchor level={3}>{children}</HeadingWithAnchor>,
-                    h4: ({ children }) => <HeadingWithAnchor level={4}>{children}</HeadingWithAnchor>,
-                    h5: ({ children }) => <HeadingWithAnchor level={5}>{children}</HeadingWithAnchor>,
-                    h6: ({ children }) => <HeadingWithAnchor level={6}>{children}</HeadingWithAnchor>,
+                    h1: ({ children }) => <Heading level={1}>{children}</Heading>,
+                    h2: ({ children }) => <Heading level={2}>{children}</Heading>,
+                    h3: ({ children }) => <Heading level={3}>{children}</Heading>,
+                    h4: ({ children }) => <Heading level={4}>{children}</Heading>,
+                    h5: ({ children }) => <Heading level={5}>{children}</Heading>,
+                    h6: ({ children }) => <Heading level={6}>{children}</Heading>,
                     pre: ({ children, ...props }) => <CopyCodeBlock {...props}>{children}</CopyCodeBlock>,
                     img: ({ node: _node, src, alt, ...props }) => (
                         <FadeImg
