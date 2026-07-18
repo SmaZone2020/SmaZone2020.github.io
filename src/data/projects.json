@@ -1,5 +1,12 @@
 [
   {
+    "href": "https://github.com/SmaZone2020/MistSite",
+    "title": "MistSite",
+    "description": "A lightweight static blog program",
+    "platform": "github",
+    "image": "/avatar.jpg"
+  },
+  {
     "title": "ZHI",
     "href": "https://github.com/Yuxi-IT/ZHI",
     "description": "ZHI (栀) — Zero-Hypothesis Intelligence Ecosystem",
