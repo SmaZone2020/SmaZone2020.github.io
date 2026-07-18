@@ -50,7 +50,7 @@ function About() {
                 <InterestsCard />
                 <SocialLinksCard />
                 <GithubHeatmap />
-                <div>
+                <div className="mt-4">
                     <TechStack />
                     <GolaList />
                 </div>
