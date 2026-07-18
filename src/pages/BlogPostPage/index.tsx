@@ -1,20 +1,25 @@
 import { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { Button, Separator } from '@heroui/react';
+import { Pencil, TrashBin } from '@gravity-ui/icons';
 import DefaultLayout from '../../layout/DefaultLayout';
-import { getPostById, getSortedPostsData } from '../../lib/posts';
+import { posts, getPostById } from '../../lib/data';
+import type { PostData } from '../../lib/posts';
 import { useI18n } from '../../i18n';
 import { setTitle } from '../../App';
 import PostHeader from './PostHeader';
 import MarkdownArticle from './MarkdownArticle';
 import PostNavigation from './PostNavigation';
+import DebugFormModal from '../../components/DebugFormModal';
 
 function BlogPost() {
+    const IS_DEV = import.meta.env.DEV;
     const { id } = useParams<{ id: string }>();
     const navigate = useNavigate();
     const { t } = useI18n();
     const post = id ? getPostById(id) : undefined;
     const [viewCount, setViewCount] = useState<number | null>(null);
+    const [formMode, setFormMode] = useState<{ mode: 'edit'; data: PostData } | null>(null);
 
     useEffect(() => {
         if (post) {
@@ -54,14 +59,47 @@ function BlogPost() {
         );
     }
 
-    const allPosts = getSortedPostsData();
-    const currentIdx = allPosts.findIndex(p => p.id === post.id);
-    const prevPost = currentIdx < allPosts.length - 1 ? allPosts[currentIdx + 1] : null;
-    const nextPost = currentIdx > 0 ? allPosts[currentIdx - 1] : null;
+    const sortedPosts = [...posts].sort((a, b) => b.date.localeCompare(a.date));
+    const currentIdx = sortedPosts.findIndex(p => p.id === post.id);
+    const prevPost = currentIdx < sortedPosts.length - 1 ? sortedPosts[currentIdx + 1] : null;
+    const nextPost = currentIdx > 0 ? sortedPosts[currentIdx - 1] : null;
+
+    const handleSave = async (data: Record<string, any>) => {
+        const postData = { ...post, ...data, tags: Array.isArray(data.tags) ? data.tags : post.tags };
+        await fetch('/api/posts', { method: 'PUT', body: JSON.stringify(postData) });
+        window.location.reload();
+    };
+
+    const handleDelete = async () => {
+        if (!window.confirm(t('debug.confirmDelete'))) return;
+        await fetch('/api/posts', { method: 'DELETE', body: JSON.stringify({ id: post.id }) });
+        window.location.href = '/blog';
+    };
 
     return (
         <DefaultLayout>
             <div className="container mx-auto px-4 py-6 max-w-6xl">
+                {IS_DEV && post && (
+                    <div className="flex gap-2 mb-4">
+                        <Button
+                            size="sm"
+                            variant="secondary"
+                            onPress={() => setFormMode({ mode: 'edit', data: post })}
+                        >
+                            <Pencil className="w-4 h-4" />
+                            {t('debug.editPost')}
+                        </Button>
+                        <Button
+                            size="sm"
+                            variant="danger"
+                            onPress={handleDelete}
+                        >
+                            <TrashBin className="w-4 h-4" />
+                            {t('debug.delete')}
+                        </Button>
+                    </div>
+                )}
+
                 <PostHeader post={post} viewCount={viewCount} />
 
                 <Separator className="mb-6" />
@@ -71,6 +109,16 @@ function BlogPost() {
                 <Separator className="my-8" />
 
                 <PostNavigation prevPost={prevPost} nextPost={nextPost} />
+
+                {IS_DEV && (
+                    <DebugFormModal
+                        type="post"
+                        initialData={formMode?.data ?? null}
+                        isOpen={formMode !== null}
+                        onOpenChange={(open) => { if (!open) setFormMode(null); }}
+                        onSave={handleSave}
+                    />
+                )}
             </div>
         </DefaultLayout>
     );

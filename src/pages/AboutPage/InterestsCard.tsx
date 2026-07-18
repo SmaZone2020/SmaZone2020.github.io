@@ -1,5 +1,5 @@
 import { Card, Chip } from '@heroui/react';
-import { siteConfig } from '../../config/site';
+import { siteData } from '../../lib/data';
 import { useI18n } from '../../i18n';
 
 function InterestsCard() {
@@ -12,7 +12,7 @@ function InterestsCard() {
             </Card.Header>
             <Card.Content>
                 <div className="flex flex-wrap gap-2">
-                    {siteConfig.tags.map((tag) => (
+                    {siteData.tags.map((tag) => (
                         <Chip key={tag} size="lg" variant="soft">
                             {tag}
                         </Chip>

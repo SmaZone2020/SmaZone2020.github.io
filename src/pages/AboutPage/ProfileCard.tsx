@@ -1,5 +1,5 @@
 import { Card } from '@heroui/react';
-import { siteConfig } from '../../config/site';
+import { siteData } from '../../lib/data';
 import { useI18n } from '../../i18n';
 import AdaptiveAvatar from '../../components/AdaptiveAvatar';
 
@@ -11,15 +11,15 @@ function ProfileCard() {
             <Card.Content className="p-4">
                 <div className="flex flex-row items-center text-left">
                     <AdaptiveAvatar
-                        src={siteConfig.avatar}
-                        alt={siteConfig.author}
+                        src={siteData.avatar}
+                        alt={siteData.author}
                         size="lg"
                         className="mr-4"
                     />
                     <div className="flex-1">
-                        <h1 className="text-2xl font-bold libre mb-1">{siteConfig.author}</h1>
+                        <h1 className="text-2xl font-bold libre mb-1">{siteData.author}</h1>
                         <p className="text-sm text-gray-500 dark:text-gray-400 mb-3">
-                            {siteConfig.handle}
+                            {siteData.handle}
                         </p>
                     </div>
                 </div>

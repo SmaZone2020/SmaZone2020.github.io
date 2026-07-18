@@ -1,5 +1,5 @@
 import { Button, Card, Tooltip } from '@heroui/react';
-import { siteConfig } from '../../config/site';
+import { siteData } from '../../lib/data';
 import { useI18n } from '../../i18n';
 import { Comments, Envelope, Hand, LogoGithub, TvRetro } from '@gravity-ui/icons';
 
@@ -13,12 +13,12 @@ function SocialLinksCard() {
             </Card.Header>
             <Card.Content>
                 <div className="flex items-center gap-4">
-                    {siteConfig.social.github && (
+                    {siteData.social.github && (
                         <Tooltip delay={0}>
                             <Button
                                 isIconOnly
                                 variant="tertiary"
-                                onPress={() => window.open(siteConfig.social.github, '_blank')}
+                                onPress={() => window.open(siteData.social.github, '_blank')}
                             >
                                 <LogoGithub className="w-5 h-5" />
                             </Button>
@@ -27,12 +27,12 @@ function SocialLinksCard() {
                             </Tooltip.Content>
                         </Tooltip>
                     )}
-                    {siteConfig.social.bili && (
+                    {siteData.social.bili && (
                         <Tooltip delay={0}>
                             <Button
                                 isIconOnly
                                 variant="tertiary"
-                                onPress={() => window.open(siteConfig.social.bili, '_blank')}
+                                onPress={() => window.open(siteData.social.bili, '_blank')}
                             >
                                 <TvRetro className="w-5 h-5" />
                             </Button>
@@ -41,12 +41,12 @@ function SocialLinksCard() {
                             </Tooltip.Content>
                         </Tooltip>
                     )}
-                    {siteConfig.social.email && (
+                    {siteData.social.email && (
                         <Tooltip delay={0}>
                             <Button
                                 isIconOnly
                                 variant="tertiary"
-                                onPress={() => window.location.href = siteConfig.social.email}
+                                onPress={() => window.location.href = siteData.social.email}
                             >
                                 <Envelope className="w-5 h-5" />
                             </Button>
@@ -55,12 +55,12 @@ function SocialLinksCard() {
                             </Tooltip.Content>
                         </Tooltip>
                     )}
-                    {siteConfig.social.bonjour && (
+                    {siteData.social.bonjour && (
                         <Tooltip delay={0}>
                             <Button
                                 isIconOnly
                                 variant="tertiary"
-                                onPress={() => window.open(siteConfig.social.bonjour, '_blank')}
+                                onPress={() => window.open(siteData.social.bonjour, '_blank')}
                             >
                                 <Hand className="w-5 h-5 transform rotate-330" />
                             </Button>
@@ -69,12 +69,12 @@ function SocialLinksCard() {
                             </Tooltip.Content>
                         </Tooltip>
                     )}
-                    {siteConfig.social.wecom && (
+                    {siteData.social.wecom && (
                         <Tooltip delay={0}>
                             <Button
                                 isIconOnly
                                 variant="tertiary"
-                                onPress={() => window.open(siteConfig.social.wecom, '_blank')}
+                                onPress={() => window.open(siteData.social.wecom, '_blank')}
                             >
                                 <Comments className="w-5 h-5" />
                             </Button>

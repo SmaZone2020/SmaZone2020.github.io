@@ -8,6 +8,7 @@ import BlogPost from '../pages/BlogPostPage';
 import Portfolio from '../pages/PortfolioPage';
 import Archive from '../pages/ArchivePage';
 import About from '../pages/AboutPage';
+import Friends from '../pages/FriendsPage';
 import NotFound from '../pages/NotFoundPage';
 import { Card } from '@heroui/react';
 
@@ -25,6 +26,7 @@ function AppRoutes() {
                 <Route path="/portfolio" element={<PageTransition><Portfolio /></PageTransition>} />
                 <Route path="/archive" element={<PageTransition><Archive /></PageTransition>} />
                 <Route path="/about" element={<PageTransition><About /></PageTransition>} />
+                <Route path="/friends" element={<PageTransition><Friends /></PageTransition>} />
                 <Route path="*" element={<NotFound />} />
             </Routes>
         </AnimatePresence>

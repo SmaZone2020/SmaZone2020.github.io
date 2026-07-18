@@ -1,6 +1,6 @@
 import { useEffect, useMemo } from 'react';
 import DefaultLayout from '../../layout/DefaultLayout';
-import { getSortedPostsData } from '../../lib/posts';
+import { posts } from '../../lib/data';
 import { useI18n } from '../../i18n';
 import { setTitle } from '../../App';
 import ArchiveTimeline from './ArchiveTimeline';
@@ -8,7 +8,6 @@ import type { ArchiveGroup } from './ArchiveTimeline';
 
 function Archive() {
     const { t } = useI18n();
-    const allPosts = getSortedPostsData();
 
     useEffect(() => {
         setTitle(t('nav.archive'));
@@ -16,8 +15,9 @@ function Archive() {
 
     const grouped: ArchiveGroup[] = useMemo(() => {
         const map = new Map<string, ArchiveGroup['posts']>();
+        const sorted = [...posts].sort((a, b) => b.date.localeCompare(a.date));
 
-        for (const post of allPosts) {
+        for (const post of sorted) {
             const [year, month] = post.date.split('-');
             const key = `${year}-${month}`;
             if (!map.has(key)) {
@@ -38,7 +38,7 @@ function Archive() {
                 posts,
             };
         });
-    }, [allPosts, t]);
+    }, [t]);
 
     return (
         <DefaultLayout>
@@ -46,7 +46,7 @@ function Archive() {
                 <div className="mb-6">
                     <h1 className="text-3xl font-bold libre mb-2">{t('archive.title')}</h1>
                     <p className="text-gray-500 dark:text-gray-400">
-                        {t('archive.subtitle').replace('{count}', String(allPosts.length))}
+                        {t('archive.subtitle').replace('{count}', String(posts.length))}
                     </p>
                 </div>
 

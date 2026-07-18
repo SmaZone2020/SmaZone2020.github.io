@@ -1,9 +1,9 @@
 import { Link } from 'react-router-dom';
 import DefaultLayout from '../../layout/DefaultLayout';
-import { getSortedPostsData } from '../../lib/posts';
+import { posts } from '../../lib/data';
 import { useI18n } from '../../i18n';
 import { setTitle } from '../../App';
-import { useEffect } from 'react';
+import { useEffect, useMemo } from 'react';
 import HeroSection from './HeroSection';
 import PostCard from '../../components/PostCard';
 import { Calendar, Card } from '@heroui/react';
@@ -11,9 +11,11 @@ import TechStack from '../../components/TechStack';
 import GolaList from '../../components/GoalList';
 
 function Home() {
-    const posts = getSortedPostsData();
-    const latestPosts = posts.slice(0, 4);
     const { t } = useI18n();
+    const latestPosts = useMemo(
+        () => [...posts].sort((a, b) => b.date.localeCompare(a.date)).slice(0, 4),
+        []
+    );
 
     useEffect(() => {
         setTitle('');

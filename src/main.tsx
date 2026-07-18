@@ -4,6 +4,7 @@ import { BrowserRouter } from 'react-router-dom'
 import { I18nProvider } from './i18n'
 import { ThemeProvider } from './theme'
 import { ImagePreviewProvider } from './components/ImagePreview'
+
 import App from './App.tsx'
 import './styles/globals.css'
 import { navItems } from './config/site.ts'
