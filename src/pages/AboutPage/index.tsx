@@ -9,6 +9,7 @@ import SocialLinksCard from './SocialLinksCard';
 import GolaList from '../../components/GoalList';
 import TechStack from '../../components/TechStack';
 import DebugFormModal from '../../components/DebugFormModal';
+import GithubHeatmap from '../../components/GithubHeatmap';
 import { Button } from '@heroui/react';
 import { Pencil } from '@gravity-ui/icons';
 
@@ -48,6 +49,7 @@ function About() {
                 <ProfileCard />
                 <InterestsCard />
                 <SocialLinksCard />
+                <GithubHeatmap />
                 <div>
                     <TechStack />
                     <GolaList />
