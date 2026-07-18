@@ -2,13 +2,19 @@
   {
     "name": "Yuan's Blog",
     "url": "https://yuan.gold",
-    "avatar": "/images/212f035b4c86a9238dd64462cf6bb173.jpg",
-    "description": "Yuan's Blog, 产品经理成长中"
+    "description": "Yuan's Blog, 产品经理成长中",
+    "avatar": "/images/212f035b4c86a9238dd64462cf6bb173.jpg"
   },
   {
-    "name": "Yuxi IT",
-    "url": "https://yuxiit.cn",
-    "avatar": "/images/logo.jpg",
-    "description": "Yuxi NetTech 官方站点"
+    "name": "Koitoyuu",
+    "url": "https://github.com/K0itoyuu",
+    "avatar": "/images/76237220.jpg",
+    "description": "Koitoyuu's Github"
+  },
+  {
+    "name": "Krgjd",
+    "url": "https://github.com/Kr9jd",
+    "description": "Krgjd's Github",
+    "avatar": "/images/113167695.png"
   }
 ]

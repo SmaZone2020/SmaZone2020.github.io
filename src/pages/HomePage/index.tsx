@@ -6,9 +6,9 @@ import { setTitle } from '../../App';
 import { useEffect, useMemo } from 'react';
 import HeroSection from './HeroSection';
 import PostCard from '../../components/PostCard';
-import { Calendar, Card } from '@heroui/react';
 import TechStack from '../../components/TechStack';
 import GolaList from '../../components/GoalList';
+import GithubHeatmap from '../../components/GithubHeatmap';
 
 function Home() {
     const { t } = useI18n();
@@ -24,8 +24,8 @@ function Home() {
     return (
         <DefaultLayout>
             <HeroSection />
-            <div className="flex justify-center">
-                <div className="container px-4 py-6 max-w-4xl">
+            <div className="flex justify-center gap-4">
+                <div className="min-w-0 flex-1 px-4 py-6 max-w-4xl">
                     <div className="mb-6">
                         <div className="flex items-center justify-between mb-4">
                             <h2 className="text-xl font-bold">{t('blog.latestPosts')}</h2>
@@ -44,22 +44,10 @@ function Home() {
                         </div>
                     </div>
                 </div>
-                <div className='hidden sm:block'>
-                    <Card className='bg-white/40 dark:bg-surface/50 backdrop-blur-sm mb-4'>
-                        <Calendar aria-label="Event date" isReadOnly>
-                            <Calendar.Header>
-                                <Calendar.Heading />
-                                <Calendar.NavButton slot="previous" />
-                                <Calendar.NavButton slot="next" />
-                            </Calendar.Header>
-                            <Calendar.Grid>
-                                <Calendar.GridHeader>
-                                {(day) => <Calendar.HeaderCell>{day}</Calendar.HeaderCell>}
-                                </Calendar.GridHeader>
-                                <Calendar.GridBody>{(date) => <Calendar.Cell date={date} />}</Calendar.GridBody>
-                            </Calendar.Grid>
-                        </Calendar>
-                    </Card>
+                <div className='hidden sm:block w-64 flex-shrink-0 mr-4'>
+                    <div className="mb-4">
+                        <GithubHeatmap />
+                    </div>
                     <TechStack />
                     <GolaList />
                 </div>

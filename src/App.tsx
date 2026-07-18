@@ -31,7 +31,7 @@ const Navigation = () => {
             )}
             {isSmallScreen && <BottomNav />}
             <div
-                className={`transition-all duration-300 sm:py-4 ${
+                className={`transition-all duration-300 sm:py-4 sm:pr-4 ${
                     isSmallScreen ? '' : sidebarCollapsed ? 'ml-20' : 'ml-56'
                 }`}
                 style={{
