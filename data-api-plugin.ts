@@ -7,7 +7,7 @@ const POSTS_DIR = path.resolve(__dirname, 'src', 'posts');
 const PUBLIC_DIR = path.resolve(__dirname, 'public');
 const IMAGE_EXT = /\.(png|jpg|jpeg|gif|webp|svg|ico|bmp)$/i;
 
-const VALID_FILES = ['site', 'projects', 'friends', 'goals', 'tech'];
+const VALID_FILES = ['site', 'projects', 'friends', 'goals', 'tech', 'navigation', 'seo', 'appearance'];
 
 function walkDir(dir: string): string[] {
   const results: string[] = [];

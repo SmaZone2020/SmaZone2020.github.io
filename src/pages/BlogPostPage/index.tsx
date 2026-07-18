@@ -3,7 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { Button, Separator } from '@heroui/react';
 import { Pencil, TrashBin } from '@gravity-ui/icons';
 import DefaultLayout from '../../layout/DefaultLayout';
-import { posts, getPostById } from '../../lib/data';
+import { posts, getPostById, siteData } from '../../lib/data';
 import type { PostData } from '../../lib/posts';
 import { useI18n } from '../../i18n';
 import { setTitle } from '../../App';
@@ -36,7 +36,7 @@ function BlogPost() {
     useEffect(() => {
         if (!post) return;
         setViewCount(null);
-        fetch(`https://api.counterapi.dev/v1/${post.id}.sma.zone/visits/up`)
+        fetch(`https://api.counterapi.dev/v1/${post.id}.${siteData.siteUrl}/visits/up`)
             .then(res => res.json())
             .then(data => setViewCount(data.count))
             .catch(() => {});

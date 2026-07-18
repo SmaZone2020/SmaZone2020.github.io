@@ -2,9 +2,29 @@ import type { Plugin } from 'vite';
 import fs from 'fs';
 import path from 'path';
 
-const SITE_URL = 'https://sma.zone';
-const SITE_TITLE = 'Sma.Zone';
-const SITE_DESCRIPTION = "Maxwell Ma's Blog";
+function readJson(filePath: string): Record<string, any> {
+  try {
+    return JSON.parse(fs.readFileSync(filePath, 'utf-8'));
+  } catch {
+    return {};
+  }
+}
+
+function getRssConfig() {
+  const site = readJson(path.resolve(__dirname, 'src', 'data', 'site.json'));
+  const seo = readJson(path.resolve(__dirname, 'src', 'data', 'seo.json'));
+  return {
+    siteUrl: seo.siteUrl || `https://${site.siteUrl || 'sma.zone'}`,
+    title: seo.rssTitle || site.title || 'Sma.Zone',
+    description: seo.rssDescription || site.description || '',
+    language: seo.language || site.language || 'zh-cn',
+  };
+}
+
+function getSite(): Record<string, any> {
+  return readJson(path.resolve(__dirname, 'src', 'data', 'site.json'));
+}
+
 const POSTS_DIR = path.resolve(__dirname, 'src', 'posts');
 
 function escapeXml(str: string): string {
@@ -64,6 +84,7 @@ function getPosts(): RssPost[] {
 }
 
 function generateRssXml(): string {
+  const cfg = getRssConfig();
   const posts = getPosts();
   if (posts.length === 0) return '';
   const lastBuildDate = toRfc822(posts[0].date);
@@ -71,16 +92,16 @@ function generateRssXml(): string {
   let xml = `<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 <channel>
-<title>${escapeXml(SITE_TITLE)}</title>
-<link>${escapeXml(SITE_URL)}</link>
-<description>${escapeXml(SITE_DESCRIPTION)}</description>
-<language>zh-cn</language>
+<title>${escapeXml(cfg.title)}</title>
+<link>${escapeXml(cfg.siteUrl)}</link>
+<description>${escapeXml(cfg.description)}</description>
+<language>${escapeXml(cfg.language)}</language>
 <lastBuildDate>${lastBuildDate}</lastBuildDate>
-<atom:link href="${escapeXml(SITE_URL)}/rss.xml" rel="self" type="application/rss+xml"/>
+<atom:link href="${escapeXml(cfg.siteUrl)}/rss.xml" rel="self" type="application/rss+xml"/>
 `;
 
   for (const post of posts) {
-    const link = `${SITE_URL}/blog/${post.id}`;
+    const link = `${cfg.siteUrl}/blog/${post.id}`;
     const pubDate = toRfc822(post.date);
     xml += `
 <item>

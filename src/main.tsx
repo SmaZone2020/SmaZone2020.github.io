@@ -8,6 +8,7 @@ import { ImagePreviewProvider } from './components/ImagePreview'
 import App from './App.tsx'
 import './styles/globals.css'
 import { navItems } from './config/site.ts'
+import { appearance } from './lib/data'
 
 window.rootList = navItems.filter(item => item.label && item.label !== null).map(item => item.url);
 
@@ -18,7 +19,18 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
                 <BrowserRouter>
                     <ImagePreviewProvider>
                         <div className="relative h-full">
-                            <div className="fixed inset-0 bg-[url('/light-bg.png')] dark:bg-[url('/dark-bg.png')] bg-cover bg-center -z-10" />
+                            <div
+                                className="fixed inset-0 bg-cover bg-center -z-10"
+                                style={{
+                                    backgroundImage: `url('${appearance.background.light}')`,
+                                }}
+                            />
+                            <div
+                                className="fixed inset-0 bg-cover bg-center -z-10 opacity-0 dark:opacity-100 transition-opacity"
+                                style={{
+                                    backgroundImage: `url('${appearance.background.dark}')`,
+                                }}
+                            />
                             <App />
                         </div>
                     </ImagePreviewProvider>

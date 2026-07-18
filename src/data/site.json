@@ -1,13 +1,15 @@
 {
   "name": "Sma.Zone",
   "title": "Sma.Zone",
+  "description": "Maxwell Ma's Blog",
   "author": "Maxwell Ma",
   "email": "smazone@yuxiit.cn",
   "siteUrl": "sma.zone",
+  "language": "zh-cn",
   "handle": "@Maxwell·Ma",
   "avatar": "/avatar.jpg",
   "heroImage": "/bg1.jpg",
-  "tags": [".NET", "TypeScript", "PM", "摄影", "骑行", "音乐", "旅游"],
+  "tags": [".NET", "TypeScript", "ProductManager", "摄影", "骑行", "音乐", "旅游"],
   "social": {
     "github": "https://github.com/SmaZone2020",
     "bili": "https://space.bilibili.com/523293679",

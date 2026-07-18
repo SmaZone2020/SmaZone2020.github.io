@@ -67,6 +67,14 @@ export default {
         subtitle: 'Blogroll',
         description: 'Interesting souls and great creators',
         visit: 'Visit',
+        comingSoon: 'Coming soon...',
+    },
+    github: {
+        contributions: '{total} contributions in the last 3m',
+        less: 'Less',
+        more: 'More',
+        unableToLoad: 'Unable to load contribution data',
+        title: 'GitHub Contributions',
     },
     debug: {
         addPost: 'Add Post',

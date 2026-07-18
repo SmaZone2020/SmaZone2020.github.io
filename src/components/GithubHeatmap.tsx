@@ -3,6 +3,7 @@ import { Card, CardHeader } from '@heroui/react';
 import { LogoGithub } from '@gravity-ui/icons';
 import { siteData } from '../lib/data';
 import { useTheme } from '../theme';
+import { useI18n } from '../i18n';
 
 interface ContributionDay {
     date: string;
@@ -40,6 +41,7 @@ const CELL_STYLES_DARK: Record<number, { bg: string; border: string }> = {
 function GithubHeatmap() {
     const username = siteData.social?.github?.split('/').pop() || 'SmaZone2020';
     const { theme } = useTheme();
+    const { t } = useI18n();
     const colors = theme === 'dark' ? CELL_STYLES_DARK : CELL_STYLES;
     const [days, setDays] = useState<ContributionDay[]>([]);
     const [total, setTotal] = useState(0);
@@ -126,7 +128,7 @@ function GithubHeatmap() {
                 <CardHeader>
                     <div className="flex items-center gap-2">
                         <LogoGithub className="w-5 h-5" />
-                        <span>GitHub Contributions</span>
+                        <span>{t('github.title')}</span>
                     </div>
                 </CardHeader>
                 <Card.Content className="pb-4">
@@ -154,11 +156,11 @@ function GithubHeatmap() {
                 <CardHeader>
                     <div className="flex items-center gap-2">
                         <LogoGithub className="w-5 h-5" />
-                        <span>GitHub Contributions</span>
+                        <span>{t('github.title')}</span>
                     </div>
                 </CardHeader>
                 <Card.Content className="pb-4">
-                    <p className="text-sm text-gray-500">Unable to load contribution data</p>
+                    <p className="text-sm text-gray-500">{t('github.unableToLoad')}</p>
                 </Card.Content>
             </Card>
         );
@@ -171,7 +173,7 @@ function GithubHeatmap() {
                     <div className="flex items-center gap-2">
                         <LogoGithub className="w-5 h-5" />
                         <span className="text-sm font-medium">
-                            {total} contributions in the last 3m
+                            {t('github.contributions').replace('{total}', String(total))}
                         </span>
                     </div>
                 </div>
@@ -206,7 +208,7 @@ function GithubHeatmap() {
                     ))}
                 </div>
                 <div className="flex items-center gap-1 mt-2 justify-end text-[10px] text-gray-400 dark:text-gray-500">
-                    Less
+                    {t('github.less')}
                     {[0, 1, 2, 3, 4].map(level => {
                         const style = colors[level];
                         return (
@@ -222,7 +224,7 @@ function GithubHeatmap() {
                             />
                         );
                     })}
-                    More
+                    {t('github.more')}
                 </div>
             </Card.Content>
         </Card>

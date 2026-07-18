@@ -99,7 +99,7 @@ function FriendsPage() {
         {friends.length === 0 && (
           <div className="text-center py-16 text-muted-foreground">
             <p className="text-lg">{t('friends.subtitle')}</p>
-            <p className="text-sm mt-2">Coming soon...</p>
+            <p className="text-sm mt-2">{t('friends.comingSoon')}</p>
           </div>
         )}
 

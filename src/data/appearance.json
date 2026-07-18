@@ -1,0 +1,13 @@
+{
+  "background": {
+    "light": "/light-bg.png",
+    "dark": "/dark-bg.png"
+  },
+  "fonts": {
+    "body": "vivo Sans",
+    "heading": "Libre Bodoni",
+    "code": "Cascadia Mono, Monaco, Consolas, monospace"
+  },
+  "defaultTheme": "auto",
+  "defaultLocale": "auto"
+}

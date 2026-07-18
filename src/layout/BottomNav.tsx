@@ -30,7 +30,7 @@ export function BottomNav({ defaultActive, onItemClick }: BottomNavProps) {
 
   useEffect(() => {
     const item = items.find(i => i.url === location.pathname);
-    if (item && item.showBottomNav !== false) {
+    if (item && item.showInBottomNav !== false) {
       setActiveId(location.pathname);
     }
   }, [location.pathname]);
@@ -73,7 +73,7 @@ export function BottomNav({ defaultActive, onItemClick }: BottomNavProps) {
   };
 
   const currentItem = items.find(item => item.url === location.pathname);
-  const shouldHide = currentItem?.label == null || currentItem?.showBottomNav === false;
+  const shouldHide = currentItem?.label == null || currentItem?.showInBottomNav === false;
 
   return (
     <div className={`fixed bottom-[35px] left-[20px] right-[20px] scale-105 z-50 sm:hidden ${shouldHide ? 'hidden' : ''}`}>

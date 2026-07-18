@@ -1,5 +1,6 @@
 import { House, TextAlignLeft, Archive, CircleInfo, Briefcase, Link } from "@gravity-ui/icons";
 import { ComponentType, SVGProps } from "react";
+import navJson from '../data/navigation.json';
 
 export interface ProjectConfig {
     title: string;
@@ -16,17 +17,16 @@ export interface FriendLink {
     description?: string;
 }
 
-export const navItems: {
+const iconMap: Record<string, ComponentType<SVGProps<SVGSVGElement>>> = {
+    House, TextAlignLeft, Archive, CircleInfo, Briefcase, Link,
+};
+
+export const navItems = navJson.map(item => ({
+    ...item,
+    icon: iconMap[item.icon] || CircleInfo,
+})) as {
     icon: ComponentType<SVGProps<SVGSVGElement>>;
     label?: string;
     url: string;
-    showBottomNav?: boolean;
     showInBottomNav?: boolean;
-}[] = [
-    { icon: House, label: "Home", url: "/" },
-    { icon: TextAlignLeft, label: "Blog", url: "/blog" },
-    { icon: Briefcase, label: "Portfolio", url: "/portfolio" },
-    { icon: Archive, label: "Archive", url: "/archive" },
-    { icon: CircleInfo, label: "About", url: "/about", showInBottomNav: false },
-    { icon: Link, label: "Friends", url: "/friends" },
-];
+}[];

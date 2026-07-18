@@ -67,6 +67,14 @@ export default {
         subtitle: '友情链接',
         description: '一些有趣的灵魂与优秀的创作者',
         visit: '访问',
+        comingSoon: '敬请期待...',
+    },
+    github: {
+        contributions: '过去3个月共 {total} 次贡献',
+        less: '少',
+        more: '多',
+        unableToLoad: '无法加载贡献数据',
+        title: 'GitHub 贡献',
     },
     debug: {
         addPost: '新增文章',
