@@ -3,7 +3,7 @@ export default {
         home: '首页',
         blog: '博客',
         archive: '归档',
-        portfolio: '作品集',
+        portfolio: '作品',
         about: '关于',
         friends: '友链',
         notFound: '404'
@@ -53,7 +53,7 @@ export default {
         month: '月',
     },
     portfolio: {
-        title: '作品集',
+        title: '作品',
         subtitle: '我参与构建或贡献的项目与作品',
         empty: '暂无作品',
     },
