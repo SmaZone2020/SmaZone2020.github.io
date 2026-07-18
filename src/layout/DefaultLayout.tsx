@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { siteData } from "../lib/data";
 import { useI18n } from "../i18n";
 import { useEffect, useState } from "react";
+import BackToTop from "../components/BackToTop";
 
 function DefaultLayout({ children, className }: { children: React.ReactNode; className?: string }) {
     const { t } = useI18n();
@@ -28,6 +29,7 @@ function DefaultLayout({ children, className }: { children: React.ReactNode; cla
                     </Link>
                 </div>
             </div>
+            <BackToTop />
             <div className="sm:pb-0 sm:mt-0 mt-[58px] pb-[78px]">
                 {children}
 
