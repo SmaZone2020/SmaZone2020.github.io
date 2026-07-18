@@ -1,6 +1,7 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import { rssPlugin } from './rss-plugin'
+import { sitemapPlugin } from './sitemap-plugin'
 import { dataApiPlugin } from './data-api-plugin'
 import fs from 'fs'
 import path from 'path'
@@ -17,6 +18,7 @@ export default defineConfig({
   plugins: [
     react(),
     rssPlugin(),
+    sitemapPlugin(),
     dataApiPlugin(),
     {
       name: 'html-inject',
