@@ -70,9 +70,9 @@ export default {
         comingSoon: '敬请期待...',
     },
     github: {
-        contributions: '过去3个月共 {total} 次贡献',
-        less: '少',
-        more: '多',
+        contributions: '过去一年共 {total} 次贡献',
+        less: 'Less',
+        more: 'More',
         unableToLoad: '无法加载贡献数据',
         title: 'GitHub 贡献',
     },

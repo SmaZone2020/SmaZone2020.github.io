@@ -45,7 +45,7 @@ function Archive() {
             <div className="container mx-auto px-4 py-6 max-w-4xl">
                 <div className="mb-6">
                     <h1 className="text-3xl font-bold libre mb-2">{t('archive.title')}</h1>
-                    <p className="text-gray-500 dark:text-gray-400">
+                    <p className="text-gray-500 dark:text-gray-400 libre">
                         {t('archive.subtitle').replace('{count}', String(posts.length))}
                     </p>
                 </div>

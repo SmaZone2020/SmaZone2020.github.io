@@ -27,7 +27,7 @@ function ArchiveTimeline({ groups, emptyMessage }: ArchiveTimelineProps) {
                 <div key={groupIdx} className="mb-8">
                     <div className="flex items-center gap-3 mb-4 sm:pl-10 relative">
                         <div className="absolute left-2.5 w-3 h-3 rounded-full bg-black dark:bg-white hidden sm:block" />
-                        <h2 className="text-lg font-bold">{group.label}</h2>
+                        <h2 className="text-lg font-bold libre">{group.label}</h2>
                         <span className="text-sm text-gray-400 dark:text-gray-500">
                             ({group.posts.length})
                         </span>
@@ -43,7 +43,7 @@ function ArchiveTimeline({ groups, emptyMessage }: ArchiveTimelineProps) {
                                                 {post.date.slice(5)}
                                             </span>
                                             <div className="flex-1 min-w-0">
-                                                <p className="font-medium line-clamp-1">{post.title}</p>
+                                                <p className="font-medium line-clamp-1  libre">{post.title}</p>
                                                 <p className="text-sm text-gray-500 dark:text-gray-400 line-clamp-1 mt-1">
                                                     {post.description}
                                                 </p>

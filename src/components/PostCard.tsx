@@ -30,7 +30,7 @@ function PostCard({ post, variant = 'default' }: PostCardProps) {
                     )}
                     <div className={`flex-1 ${padding}`}>
                         <Card.Header className="p-0 mb-2">
-                            <Card.Title className="text-lg font-semibold line-clamp-1">
+                            <Card.Title className="text-lg font-semibold line-clamp-1 libre">
                                 {post.title}
                             </Card.Title>
                             <Card.Description className={`text-xs text-gray-500 dark:text-gray-400${isCompact ? '' : ' mt-1'}`}>

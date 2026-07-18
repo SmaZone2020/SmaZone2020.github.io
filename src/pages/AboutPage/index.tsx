@@ -32,7 +32,7 @@ function About() {
 
     return (
         <DefaultLayout>
-            <div className="container mx-auto px-4 py-6 max-w-3xl">
+            <div className="container mx-auto px-4 py-6 max-w-4xl">
                 {IS_DEV && (
                     <div className="flex justify-end mb-2">
                         <Button

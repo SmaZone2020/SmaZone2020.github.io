@@ -41,7 +41,7 @@ function FriendsPage() {
             </div>
             <div className="flex-1 min-w-0">
               <div className="flex items-center gap-1">
-                <h3 className="font-semibold truncate">{friend.name}</h3>
+                <h3 className="font-semibold truncate libre">{friend.name}</h3>
                 <ArrowUpRightFromSquare className="w-3 h-3 shrink-0 text-muted-foreground" />
               </div>
               {friend.description && (
@@ -76,10 +76,12 @@ function FriendsPage() {
 
   return (
     <DefaultLayout>
-      <div className="container mx-auto px-4 py-6 max-w-3xl">
-        <div className="text-center mb-8">
-          <h1 className="text-3xl font-bold mb-2">{t('friends.title')}</h1>
-          <p className="text-muted-foreground">{t('friends.description')}</p>
+      <div className="container mx-auto px-4 py-6 max-w-4xl">
+        <div className="mb-6">
+          <h1 className="text-3xl font-bold libre mb-2">{t('friends.title')}</h1>
+          <p className="text-gray-500 dark:text-gray-400 libre">
+              {t('friends.description')}
+          </p>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
