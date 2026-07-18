@@ -3,6 +3,6 @@
   { "icon": "TextAlignLeft", "label": "Blog", "url": "/blog" },
   { "icon": "Briefcase", "label": "Portfolio", "url": "/portfolio" },
   { "icon": "Archive", "label": "Archive", "url": "/archive" },
-  { "icon": "CircleInfo", "label": "About", "url": "/about", "showInBottomNav": false },
-  { "icon": "Link", "label": "Friends", "url": "/friends" }
+  { "icon": "Link", "label": "Friends", "url": "/friends" },
+  { "icon": "CircleInfo", "label": "About", "url": "/about", "showInBottomNav": false }
 ]
