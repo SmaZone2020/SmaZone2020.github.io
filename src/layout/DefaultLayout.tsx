@@ -1,13 +1,24 @@
 import { Link } from "react-router-dom";
 import { siteData } from "../lib/data";
 import { useI18n } from "../i18n";
+import { useEffect, useState } from "react";
 
 function DefaultLayout({ children, className }: { children: React.ReactNode; className?: string }) {
     const { t } = useI18n();
-    
+    const [scrolled, setScrolled] = useState(false);
+
+    useEffect(() => {
+        const root = document.getElementById('root');
+        if (!root) return;
+        const onScroll = () => setScrolled(root.scrollTop > 10);
+        root.addEventListener('scroll', onScroll, { passive: true });
+        onScroll();
+        return () => root.removeEventListener('scroll', onScroll);
+    }, []);
+
     return(
         <div className={className}>
-            <div className={`px-4 py-2 sm:hidden fixed h-[54px] top-0 left-0 right-0 z-50 flex items-center justify-between gap-4 bg-white/40 dark:bg-surface/50 backdrop-blur-sm shadow-lg`}>
+            <div className={`px-4 py-2 sm:hidden fixed h-[54px] top-0 left-0 right-0 z-50 flex items-center justify-between gap-4 transition-all duration-300 ${scrolled ? 'bg-white/40 dark:bg-surface/50 backdrop-blur-sm shadow-lg' : 'bg-transparent'}`}>
                 <div className="flex items-center">
                     <Link className="libre text-xl font-bold flex items-center" to="/">{siteData.handle}</Link>
                 </div>

@@ -1,8 +1,8 @@
 [
   {
     "title": "知源拾光",
-    "platform": "博客",
-    "href": "/blog/2605301655",
+    "platform": "网页",
+    "href": "https://zhiyuan.yuxiit.cn",
     "image": "/images/zhiyuanshiguang.jpg",
     "description": "我想帮全国老师，偷出一些时间。"
   },
@@ -21,11 +21,11 @@
     "description": "基于.NET平台的iLinkBot SDK, 支持多平台接入和丰富的功能扩展"
   },
   {
-    "title": "Libra",
+    "title": "Libra-Nextgen",
     "platform": "github",
-    "href": "https://github.com/SmaZone2020/Libra",
+    "href": "https://github.com/SmaZone2020/Libra-Nextgen",
     "image": "/images/eff71c4a-1b55-4064-bc59-5fe8e9db0107.webp",
-    "description": ".NET + React 打造的轻量远程控制框架, 可通过Web端面板管理Windows设备"
+    "description": ".NET+React+Rust开发的面向企业级红蓝对抗的现代化C2框架"
   },
   {
     "title": "QwenApi",
