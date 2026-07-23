@@ -24,7 +24,7 @@ export default {
         button: '返回首页'
     },
     site: {
-        description: '你好, 我是Maxwell·Ma, 生于2006年, base西安。 Xi\'an Yuxi NetTech 的创始人, 软件工程师, 对拟人LLM、网络安全感兴趣',
+        description: `你好, 我是Maxwell·Ma, 生于2006年, base西安。\nXi\'an Yuxi Network Tech 的创始人, 全栈开发者, 正努力成为架构师。对 AI Agent架构、LLM拟人化以及网络安全有浓厚兴趣。`,
     },
     blog: {
         title: '博客',

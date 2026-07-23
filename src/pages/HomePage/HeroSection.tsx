@@ -2,6 +2,7 @@ import { siteData } from '../../lib/data';
 import { useI18n } from '../../i18n';
 import AdaptiveAvatar from '../../components/AdaptiveAvatar';
 import FadeImg from '../../components/FadeImg';
+import React from 'react';
 
 function HeroSection() {
     const { t } = useI18n();
@@ -31,8 +32,13 @@ function HeroSection() {
                         <p className="text-sm text-white/80">{siteData.handle}</p>
                     </div>
                 </div>
-                <p className="text-sm text-white/90 line-clamp-2">
-                    {t('site.description')}
+                <p className="text-sm text-white/90 line-clamp-3">
+                    {t('site.description').replace(/<br\/>/g, '\n').split('\n').map((line, index) => (
+                        <React.Fragment key={index}>
+                            {index > 0 && <br />}
+                            {line}
+                        </React.Fragment>
+                    ))}
                 </p>
             </div>
         </div>
