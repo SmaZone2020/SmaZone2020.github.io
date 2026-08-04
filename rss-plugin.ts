@@ -1,6 +1,7 @@
 import type { Plugin } from 'vite';
 import fs from 'fs';
 import path from 'path';
+import { marked } from 'marked';
 
 function readJson(filePath: string): Record<string, any> {
   try {
@@ -47,12 +48,13 @@ interface RssPost {
   title: string;
   date: string;
   description: string;
+  contentHtml: string;
 }
 
-function parseFrontMatter(raw: string): Record<string, any> {
+function parseFrontMatter(raw: string): { data: Record<string, any>; content: string } {
   const normalized = raw.replace(/\r\n/g, '\n');
-  const match = normalized.match(/^---\n([\s\S]*?)\n---/);
-  if (!match) return {};
+  const match = normalized.match(/^---\n([\s\S]*?)\n---\n?([\s\S]*)$/);
+  if (!match) return { data: {}, content: normalized };
   const data: Record<string, any> = {};
   for (const line of match[1].split('\n')) {
     const kv = line.match(/^(\w+):\s*(.*)$/);
@@ -62,7 +64,15 @@ function parseFrontMatter(raw: string): Record<string, any> {
     if (value.startsWith('"') && value.endsWith('"')) value = value.slice(1, -1);
     data[key] = value;
   }
-  return data;
+  return { data, content: match[2].trim() };
+}
+
+function markdownToHtml(markdown: string): string {
+  try {
+    return marked.parse(markdown, { gfm: true, async: false });
+  } catch {
+    return escapeXml(markdown);
+  }
 }
 
 function getPosts(): RssPost[] {
@@ -72,12 +82,13 @@ function getPosts(): RssPost[] {
     if (!entry.isFile() || !entry.name.endsWith('.md')) continue;
     const id = entry.name.replace(/\.md$/, '');
     const raw = fs.readFileSync(path.join(POSTS_DIR, entry.name), 'utf-8');
-    const data = parseFrontMatter(raw);
+    const { data, content } = parseFrontMatter(raw);
     posts.push({
       id,
       title: data.title || id,
       date: data.date || '',
       description: data.description || '',
+      contentHtml: content ? markdownToHtml(content) : '',
     });
   }
   return posts.sort((a, b) => b.date.localeCompare(a.date));
@@ -90,7 +101,7 @@ function generateRssXml(): string {
   const lastBuildDate = toRfc822(posts[0].date);
 
   let xml = `<?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
 <channel>
 <title>${escapeXml(cfg.title)}</title>
 <link>${escapeXml(cfg.siteUrl)}</link>
@@ -109,7 +120,10 @@ function generateRssXml(): string {
 <link>${escapeXml(link)}</link>
 <guid isPermaLink="true">${escapeXml(link)}</guid>
 <pubDate>${pubDate}</pubDate>
-<description>${escapeXml(post.description)}</description>
+<description>${escapeXml(post.description || post.contentHtml)}</description>
+<content:encoded><![CDATA[
+${post.contentHtml}
+]]></content:encoded>
 </item>`;
   }
 
