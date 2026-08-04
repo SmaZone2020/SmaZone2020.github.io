@@ -12,13 +12,25 @@ interface ContributionDay {
     level: number;
 }
 
-const LEVEL_MAP: Record<string, number> = {
-    NONE: 0,
-    FIRST_QUARTILE: 1,
-    SECOND_QUARTILE: 2,
-    THIRD_QUARTILE: 3,
-    FOURTH_QUARTILE: 4,
-};
+function toDateKey(d: Date): string {
+    return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+}
+
+/** 所在周的周一（周一为一周起点，与渲染补位一致） */
+function weekStartOf(dateKey: string): string {
+    const d = new Date(dateKey + 'T00:00:00');
+    const dow = d.getDay() === 0 ? 6 : d.getDay() - 1; // Mon=0..Sun=6
+    d.setDate(d.getDate() - dow);
+    return toDateKey(d);
+}
+
+/** 所在周的周日 */
+function weekEndOf(date: Date): string {
+    const d = new Date(date);
+    const dow = d.getDay() === 0 ? 6 : d.getDay() - 1;
+    d.setDate(d.getDate() + (6 - dow));
+    return toDateKey(d);
+}
 
 // GitHub's actual contribution colors with borders for visual clarity
 const CELL_STYLES: Record<number, { bg: string; border: string }> = {
@@ -72,27 +84,26 @@ function GithubHeatmap() {
     const dragState = useRef<{ startX: number; startTop: number } | null>(null);
 
     useEffect(() => {
-        fetch(`https://github-contributions-api.deno.dev/${username}.json`)
+        fetch(`https://github-contributions-api.jogruber.de/v4/${username}`)
             .then(res => {
                 if (!res.ok) throw new Error('Failed');
                 return res.json();
             })
             .then(data => {
                 const all: ContributionDay[] = [];
-                let sum = 0;
-                for (const week of data.contributions || []) {
-                    for (const entry of week) {
-                        const count = entry.contributionCount || 0;
-                        all.push({
-                            date: entry.date,
-                            count,
-                            level: LEVEL_MAP[entry.contributionLevel] ?? 0,
-                        });
-                        sum += count;
-                    }
+                const list: { date?: string; count?: number; level?: number }[] = data.contributions || [];
+                // v4 返回扁平数组，按日期升序保证从最早的一天开始渲染
+                const sorted = [...list].sort((a, b) => (a.date ?? '') < (b.date ?? '') ? -1 : 1);
+                for (const entry of sorted) {
+                    all.push({ date: entry.date ?? '', count: entry.count || 0, level: entry.level ?? 0 });
                 }
-                setDays(all);
-                setTotal(sum);
+                // 最早只显示到第一次提交的那周，最晚只显示到本周（去掉未来的空周）
+                const firstCommit = all.find(d => d.count > 0);
+                const firstWeekStart = firstCommit ? weekStartOf(firstCommit.date) : weekStartOf(toDateKey(new Date()));
+                const thisWeekEnd = weekEndOf(new Date());
+                const filtered = all.filter(d => d.date >= firstWeekStart && d.date <= thisWeekEnd);
+                setDays(filtered);
+                setTotal(filtered.reduce((s, d) => s + d.count, 0));
                 setLoading(false);
             })
             .catch(() => {

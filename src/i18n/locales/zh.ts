@@ -73,7 +73,7 @@ export default {
         comingSoon: '敬请期待...',
     },
     github: {
-        contributions: '过去一年共 {total} 次贡献',
+        contributions: '共 {total} 次贡献',
         less: 'Less',
         more: 'More',
         unableToLoad: '无法加载贡献数据',

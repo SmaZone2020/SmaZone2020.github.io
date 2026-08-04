@@ -73,7 +73,7 @@ export default {
         comingSoon: 'Coming soon...',
     },
     github: {
-        contributions: '{total} contributions in the last year',
+        contributions: '{total} contributions',
         less: 'Less',
         more: 'More',
         unableToLoad: 'Unable to load contribution data',
