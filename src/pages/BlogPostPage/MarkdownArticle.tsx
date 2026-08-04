@@ -2,10 +2,11 @@ import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import rehypeRaw from 'rehype-raw';
 import rehypeHighlight from 'rehype-highlight';
-import type { ReactNode } from 'react';
+import type { ReactNode, ReactElement } from 'react';
 import { useState, useRef, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import FadeImg from '../../components/FadeImg';
+import MermaidBlock from './MermaidBlock';
 import { computeHeadings } from '../../lib/headingUtils';
 
 interface MarkdownArticleProps {
@@ -36,6 +37,16 @@ function CopyCodeBlock({ children, ...props }: React.HTMLAttributes<HTMLPreEleme
             </button>
         </div>
     );
+}
+
+function nodeToText(node: ReactNode): string {
+    if (node == null || typeof node === 'boolean') return '';
+    if (typeof node === 'string' || typeof node === 'number') return String(node);
+    if (Array.isArray(node)) return node.map(nodeToText).join('');
+    if (typeof node === 'object' && 'props' in node) {
+        return nodeToText((node as ReactElement).props.children);
+    }
+    return '';
 }
 
 function HeadingWithId({ level, id, children }: { level: 1|2|3|4|5|6; id: string; children?: ReactNode }) {
@@ -89,7 +100,21 @@ function MarkdownArticle({ content }: MarkdownArticleProps) {
                     h4: makeHeading(4),
                     h5: makeHeading(5),
                     h6: makeHeading(6),
-                    pre: ({ children, ...props }) => <CopyCodeBlock {...props}>{children}</CopyCodeBlock>,
+                    pre: ({ node, children, ...props }) => {
+                        const codeNode = node?.children?.[0] as { properties?: { className?: unknown } } | undefined;
+                        const classes = Array.isArray(codeNode?.properties?.className) ? codeNode.properties.className : [];
+                        if (classes.includes('language-mermaid')) {
+                            return <>{children}</>;
+                        }
+                        return <CopyCodeBlock {...props}>{children}</CopyCodeBlock>;
+                    },
+                    code: ({ className, children, ...props }) => {
+                        const lang = /language-(\w+)/.exec(className || '')?.[1];
+                        if (lang === 'mermaid') {
+                            return <MermaidBlock code={nodeToText(children).trim()} />;
+                        }
+                        return <code className={className} {...props}>{children}</code>;
+                    },
                     img: ({ node: _node, src, alt, ...props }) => (
                         <FadeImg
                             src={src}

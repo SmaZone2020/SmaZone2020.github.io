@@ -5,6 +5,7 @@ export interface PostData {
     tags: string[];
     description: string;
     image?: string;
+    author?: string[];
     content: string;
 }
 
@@ -21,10 +22,14 @@ function parseFrontMatter(raw: string): { data: Record<string, any>; content: st
         const key = kv[1];
         let value: any = kv[2].trim();
         if (value.startsWith('"') && value.endsWith('"')) value = value.slice(1, -1);
-        if (key === 'tags') {
-            const arrMatch = line.match(/^tags:\s*\[(.*)\]$/);
+        if (key === 'tags' || key === 'author') {
+            const arrMatch = line.match(/^(?:tags|author):\s*\[(.*)\]$/);
             if (arrMatch) {
-                value = arrMatch[1].split(',').map((s: string) => s.trim().replace(/"/g, ''));
+                value = arrMatch[1].split(',').map((s: string) => s.trim().replace(/^"|"$/g, '')).filter((s: string) => s.length > 0);
+            } else if (key === 'author' && value) {
+                value = [value];
+            } else {
+                value = [];
             }
         }
         data[key] = value;
@@ -44,6 +49,7 @@ export function getSortedPostsData(): PostData[] {
             tags: Array.isArray(data.tags) ? data.tags : [],
             description: data.description || '',
             image: data.image,
+            author: Array.isArray(data.author) && data.author.length > 0 ? data.author : undefined,
             content,
         });
     }

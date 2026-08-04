@@ -44,6 +44,11 @@ function PostHeader({ post, viewCount }: PostHeaderProps) {
                     <p className="text-gray-500 dark:text-gray-400">
                         {t('blog.publishedOn')} {post.date}
                     </p>
+                    {post.author && post.author.length > 0 && (
+                        <span className="text-gray-500 dark:text-gray-400">
+                            {t('blog.by')} {post.author.join(', ')}
+                        </span>
+                    )}
                     <span className="text-gray-400 dark:text-gray-500 flex items-center gap-1">
                         <Eye className="w-4 h-4" />
                         {viewCount === null ? '...' : viewCount}

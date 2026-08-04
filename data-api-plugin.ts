@@ -36,6 +36,10 @@ function postToMarkdown(post: Record<string, any>): string {
   if (post.image) {
     frontmatter.push(`image: "${post.image}"`);
   }
+  if (Array.isArray(post.author) && post.author.length > 0) {
+    const authors = post.author.map((a: string) => `"${a}"`).join(', ');
+    frontmatter.push(`author: [${authors}]`);
+  }
   return `---\n${frontmatter.join('\n')}\n---\n\n${post.content || ''}`;
 }
 
