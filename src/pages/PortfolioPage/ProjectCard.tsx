@@ -60,7 +60,6 @@ function ProjectCard({ project }: ProjectCardProps) {
                         {(project.platform === 'github') && (
                             <span className="flex items-center text-sm text-gray-500 dark:text-gray-400 gap-0.5">
                                 <CircleTree className="w-4 h-4" />
-                                {project.href?.split('/')[3]}/
                                 {project.href?.split('/')[4]}
                             </span>
                         )}

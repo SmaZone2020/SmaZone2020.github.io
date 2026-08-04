@@ -1,5 +1,12 @@
 [
   {
+    "title": "IWantKnowSth：自托管个人信息终端",
+    "href": "https://github.com/SmaZone2020/IWantKnowSth",
+    "image": "/images/10891e87-7a9a-4e3a-8929-be24f64b6438.png",
+    "description": "把散落各处的信息源——RSS 订阅、新闻接口、四家学术论文库——聚合到一个地方",
+    "platform": "github"
+  },
+  {
     "title": "抖音Web消息自动化 SDK",
     "href": "https://github.com/SmaZone2020/douyin-web-chat",
     "image": "/images/cfd3ffc1-8e3d-43cd-b867-f25239cb7b82.png",
