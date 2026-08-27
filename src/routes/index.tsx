@@ -11,6 +11,7 @@ import About from '../pages/AboutPage';
 import Friends from '../pages/FriendsPage';
 import NotFound from '../pages/NotFoundPage';
 import { Card } from '@heroui/react';
+import Pay from '../pages/PayPage';
 
 function AppRoutes() {
     const location = useLocation();
@@ -27,6 +28,9 @@ function AppRoutes() {
                 <Route path="/archive" element={<PageTransition><Archive /></PageTransition>} />
                 <Route path="/about" element={<PageTransition><About /></PageTransition>} />
                 <Route path="/friends" element={<PageTransition><Friends /></PageTransition>} />
+
+                <Route path="/pay" element={<PageTransition><Pay /></PageTransition>} />
+                
                 <Route path="*" element={<NotFound />} />
             </Routes>
         </AnimatePresence>
