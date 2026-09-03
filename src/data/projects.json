@@ -1,5 +1,12 @@
 [
   {
+    "title": "Libra-Nextgen",
+    "platform": "github",
+    "href": "https://github.com/SmaZone2020/Libra-Nextgen",
+    "image": "/images/eff71c4a-1b55-4064-bc59-5fe8e9db0107.webp",
+    "description": ".NET+React+Rust开发的面向企业级红蓝对抗的现代化C2框架"
+  },
+  {
     "title": "星溯 StarTrace",
     "href": "https://startrace.space",
     "image": "/images/startrace.jpg",
@@ -54,13 +61,6 @@
     "href": "https://github.com/Yuxi-IT/iLink4NET",
     "image": "/images/951d3885-6690-438d-bf52-ad8728f301e3.webp",
     "description": "基于.NET平台的iLinkBot SDK, 支持多平台接入和丰富的功能扩展"
-  },
-  {
-    "title": "Libra-Nextgen",
-    "platform": "github",
-    "href": "https://github.com/SmaZone2020/Libra-Nextgen",
-    "image": "/images/eff71c4a-1b55-4064-bc59-5fe8e9db0107.webp",
-    "description": ".NET+React+Rust开发的面向企业级红蓝对抗的现代化C2框架"
   },
   {
     "title": "QwenApi",
